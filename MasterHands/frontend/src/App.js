@@ -2,7 +2,7 @@ import  React, { Component } from  'react';
 import { BrowserRouter } from  'react-router-dom'
 import { Route, Link } from  'react-router-dom'
 import  CategoriesList  from  './CategoriesList'
-import  './App.css';
+import  './App.scss';
 
 
 const  BaseLayout  = () => (
