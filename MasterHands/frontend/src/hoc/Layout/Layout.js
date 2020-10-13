@@ -1,19 +1,20 @@
-import Layout from './hoc/Layout/Layout'
-import { Route, Switch } from 'react-router-dom'
-import Quiz from './containers/Quiz/Quiz'
-import QuizList from './containers/QuizList/QuizList'
-import Auth from './containers/Auth/Auth'
-import QuizCreator from './containers/QuizCreator/QuizCreator'
+import React from 'react'
+import { Footer } from '../../components/footer/Footer'
+import { Header } from '../../components/header/Header'
+import Services from '../../containers/services/Services'
 
-export const App = () => {
-    return (
-      <Layout>
-        <Switch>
-          <Route path="/auth" component={Auth} />
-          <Route path="/quiz-creator" component={QuizCreator} />
-          <Route path="/quiz/:id" component={Quiz} />
-          <Route path="/" component={QuizList} />
-        </Switch>
-      </Layout>
-    )
+
+const Layout = props => {
+  return (
+    <div className="container">
+     <Header />
+      <main>
+        <Services />
+       { props.children }
+     </main>
+     <Footer />
+   </div>
+ )
 }
+
+export default Layout
