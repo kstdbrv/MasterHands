@@ -1,0 +1,77 @@
+@import "~normalize.css";
+
+
+// VARS
+$mainFontColor           : #000000;
+$mainColor               : #0052B0;
+$mainFontSize            : 20px;
+
+//FONTS
+%Rubik-Medium { //mainFont
+  font-family: 'Rubik-Medium', sans-serif;
+  font-weight: 500;
+}
+
+%Rubik-Regular {
+  font-family: 'Rubik-Regular', sans-serif;
+  font-weight: 400;
+}
+
+
+body {
+  @extend %Rubik-Regular;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
+  width: 100%;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1460px; // задается всему макету
+  padding: 0 10px;  // для отступов, чтобы не прилипал контент
+  margin: 0 auto;   // центрирование 
+}
+
+
+@font-face {
+  font-family: 'Rubik-Medium';
+  src: url("./assets/fonts/Rubik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik-Regular';
+  src: url("./assets/fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+

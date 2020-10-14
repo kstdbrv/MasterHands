@@ -1,11 +1,29 @@
-import  React, { Component } from  'react';
-import { BrowserRouter } from  'react-router-dom'
-import { Route, Link } from  'react-router-dom'
-import  CategoriesList  from  './CategoriesList'
-import  './App.css';
+import React from 'react'
+import Layout from './hoc/Layout/Layout'
+import { Route, Switch } from 'react-router-dom'
+
+const App = () => {
+    return (
+      <Layout>
+{/*             <Switch>
+                <h1>main</h1>
+          <Route path="/auth" component={Auth} />
+          <Route path="/quiz-creator" component={QuizCreator} />
+          <Route path="/quiz/:id" component={Quiz} />
+          <Route path="/" component={QuizList} />
+        </Switch> */}
+      </Layout>
+    )
+}
+
+export default App
 
 
-const  BaseLayout  = () => (
+
+
+
+
+/* const  BaseLayout  = () => (
   <div  className="container-fluid">
       <nav  className="navbar navbar-expand-lg navbar-light bg-light">
           <a  className="navbar-brand"  href="#">Django React Demo</a>
@@ -35,4 +53,4 @@ const  BaseLayout  = () => (
         );
     }
     }
-    export  default  App;
+    export  default  App; */
