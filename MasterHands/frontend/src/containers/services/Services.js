@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
 import CategoriesService from '../../ApiService'
+import { Search } from '../../components/search/Search'
 import './Services.scss'
 
 
@@ -15,6 +15,8 @@ const Services = () => {
   categoryService.getSuperCategories().then(function (result) {setState({ supercategories: result })})
 
   return (
+  <>
+   <Search />
    <div className="service">
     <div className="service__inner">
       <div className="service__list list-service">
@@ -53,6 +55,7 @@ const Services = () => {
       </div>
     </div>
   </div>
+  </>    
   )
 }
 
