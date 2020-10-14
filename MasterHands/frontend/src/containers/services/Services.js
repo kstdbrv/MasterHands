@@ -27,7 +27,9 @@ const Services = () => {
           state.categories.map(s => 
             <li className="list-service__item">
               <p>{s.category_name}</p>
+
               <p>{s.subcategory.lenght}</p>
+
             </li>  
           )    
         }
