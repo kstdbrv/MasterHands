@@ -11,6 +11,11 @@ export default class CategoriesService{
         return axios.get(url).then(response => response.data);
     }
 
+    getSuperCategories() {
+        const url = `${API_URL}/api/supercategories/`;
+        return axios.get(url).then(response => response.data);
+    }
+
     getCategoriesByURL(link){
         const url = `${API_URL}${link}`;
         return axios.get(url).then(response => response.data);
