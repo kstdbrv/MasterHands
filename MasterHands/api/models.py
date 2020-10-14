@@ -4,7 +4,15 @@ from smart_selects.db_fields import ChainedForeignKey
 # Create your models here.
 
 
+class Supercategory(models.Model):
+    supercategory_name = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.supercategory_name
+
+
 class Category(models.Model):
+    supercategory_name = models.ForeignKey(Supercategory, related_name='category', null=True, on_delete=models.CASCADE)
     category_name = models.CharField(max_length=255, null=True)
 
     def __str__(self):

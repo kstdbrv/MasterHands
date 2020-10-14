@@ -26,6 +26,14 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('id', 'category_name', 'subcategory')
 
 
+class SuperategorySerializer(serializers.ModelSerializer):
+    category = CategorySerializer(many=True)
+
+    class Meta:
+        model = Supercategory
+        fields = ('id', 'supercategory_name', 'category')
+
+
 
 
 

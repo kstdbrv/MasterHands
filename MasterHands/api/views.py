@@ -7,6 +7,16 @@ from .serializers import *
 from .models import *
 
 
+class SupercategoryListCreate(generics.ListCreateAPIView):
+    queryset = Supercategory.objects.all()
+    serializer_class = SuperategorySerializer
+
+
+class SupercategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Supercategory.objects.all()
+    serializer_class = SuperategorySerializer
+
+
 class CategoryListCreate(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer

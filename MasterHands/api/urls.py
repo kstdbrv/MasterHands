@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path('api/supercategories/', views.SupercategoryListCreate.as_view()),
+    path('api/supercategories/<int:pk>', views.SupercategoryRetrieveUpdateDestroy.as_view()),
     path('api/categories/', views.CategoryListCreate.as_view()),
     path('api/categories/<int:pk>', views.CategoryRetrieveUpdateDestroy.as_view()),
     path('api/services/', views.ServiceListCreate.as_view()),
