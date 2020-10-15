@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import CategoriesService from '../../ApiService'
 import { Search } from '../../components/search/Search'
+import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './Services.scss'
 
 
@@ -40,10 +42,10 @@ const Services = () => {
                   return (
                   <li key={c.id} className="list-service__item">
                   <p>{c.category_name}</p>
-                  <p>
+                  <NavLink to="/categories/{c.id}">
                     <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>
                     <span> услуг{/* { if((q%2=0)){} } */}</span>
-                  </p>
+                  </NavLink>
                 </li>
                   )
                 } 
@@ -57,9 +59,7 @@ const Services = () => {
        </ul>
       </div>
         
-      <div className="service__form form-service">
-
-      </div>
+      <ServicesRight />
     </div>
   </div>
   </>    

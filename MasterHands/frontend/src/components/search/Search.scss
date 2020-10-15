@@ -5,9 +5,9 @@
 }
   &__form {
     display: flex;
-    margin-top: 160px;
+    margin-top: 210px;
     position: relative;
-    max-width: 671px;
+    max-width: 823px;
     height: 40px;
     border-radius: 10px 10px;
     border:10px solid #0052B0;
@@ -17,8 +17,8 @@
      position: absolute;
      content: url('../../assets/images/master_hand.svg');
      top: -38px;
-     left: -20px;
-     z-index: 5;
+     left: -22px;
+     z-index: 8;
     }
     &::after {
       position: absolute;
@@ -31,11 +31,11 @@
 
   &__input {
     position: relative;
-    z-index: 3;
+    z-index: 7;
     padding-left: 45px;
     outline: none;
     border: none;
-    width: 630px;
+    width: 735px;
     &::placeholder{
      font-size: 20px;
      color: #6A6A6A;
@@ -46,7 +46,7 @@
   &__btn {
     font-size: 0;
     position: relative;
-    z-index: 2;
+    z-index: 7;
     padding: 20px;
     background: url('../../assets/images/search.svg') no-repeat 50% 50%;
     cursor: pointer;
@@ -55,19 +55,20 @@
   }
   
   &__bg {
-    position: relative; 
+    position: relative;
     background: #fff;
     border-radius: 10px;
-    max-width: 687px;
-    height: 41px;
+    max-width: 840px;
+    height: 43px;
     top: -51px;
     left: 7px;
     margin-right: 18px;
+    z-index: 5;
   }
 
   &__text {
     position: relative;
-    top: -35px;
+    top: -15px;
     max-width: 660px;
     margin-left: 200px;
     margin-bottom: 50px;

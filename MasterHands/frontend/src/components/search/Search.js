@@ -14,7 +14,7 @@ export const Search = () => {
       Например, &nbsp;
       <NavLink to="/"> починить окно, </NavLink>&nbsp;
       <NavLink to="/">ремонт стиральной машины </NavLink>&nbsp;
-      и еще<br/>
+      и еще
       <NavLink to="/"> 604 услуги</NavLink>
     </p>
    </section>
