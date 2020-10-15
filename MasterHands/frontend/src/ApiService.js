@@ -3,9 +3,6 @@ const API_URL = 'http://localhost:8000';
 
 export default class CategoriesService{
 
-    constructor(){}
-
-
     getCategories() {
         const url = `${API_URL}/api/categories/`;
         return axios.get(url).then(response => response.data);

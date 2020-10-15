@@ -2,7 +2,8 @@
 /* header */
 footer{
   background: #0052B0;
-  height: 498px;   
+  height: 498px;
+  margin-top: 120px; 
 }
 
 
@@ -44,9 +45,35 @@ padding-bottom: 18px;
 width: 204px;
 }
 
-.footer__left-download object{
-padding-right: 20px;
+.footer__left-download svg{
+  padding-right: 20px;
 }
+
+.footer__left-download svg {
+  transition: all .2s;
+   fill:#fff;
+ &:hover {
+   fill:#8AD2FA;
+ }
+}
+
+.footer__left-download rect {
+  transition: all .2s;
+  fill:#0052B0;
+  stroke:white;
+  &:hover {
+    stroke:#8AD2FA;
+  }
+}
+
+.footer__links svg {
+  transition: all .2s;
+  fill:white;
+  &:hover {
+    fill:#8AD2FA;
+  }
+}
+
 .footer__left-download #one,
 .footer__left-download #two{
 display: inline-block;
@@ -481,7 +508,7 @@ display: inline-block;
 .logo-name small {
   width: 280px;
 }
-.footer__links-content li span img{
+.footer__links-content li span svg{
 width: 20px;
 height: 20px;
 }
@@ -491,7 +518,7 @@ height: 20px;
 .footer__links-content > li {
   margin-left: 23px;
 }
-.footer__links-content > li > a > img{
+.footer__links-content > li > a > svg{
 width: 21px;
 height: 21px;
 }
