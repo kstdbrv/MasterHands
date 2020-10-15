@@ -2,12 +2,12 @@
 /* header */
 .header{
   background: #0052B0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #fff;
-  align-items: center;
-
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+  }
 }
 .header__logo{
   display: flex;
@@ -32,6 +32,14 @@
 .header__menu-item{
   margin-right: 130px;
 }
+.header__menu-item a{
+  margin-right: 130px;
+}
+
+.header_menu-item a{
+  margin-top: 20px;
+}
+
 nav ul {
   list-style: none;
   margin: 0;
