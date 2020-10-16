@@ -1,0 +1,41 @@
+.service__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.list-service {
+  width: 860px;
+  background: #F4F4F4;
+  border-radius: 20px;
+}
+
+.list-service__list {
+  padding: 60px 28px 86px 29px;
+}
+
+.list-service__title {
+  margin-bottom: 55px;
+}
+
+.list-service__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 24px;
+  padding-left: 110px;
+  margin-bottom: 55px;
+}
+
+.list-service__item:last-child {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=Services.css.map */

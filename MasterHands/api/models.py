@@ -28,7 +28,7 @@ class Subcategory(models.Model):
 
 
 class Service(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default)
     subcategory = ChainedForeignKey(Subcategory, related_name='services', chained_field='category', chained_model_field='category', show_all=False, auto_choose=True, sort=True)
     service_name = models.CharField(max_length=255, null=True)
     price = models.IntegerField(null=True, blank=True)
