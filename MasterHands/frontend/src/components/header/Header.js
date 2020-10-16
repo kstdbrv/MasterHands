@@ -8,7 +8,7 @@ export const Header = () => (
     <div className="container">
     <div className="header__inner">
     <div className="header__logo">
-        <NavLink to="#"><span className="logo"><svg xmlns="http://www.w3.org/2000/svg" width="55" height="54" viewBox="0 0 55 54" fill="none">
+        <NavLink to="/"><span className="logo"><svg xmlns="http://www.w3.org/2000/svg" width="55" height="54" viewBox="0 0 55 54" fill="none">
           <path d="M27.46 4.07557C31.994 4.07557 36.4262 5.42007 40.1961 7.93904C43.966 10.458 46.9043 14.0383 48.6394 18.2272C50.3745 22.4161 50.8285 27.0254 49.9439 31.4723C49.0594 35.9192 46.876 40.004 43.67 43.21C40.464 46.416 36.3792 48.5994 31.9323 49.4839C27.4854 50.3685 22.8761 49.9145 18.6872 48.1794C14.4983 46.4443 10.918 43.506 8.39903 39.7361C5.88006 35.9662 4.53558 31.534 4.53558 27C4.53629 20.9203 6.95177 15.0898 11.2508 10.7908C15.5498 6.49177 21.3803 4.07629 27.46 4.07557ZM27.46 0C22.1199 0 16.8997 1.58352 12.4596 4.55032C8.01948 7.51712 4.55882 11.7339 2.51526 16.6675C0.471691 21.6012 -0.0630001 27.0299 0.978801 32.2674C2.0206 37.5049 4.59209 42.3159 8.36811 46.0919C12.1441 49.8679 16.9551 52.4394 22.1925 53.4812C27.43 54.523 32.8588 53.9883 37.7924 51.9447C42.7261 49.9012 46.9429 46.4405 49.9097 42.0004C52.8765 37.5603 54.46 32.3401 54.46 27C54.4514 19.8418 51.604 12.9792 46.5424 7.91761C41.4808 2.85599 34.6182 0.00859415 27.46 0Z" fill="white"/>
           <path d="M39.0941 16.4809L33.9983 25.4629L30.104 32.5288C29.8847 32.9896 29.5245 33.3687 29.0756 33.6113C28.676 33.8462 28.228 33.9869 27.7658 34.0227C27.7009 34.0227 27.6332 34.0227 27.5628 34.0227C27.0153 34.0258 26.477 33.8819 26.0041 33.6059C25.5466 33.3568 25.1707 32.9809 24.9216 32.5234L27.5493 27.1651L31.6303 19.317C32.3583 17.9179 33.0971 16.9843 33.8467 16.5323C34.7078 16.0497 35.6856 15.8147 36.672 15.8531C37.5238 15.8175 38.3668 16.036 39.0941 16.4809Z" fill="white"/>
           <path d="M40.5392 19.4036V34.6369C40.5721 35.5653 40.242 36.47 39.619 37.1592C39.3163 37.4837 38.9477 37.7397 38.5379 37.9101C38.1281 38.0805 37.6866 38.1612 37.243 38.1469C36.8013 38.1544 36.3633 38.0664 35.9588 37.889C35.5543 37.7115 35.1929 37.4487 34.8994 37.1186C34.2638 36.417 33.9243 35.4966 33.9522 34.5504L33.9982 25.4629L39.094 16.4809C39.2409 16.5731 39.3787 16.6791 39.5054 16.7975C40.1928 17.4227 40.5392 18.2941 40.5392 19.4036Z" fill="white"/>
@@ -16,7 +16,7 @@ export const Header = () => (
           <path d="M27.5493 27.1651L24.9161 32.5207L20.9623 25.5007L16.4186 16.2996C17.0232 15.9892 17.6957 15.8347 18.3752 15.8504C19.6011 15.8504 20.5862 16.0912 21.3141 16.5756C22.0421 17.06 22.7972 18.0586 23.609 19.5876L24.4209 21.1221L26.7022 25.5089L27.5493 27.1651Z" fill="white"/>
           </svg></span>
         </NavLink>
-        <NavLink to="#"><span>Мастер на все руки</span></NavLink>
+        <NavLink to="/"><span>Мастер на все руки</span></NavLink>
     </div>
     <div className="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
@@ -25,13 +25,13 @@ export const Header = () => (
       </label>
   
       <ul className="menu__box">
-          <li><NavLink to="#" className="menu__item">Услуги</NavLink>
-                  <input id="li_toggle2" type="checkbox" />
+          <li><NavLink to="/" className="menu__item">Услуги</NavLink></li>
+                <li>  <input id="li_toggle2" type="checkbox" />
                   <label htmlFor="li_toggle2">
-                      <span className="span_item"> О сервисе</span></label>
+                      <span className="span_item"> О нас</span></label>
                       <ul className="item_ul">
                           <li className="item_li"><NavLink to="#">О нас</NavLink></li>
-                          <li className="item_li"><NavLink to="#">Документация</NavLink></li>
+                          <li className="item_li"><NavLink to="/documents">Документация</NavLink></li>
                           <li className="item_li"><NavLink to="#">Контакты</NavLink></li>
                       </ul>
               </li>
@@ -48,11 +48,11 @@ export const Header = () => (
     </div>
     <nav>
         <ul className="header__menu">
-          <li className="header_menu-item"><NavLink to="#">Услуги</NavLink></li>
-          <li className="header_menu-item"><NavLink to="#" className="down">О сервисе</NavLink>
+          <li className="header_menu-item"><NavLink to="/">Услуги</NavLink></li>
+          <li className="header_menu-item"><NavLink to="#" className="down">О нас</NavLink>
             <ul className="submenu">
               <li><NavLink to="#">О сервисе</NavLink></li>
-              <li><NavLink to="#">Документация</NavLink></li>
+              <li><NavLink to="/documents">Документация</NavLink></li>
               <li><NavLink to="#">Контакты</NavLink></li>
             </ul>
           </li>

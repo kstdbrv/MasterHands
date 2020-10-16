@@ -67,7 +67,7 @@ export const Footer = () => (
               <li><NavLink to="/" className="menu__item">Услуги</NavLink>
                       <input id="li_toggle2" type="checkbox" />
                       <label htmlFor="li_toggle2">
-                          <span className="span_item">О сервисе</span></label>
+                          <span className="span_item">О нас</span></label>
                           <ul className="item_ul">
                               <li className="item_li"><NavLink to="/">О нас</NavLink></li>
                               <li className="item_li"><NavLink to="/">Документация</NavLink></li>
@@ -88,10 +88,10 @@ export const Footer = () => (
        <nav className="footer__right-nav">
          <ul className="footer__right-menu">
            <li className="footer__right-menu-item"><NavLink to="/">Услуги</NavLink></li>
-           <li className="footer__right-menu-item"><NavLink to="/" className="down">О сервисе</NavLink>
+           <li className="footer__right-menu-item"><NavLink to="/" className="down">О нас</NavLink>
              <ul>
                <li><NavLink to="/">О нас</NavLink></li>
-               <li><NavLink to="/">Документация</NavLink></li>
+               <li><NavLink to="/documents">Документация</NavLink></li>
                <li><NavLink to="/">Контакты</NavLink></li>
              </ul>
            </li>

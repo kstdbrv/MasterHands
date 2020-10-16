@@ -43,7 +43,7 @@ const Services = () => {
                    id: `${c.id}`
                  }}> 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>
-                 <span> услуг{/* { if((q%2=0)){} } */}</span>
+                 <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
                 </Link>
               </li>
              ))
