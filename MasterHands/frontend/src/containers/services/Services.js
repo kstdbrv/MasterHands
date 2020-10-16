@@ -43,6 +43,9 @@ const Services = (props) => {
                 <Link to={{
                    pathname: `/categories/${c.id}`,
                    id: `${c.id}`
+                 }}> 
+                 <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>
+                 <span> услуг{/* { if((q%2=0)){} } */} ❯
                  }} onClick={() => props.dispatch({type:'CHANGE_ID', id:c.id})}> 
                    <span>{
                      c.subcategory.reduce((len, sub) => len + sub.services.length, 0)
