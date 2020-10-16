@@ -45,12 +45,7 @@ const Services = (props) => {
                    id: `${c.id}`
                  }}> 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>
-                 <span> услуг{/* { if((q%2=0)){} } */} ❯
-                 }} onClick={() => props.dispatch({type:'CHANGE_ID', id:c.id})}> 
-                   <span>{
-                     c.subcategory.reduce((len, sub) => len + sub.services.length, 0)
-                   }</span>
-                 <span> услуг{/* { if((q%2=0)){} } */}</span>
+                 <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
                 </Link>
               </li>
              ))
