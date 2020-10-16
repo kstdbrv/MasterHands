@@ -7,12 +7,18 @@ export default class CategoriesService{
         const url = `${API_URL}/api/supercategories/`;
         return axios.get(url).then(response => response.data);
     }
+<<<<<<< HEAD
     getSuperCategory(pk) {
         const url = `${API_URL}/api/supercategories/${pk}`;
         return axios.get(url).then(response => response.data);
     }
     getSuperCategoriesByURL(link) {
         const url = `${API_URL}${link}`;
+=======
+
+    getCategoriesByURL(link){
+        const url = `${API_URL}/api${link}`;
+>>>>>>> 7b5c8de74913bcebd843bfdd5ba2bea504674cc5
         return axios.get(url).then(response => response.data);
     }
     createSuperCategories(supercategory) {
