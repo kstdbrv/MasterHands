@@ -1,0 +1,80 @@
+.search {
+  font-size: 20px;
+  *, *:before, *:after {
+    box-sizing: content-box;
+}
+  &__form {
+    display: flex;
+    margin-top: 210px;
+    position: relative;
+    max-width: 823px;
+    height: 40px;
+    border-radius: 10px 10px;
+    border:10px solid #0052B0;
+    border-right-width:21px;
+    border-left-width:16px;
+    &::before {
+     position: absolute;
+     content: url('../../assets/images/master_hand.svg');
+     top: -38px;
+     left: -22px;
+     z-index: 8;
+    }
+    &::after {
+      position: absolute;
+      content: url('../../assets/images/master.svg');
+      top: -160px;
+      left: 10px;
+      z-index: -1;
+    }
+  }
+
+  &__input {
+    position: relative;
+    z-index: 7;
+    padding-left: 45px;
+    outline: none;
+    border: none;
+    width: 735px;
+    &::placeholder{
+     font-size: 20px;
+     color: #6A6A6A;
+     background:#fff;
+    }
+  }
+
+  &__btn {
+    font-size: 0;
+    position: relative;
+    z-index: 7;
+    padding: 20px;
+    background: url('../../assets/images/search.svg') no-repeat 50% 50%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
+  
+  &__bg {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    max-width: 840px;
+    height: 43px;
+    top: -51px;
+    left: 7px;
+    margin-right: 18px;
+    z-index: 5;
+  }
+
+  &__text {
+    position: relative;
+    top: -15px;
+    max-width: 660px;
+    margin-left: 200px;
+    margin-bottom: 50px;
+    a {
+      font-size: 20px;
+      color: #269FE3;
+    }
+  }
+}
