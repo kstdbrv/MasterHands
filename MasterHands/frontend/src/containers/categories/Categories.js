@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import CategoriesService from '../../ApiService'
+import { Loader } from '../../components/loader/Loader'
 import './Categories.scss'
+import { connect } from 'react-redux'
 
 const categoryService = new CategoriesService()
 
-export const Categories = ({ id = 2 }) => {
+const Categories = (props) => {
 
   const [state, setState] = useState({
     categories: [],
@@ -12,7 +14,7 @@ export const Categories = ({ id = 2 }) => {
   })
 
   useEffect(() => {
-    categoryService.getCategory(id).then(result => {
+    categoryService.getCategoriesByURL(window.location.pathname).then(result => {   // props.id
       setState({
         categories: result,
         isLoaded: true
@@ -20,23 +22,30 @@ export const Categories = ({ id = 2 }) => {
     })
 },[])
   
-  return (
- 
-    <React.Fragment>
-      
-      {state.isLoaded ? <>
-      <div>{state.categories.category_name}</div>
-      <ul>
+  if (!state.isLoaded) {
+    return <Loader />
+  } else {
+    return (
+      <>
+       <div>{state.categories.category_name}</div>
+       <ul>
         {
           state.categories.subcategory.map(s => {
             return (
-              <li>{s.subcategory_name}</li>
+              <li key={s.id}>{s.subcategory_name}</li>
             )
           })
         }
-      </ul></>
-      : "Loading..."}
-      
-    </React.Fragment>
-  )
+        </ul>
+      </>
+    )
+  }
 }
+
+function mapStateToProps(state) {
+  return {
+    id: state.id
+  }
+}
+
+export default connect(mapStateToProps)(Categories);

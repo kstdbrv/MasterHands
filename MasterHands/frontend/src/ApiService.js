@@ -14,7 +14,7 @@ export default class CategoriesService{
     }
 
     getCategoriesByURL(link){
-        const url = `${API_URL}${link}`;
+        const url = `${API_URL}/api${link}`;
         return axios.get(url).then(response => response.data);
     }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Search.scss'
 
 export const Search = () => {
@@ -12,10 +12,10 @@ export const Search = () => {
     <div className="search__bg"></div>
     <p className="search__text">
       Например, &nbsp;
-      <NavLink to="/"> починить окно, </NavLink>&nbsp;
-      <NavLink to="/">ремонт стиральной машины </NavLink>&nbsp;
+      <Link to="/"> починить окно, </Link>&nbsp;
+      <Link to="/">ремонт стиральной машины </Link>&nbsp;
       и еще
-      <NavLink to="/"> 604 услуги</NavLink>
+      <Link to="/"> 604 услуги</Link>
     </p>
    </section>
   )

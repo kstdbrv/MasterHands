@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Header.scss'
 
 export const Header = () => (
@@ -30,6 +30,7 @@ export const Header = () => (
                   <label htmlFor="li_toggle2">
                       <span className="span_item"> О нас</span></label>
                       <ul className="item_ul">
+
                           <li className="item_li"><NavLink to="#">О нас</NavLink></li>
                           <li className="item_li"><NavLink to="/documents">Документация</NavLink></li>
                           <li className="item_li"><NavLink to="#">Контакты</NavLink></li>
@@ -40,8 +41,8 @@ export const Header = () => (
                   <label htmlFor="li_toggle3">
                       <span className="span_item">Мастеру</span></label>
                       <ul className="item_ul">
-                          <li className="item_li"><NavLink to="#">Личный кабинет</NavLink></li>
-                          <li className="item_li"><NavLink to="#">Стать мастером</NavLink></li>
+                          <li className="item_li"><Link to="#">Личный кабинет</Link></li>
+                          <li className="item_li"><Link to="#">Стать мастером</Link></li>
                       </ul>
               </li>
       </ul>
@@ -56,10 +57,10 @@ export const Header = () => (
               <li><NavLink to="#">Контакты</NavLink></li>
             </ul>
           </li>
-          <li className="header_menu-item"><NavLink to="#" className="down">Мастеру</NavLink>
+          <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
             <ul className="submenu">
-              <li><NavLink to="#">Личный кабинет</NavLink></li>
-              <li><NavLink to="#">Стать мастером</NavLink></li>
+              <li><Link to="#">Личный кабинет</Link></li>
+              <li><Link to="#">Стать мастером</Link></li>
             </ul>
           </li>
         </ul>
