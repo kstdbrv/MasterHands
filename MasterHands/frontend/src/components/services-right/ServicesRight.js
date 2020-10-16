@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './ServicesRight.scss'
 
 export const ServicesRight = () => (
@@ -22,7 +22,7 @@ export const ServicesRight = () => (
            Работаем по договору и даём гарантию на 12 месяцев. Если что-то сломается, то исправим за свой счёт.
        </p>
        <div className="become-master__more">
-           <NavLink to="/">Узнать больше о “Мастер на все руки”</NavLink> 
+           <Link to="/">Узнать больше о “Мастер на все руки”</Link> 
        </div>
   </div>
   
