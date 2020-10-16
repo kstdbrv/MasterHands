@@ -5,7 +5,7 @@ export default class CategoriesService{
 
     getCategories() {
         const url = `${API_URL}/api/categories/`;
-        return axios.get(url).then(response => response.data);
+        return axios.get(url).then(response => response.date);
     }
 
     getSuperCategories() {
