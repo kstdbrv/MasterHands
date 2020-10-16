@@ -4,7 +4,7 @@ import './Categories.scss'
 
 const categoryService = new CategoriesService()
 
-export const Categories = ({ id }) => {
+export const Categories = ({ id = 2 }) => {
 
   const [state, setState] = useState({
     categories: [],
@@ -19,22 +19,24 @@ export const Categories = ({ id }) => {
       })
     })
 },[])
-  console.log(state.categories)
   
   return (
  
     <React.Fragment>
+      
+      {state.isLoaded ? <>
       <div>{state.categories.category_name}</div>
       <ul>
-{/*         {
+        {
           state.categories.subcategory.map(s => {
             return (
-              <li>{s.subcategory}</li>
+              <li>{s.subcategory_name}</li>
             )
           })
-        } */}
-        <li>{}</li> 
-      </ul>
+        }
+      </ul></>
+      : "Loading..."}
+      
     </React.Fragment>
   )
 }
