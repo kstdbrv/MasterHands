@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CategoriesService from '../../ApiService'
 import { Loader } from '../../components/loader/Loader'
-import './Categories.scss'
+import './categories.scss'
 import { connect } from 'react-redux'
 
 const categoryService = new CategoriesService()

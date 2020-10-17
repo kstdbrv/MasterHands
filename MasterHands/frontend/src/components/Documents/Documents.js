@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Documents.scss'
+import './documents.scss'
 
-export const Documents = () => {
+const Documents = () => {
     return (
         <div >
             <div className="content">
@@ -34,6 +34,8 @@ export const Documents = () => {
         </div>
     )
 }
+
+export default Documents
 
 
 
