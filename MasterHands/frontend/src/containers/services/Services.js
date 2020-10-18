@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import CategoriesService from '../../ApiService'
+import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './services.scss'
 
@@ -26,14 +28,18 @@ const Services = () => {
   } else {
     return (
     <>
+      <Breadcrumbs
+/*         categoryName={}
+        subcategoryName={state.subcategories.subcategory_name}  */ 
+      />    
       <h1>{state.subcategories.subcategory_name}</h1>
       {
        state.subcategories.services.map(s => {
         return (
-          <React.Fragment key={s.id}>
+          <Link to={`/services/${s.id}`} key={s.id}>
            <p>{s.service_name}</p>
            <p>{s.price}</p>
-          </React.Fragment>
+          </Link> 
          )
        })
       }

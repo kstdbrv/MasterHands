@@ -29,7 +29,7 @@ const Categories = (props) => {
 
   const renderCategories = () => {  // получаем список суперкатегории + категории + кол-во услуг
     if (!state.isLoaded) {
-      return <Loader/>
+      return <Loader />
     } else {
       return (
         state.supercategories.map(s => (          

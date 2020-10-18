@@ -4,6 +4,7 @@ import { Loader } from '../../components/loader/Loader'
 import './subcategories.scss'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 
 const categoryService = new CategoriesService()
 
@@ -28,6 +29,9 @@ const Subcategories = (props) => {
   } else {
     return (
       <>
+        <Breadcrumbs
+          /* categoryName={state.categories.category_name} */
+        />
        <div>{state.categories.category_name}</div>
        <ul>
         {

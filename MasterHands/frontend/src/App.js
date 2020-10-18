@@ -18,10 +18,10 @@ const App = () => {
       <Layout>
         <Switch>
           <Route path="/" exact component={Categories} />
-          <Route path="/categories-grid/" component={CategoriesGrid} />
+          <Route path="/categories-grid" component={CategoriesGrid} />
           <Route path="/categories/:id" component={Subcategories} />
           <Route path="/subcategories/:id" component={Services} />
-          <Route path="/service/:id" component={Service} />
+          <Route path="/services/:id" component={Service} />
           <Route path="/documents" component={Documents} />
           <Route path="/documentsCondition" component={DocumentsCondition} />
         </Switch>
