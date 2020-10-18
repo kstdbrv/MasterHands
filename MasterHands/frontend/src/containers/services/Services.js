@@ -1,79 +1,45 @@
-import React, {  useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import CategoriesService from '../../ApiService'
 import { Loader } from '../../components/loader/Loader'
-import { Search } from '../../components/search/Search'
-import { ServicesRight } from '../../components/services-right/ServicesRight'
-import './Services.scss';
-import { connect } from 'react-redux';
-
+import './services.scss'
 
 const categoryService = new CategoriesService()
 
-const Services = (props) => {
+const Services = () => {
 
   const [state, setState] = useState({
-    supercategories: [],
+    subcategories: [],
     isLoaded: false
   })
 
-  useEffect(() => {    // эмулирует componentDidMount - getSuperCategories() вызывается после рендеринга компонента один раз
-    categoryService.getSuperCategories().then(result => {
+  useEffect(() => {
+    categoryService.getCategoriesByURL(window.location.pathname).then(result => {
       setState({
-        supercategories: result,
+        subcategories: result,
         isLoaded: true
       })
     })
- },[])
+},[])
 
-  const renderServices = () => {  // получаем список суперкатегории + категории + кол-во услуг
-    if (!state.isLoaded) {
-      return <Loader/>
-    } else {
-      return (
-        state.supercategories.map(s => (          
+  if (!state.isLoaded) {
+    return <Loader />
+  } else {
+    return (
+    <>
+      <h1>{state.subcategories.subcategory_name}</h1>
+      {
+       state.subcategories.services.map(s => {
+        return (
           <React.Fragment key={s.id}>
-           <li className="list-service__title">
-             <p>{s.supercategory_name}</p>
-           </li>
-           {
-             s.category.map(c => (
-              <li key={c.id} className="list-service__item">
-                <p>{c.category_name}</p>
-                <Link to={{
-                   pathname: `/categories/${c.id}`,
-                   id: `${c.id}`
-                 }}> 
-                 <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>
-                 <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
-                </Link>
-              </li>
-             ))
-           }
+           <p>{s.service_name}</p>
+           <p>{s.price}</p>
           </React.Fragment>
-        ))
-      )
-    }
+         )
+       })
+      }
+    </>
+    )
   }
-
-  return (
-  <>
-   <Search />
-   <div className="service">
-    <div className="service__inner">
-      <div className="service__list list-service">
-        <ul className="list-service__list">
-         { renderServices() }    
-        </ul>
-      </div>
-      <ServicesRight />
-    </div>
-   </div>
-  </>    
-  )
 }
 
-
-
-// export default Services
-export default connect()(Services);
+export default Services

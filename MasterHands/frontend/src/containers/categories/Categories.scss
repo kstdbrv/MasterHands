@@ -1,0 +1,39 @@
+.service {
+  &__inner {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+  }
+}
+
+.list-service {
+  width: 860px;
+  background: #F4F4F4;
+  border-radius: 20px;
+  &__list {
+   padding: 60px 28px 86px 29px;
+  }
+
+  &__title {
+    margin-bottom: 55px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    /* padding-left: 110px; */
+    margin-bottom: 55px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    p {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      margin-right: 50px;
+    }
+  }
+}
