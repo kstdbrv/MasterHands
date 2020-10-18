@@ -55,4 +55,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Subcategories);
+//const mapDispatchToProps = {
+  /* createPost: createPost */
+ // createPost,   //сокращенный вариант
+ // showAlert
+//}
+
+export default connect(mapStateToProps, /* mapDispatchToProps */)(Subcategories);

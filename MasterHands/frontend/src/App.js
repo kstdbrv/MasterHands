@@ -3,8 +3,6 @@ import Layout from './hoc/Layout/Layout'
 import { Route, Switch } from 'react-router-dom'
 import Categories from './containers/categories/Categories'
 import './app.scss'
-import store from './store/store'
-import { Provider } from 'react-redux'
 import Documents from './components/documents/Documents'
 import DocumentsCondition from './components/documents-condition/DocumentsCondition'
 import Service from './containers/service/Service'
@@ -14,7 +12,6 @@ import Services from './containers/services/Services'
 
 const App = () => {
   return (
-    <Provider store={store}>
       <Layout>
         <Switch>
           <Route path="/" exact component={Categories} />
@@ -26,8 +23,7 @@ const App = () => {
           <Route path="/documentsCondition" component={DocumentsCondition} />
         </Switch>
       </Layout>
-    </Provider>
-    )
+  )
 }
 
 export default App

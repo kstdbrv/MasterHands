@@ -3,7 +3,7 @@ let initialState = Object.freeze({
   id: 0
 });
 
-const reducer = (state = initialState, action) => {
+const servicesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_ID':
       return Object.assign(
@@ -17,4 +17,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer;
+export default servicesReducer;

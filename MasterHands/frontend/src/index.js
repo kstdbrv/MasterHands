@@ -4,11 +4,25 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { applyMiddleware, createStore } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import rootReducer from './store/rootReducer'
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)     //теперь мы можем диспачить асинхронные события
+  )
+)  
 
 const app = (
-  <BrowserRouter>
-    <App /> 
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App /> 
+    </BrowserRouter>
+  </Provider>
 )
 
 render(app, document.getElementById('root'))
