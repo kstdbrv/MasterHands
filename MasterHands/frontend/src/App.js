@@ -1,31 +1,31 @@
 import React from 'react'
 import Layout from './hoc/Layout/Layout'
 import { Route, Switch } from 'react-router-dom'
-import Services from './containers/services/Services'
-import './App.scss'
 import Categories from './containers/categories/Categories'
-import store from './store/store'
-import { Provider } from 'react-redux'
-import { Documents } from './components/Documents/Documents'
-import DocumentsCondition from './components/DocumentsCondition/DocumentsCondition'
-
-
+import './app.scss'
+import Documents from './components/documents/Documents'
+import DocumentsCondition from './components/documents-condition/DocumentsCondition'
+import Service from './containers/service/Service'
+import Service2 from './containers/service/service2'
+import CategoriesGrid from './containers/categories-grid/CategoriesGrid'
+import Subcategories from './containers/subcategories/Subcategories'
+import Services from './containers/services/Services'
+import Services2 from './containers/services/services2'
 
 const App = () => {
   return (
-    <Provider store={store}>
       <Layout>
         <Switch>
-          <Route path="/" exact component={Services} />
-          <Route path="/categories/:name" component={Categories} />
+          <Route path="/" exact component={Categories} />
+          <Route path="/categories-grid" component={CategoriesGrid} />
+          <Route path="/categories/:id" component={Subcategories} />
+          <Route path="/subcategories/:id" component={Services2} />
+          <Route path="/services/:id" component={Service2} />
           <Route path="/documents" component={Documents} />
           <Route path="/documentsCondition" component={DocumentsCondition} />
-          <Route path="/categories/:id" component={Categories} />
-
         </Switch>
       </Layout>
-    </Provider>
-    )
+  )
 }
 
 export default App

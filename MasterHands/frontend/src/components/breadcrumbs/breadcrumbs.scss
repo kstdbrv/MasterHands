@@ -1,0 +1,32 @@
+.breadcrumbs{
+  margin-bottom: 40px;
+  &__inner{
+    @media (max-width:815px){
+      overflow-x: scroll;
+   }
+  }
+  &__list-item{
+    display: inline-block;
+    padding-right: 16px;
+    margin-right: 10px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #C4C4C4;
+    position: relative;
+    @media (max-width:640px){
+      margin-top: 20px;
+   }
+    &::after{
+      position: absolute;
+      content: "";
+      right: 0;
+      bottom: 5px;
+      background-image: url('../../assets/images/link-arrow.svg');
+      width: 6px;
+      height: 9px;
+    }
+    &:last-child::after{
+      display: none;
+    }
+  }
+}
