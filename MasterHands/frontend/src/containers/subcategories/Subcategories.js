@@ -8,7 +8,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 
 const categoryService = new CategoriesService()
 
-const Subcategories = (props) => {
+const Subcategories = () => {
 
   const [state, setState] = useState({
     categories: [],
@@ -30,15 +30,16 @@ const Subcategories = (props) => {
     return (
       <>
         <Breadcrumbs
-          /* categoryName={state.categories.category_name} */
+          /* categoryName={state.categories.category_name}  электрика */
         />
-       <div>{state.categories.category_name}</div>
-       <ul>
+       <ul className="subcategories__list">
         {
           state.categories.subcategory.map(s => {
             return (
               <Link to={`/subcategories/${s.id}`} key={s.id}>
-                <li>{s.subcategory_name}</li>
+                <li className="subcategories__item">
+                  {s.subcategory_name}
+                </li>
               </Link>  
             )
           })

@@ -1,0 +1,50 @@
+.subcategories {
+  &__list{ 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: -40px;
+    @media (max-width: 1380px) {
+      justify-content: space-around;
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 0;
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    background: #F4F4F4;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    height: 120px;
+    width: 420px;
+    margin-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 55px;
+    &::after{
+      position: absolute;
+      content: "";
+      right: 45px;
+      background-image: url('../../assets/images/linlk-arrow_middle.svg');
+      width: 12.35px;
+      height: 20px;
+      @media (max-width:480px) {
+        right: 30px;
+      }
+    }
+    @media (max-width:480px) {
+      width: 320px;
+      height: 90px;
+      font-size: 24px;
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+    @media (max-width:330px) {
+      width: 300px;
+      height: 80px;
+    }
+  }
+}

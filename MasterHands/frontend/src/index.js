@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import './index.scss'
 import App from './App'
@@ -9,7 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import rootReducer from './store/rootReducer'
-import { hydrate } from 'react-dom';
+import { hydrate } from 'react-dom'
 
 const store = createStore(
   rootReducer,
