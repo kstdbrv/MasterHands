@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Footer.scss'
+import './footer.scss'
 
 export const Footer = () => (
 
@@ -87,12 +87,12 @@ export const Footer = () => (
         </div>
        <nav className="footer__right-nav">
          <ul className="footer__right-menu">
-           <li className="footer__right-menu-item"><NavLink to="/">Услуги</NavLink></li>
-           <li className="footer__right-menu-item"><NavLink to="/" className="down">О нас</NavLink>
+           <li className="footer__right-menu-item"><Link to="/">Услуги</Link></li>
+           <li className="footer__right-menu-item"><Link to="/" className="down">О нас</Link>
              <ul>
-               <li><NavLink to="/">О нас</NavLink></li>
-               <li><NavLink to="/documents">Документация</NavLink></li>
-               <li><NavLink to="/">Контакты</NavLink></li>
+               <li><Link to="/">О нас</Link></li>
+               <li><Link to="/documents">Документация</Link></li>
+               <li><Link to="/">Контакты</Link></li>
              </ul>
            </li>
            <li className="footer__right-menu-item"><Link to="/" className="down">Мастеру</Link>

@@ -2,16 +2,12 @@ import React, {  useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CategoriesService from '../../ApiService'
 import { Loader } from '../../components/loader/Loader'
-import { Search } from '../../components/search/Search'
-import { ServicesRight } from '../../components/services-right/ServicesRight'
-import './categories.scss'
-import { connect } from 'react-redux'
-import lamp from '../../assets/images/lamp.svg'
+import './categories-grid.scss'
 
 
 const categoryService = new CategoriesService()
 
-const Categories = (props) => {
+const CategoriesGrid = (props) => {
 
   const [state, setState] = useState({
     supercategories: [],
@@ -29,7 +25,7 @@ const Categories = (props) => {
 
   const renderCategories = () => {  // получаем список суперкатегории + категории + кол-во услуг
     if (!state.isLoaded) {
-      return <Loader />
+      return <Loader/>
     } else {
       return (
         state.supercategories.map(s => (          
@@ -40,12 +36,8 @@ const Categories = (props) => {
            {
              s.category.map(c => (
                <li key={c.id} className="list-service__item">
-                <p>
-                 <img src={lamp} alt="иконка"/>
                  <span>{c.category_name}</span>
-                </p>
-                 <Link
-                   to={`/categories/${c.id}`}> 
+                <Link to={`/categories/${c.id}`}> 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}                                         
                  <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
                 </Link>
@@ -60,7 +52,6 @@ const Categories = (props) => {
 
   return (
   <>
-   <Search />
    <div className="service">
     <div className="service__inner">
       <div className="service__list list-service">
@@ -68,11 +59,10 @@ const Categories = (props) => {
          { renderCategories() }    
         </ul>
       </div>
-      <ServicesRight />
     </div>
    </div>
   </>    
   )
 }
 
-export default connect()(Categories);
+export default CategoriesGrid

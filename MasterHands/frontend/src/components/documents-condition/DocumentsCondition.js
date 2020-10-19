@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './DocumentsCondition.scss'
+import './documents-condition.scss'
 
 export default function DocumentsCondition() {
     return (
