@@ -1,15 +1,16 @@
+import {  FETCH_SERVICE } from './types'
 
 let initialState = Object.freeze({
-  id: 0
+  service: [],
 });
 
 const servicesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_ID':
+    case FETCH_SERVICE:
       return Object.assign(
         {},
         state,
-        { id: action.id }
+        { service: action.service }
       );
         
     default:

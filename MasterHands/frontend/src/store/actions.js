@@ -1,5 +1,7 @@
-import { HIDE_LOADER, SHOW_LOADER } from './types'
+import { HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE } from './types'
+import axios from 'axios'
 
+const API_URL = 'http://localhost:8000';
 
 export function showLoader() {
   return {
@@ -13,27 +15,26 @@ export function hideLoader() {
   }
 }
 
-export function fetch() {
+export function fetchService(link) {
   
   return async dispatch => {
     try {
       dispatch(showLoader());
 
-      const response = await fetch(url);
-      const json = await response.json();
-      
-      setTimeout(() => {
-       
-        dispatch({
-          type: FETCH_POSTS,
-          payload: json
-        });
-        dispatch(hideLoader());
+      const url = `${API_URL}/api${link}`;
+      const response = await axios.get(url)
+      /* const json = await response.json() */
+         
+      dispatch({
+        type: FETCH_SERVICE,
+        service: response
+      });
+
+      dispatch(hideLoader());
         
-     }, 1000);
     } catch (e) {
-      dispatch(showAlert('Что-то пошло не так...', 'danger'))
-      dispatch(hideLoader())
+/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
+      dispatch(hideLoader()) */
     }
 
   }
