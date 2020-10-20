@@ -1,38 +1,29 @@
-import React, {  useEffect, useState } from 'react'
+import React, {  useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import CategoriesService from '../../ApiService'
 import { Loader } from '../../components/loader/Loader'
 import { Search } from '../../components/search/Search'
 import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './categories.scss'
-import { connect } from 'react-redux'
 import lamp from '../../assets/images/lamp.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchSupercategories } from '../../store/actions'
 
 
-const categoryService = new CategoriesService()
+const Categories = () => {
 
-const Categories = (props) => {
+  const dispatch = useDispatch();
+  const supercategories = useSelector(state => state.services.supercategories);
 
-  const [state, setState] = useState({
-    supercategories: [],
-    isLoaded: false
-  })
-
-  useEffect(() => {    // эмулирует componentDidMount - getSuperCategories() вызывается после рендеринга компонента один раз
-    categoryService.getSuperCategories().then(result => {
-      setState({
-        supercategories: result,
-        isLoaded: true
-      })
-    })
+  useEffect(() => {
+    if (supercategories.length === 0) {
+      dispatch(fetchSupercategories())
+  }
  },[])
 
   const renderCategories = () => {  // получаем список суперкатегории + категории + кол-во услуг
-    if (!state.isLoaded) {
-      return <Loader />
-    } else {
+
       return (
-        state.supercategories.map(s => (          
+        supercategories.map(s => (          
           <React.Fragment key={s.id}>
            <li className="list-service__title">
              <p>{s.supercategory_name}</p>
@@ -55,24 +46,25 @@ const Categories = (props) => {
           </React.Fragment>
         ))
       )
-    }
+ 
   }
 
   return (
-  <>
-   <Search />
-   <div className="service">
-    <div className="service__inner">
-      <div className="service__list list-service">
-        <ul className="list-service__list">
-         { renderCategories() }    
-        </ul>
-      </div>
-      <ServicesRight />
-    </div>
-   </div>
-  </>    
+    <>
+      <Loader />
+       <Search />
+       <div className="service">
+        <div className="service__inner">
+          <div className="service__list list-service">
+            <ul className="list-service__list">
+             { renderCategories() }    
+            </ul>
+          </div>
+          <ServicesRight />
+        </div>
+       </div>
+    </>    
   )
 }
 
-export default connect()(Categories);
+export default Categories;

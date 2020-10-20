@@ -1,43 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import CategoriesService from '../../ApiService'
+import React from 'react'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './service.scss'
+import { useSelector } from 'react-redux'
 
-const categoryService = new CategoriesService()
 
 const Service = () => {
 
-  const [state, setState] = useState({
-    service: {},
-    isLoaded: false
-  })
+  const service = useSelector(state => state.services.service)
 
-  useEffect(() => {
-    categoryService.getCategoriesByURL(window.location.pathname).then(result => {
-      setState({
-        service: result,
-        isLoaded: true
-      })
-    })
-},[])
-
-  if (!state.isLoaded) {
-    return <Loader />
-  } else {
-    return (
-      <React.Fragment key={state.service.id}>
-{/*         <Breadcrumbs
-          categoryName={state.service.category}
-          subcategoryName={state.service.subcategory}
-          serviceName={state.service.service_name}
-        /> */}
-        <p>{state.service.service_name}</p>
-        <p>{state.service.price}</p>
-      </React.Fragment>
-    )
-  }
+  return (
+    <>
+      <Loader />
+      <Breadcrumbs
+        categoryName={service.category}
+        subcategoryName={service.subcategory}
+        serviceName={service.service_name}
+      />
+      <p>{service.service_name}</p>
+      <p>{service.price}</p>
+    </>
+  )
 }
-
 
 export default Service
