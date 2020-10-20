@@ -6,10 +6,11 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux' 
 import thunk from 'redux-thunk'
 import rootReducer from './store/rootReducer'
 import { hydrate } from 'react-dom';
+import './components/header/header-scripts'
 
 const store = createStore(
   rootReducer,
