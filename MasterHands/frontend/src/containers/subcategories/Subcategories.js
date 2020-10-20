@@ -37,11 +37,11 @@ const Subcategories = () => {
         {
           state.categories.subcategory.map(s => {
             return (
-            <li className="subcategories__item" key={s.id}>  
-              <Link to={`/subcategories/${s.id}`}>
+            <li key={s.id}>  
+              <Link to={`/subcategories/${s.id}`} className="subcategories__item">
                 {s.subcategory_name}
+                <ArrowLink />
               </Link>
-              <ArrowLink />
             </li>
             )
           })

@@ -33,6 +33,7 @@ export function fetchService(link) {
       dispatch(hideLoader());
         
     } catch (e) {
+      console.log(e)
 /*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
       dispatch(hideLoader()) */
     }
