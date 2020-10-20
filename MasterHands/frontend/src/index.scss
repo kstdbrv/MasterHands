@@ -19,7 +19,7 @@ $mainFontSize            : 20px;
 
 
 body {
-  @extend %Rubik-Regular;
+  @extend %Rubik-Regular !optional;
   font-size: $mainFontSize;
   color: $mainFontColor;
   width: 100%;

@@ -18,7 +18,7 @@ export const Header = () => (
         </Link>
         <Link to="/"><span>Мастер на все руки</span></Link>
     </div>
-    <div className="hamburger-menu">
+    <div className="header__hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
       <label className="menu__btn" htmlFor="menu__toggle">
         <span></span>
@@ -28,7 +28,7 @@ export const Header = () => (
           <li><Link to="/" className="menu__item">Услуги</Link></li>
                 <li>  <input id="li_toggle2" type="checkbox" />
                   <label htmlFor="li_toggle2">
-                      <span className="span_item"> О нас</span></label>
+                      <span className="span_item"> О сервисе</span></label>
                       <ul className="item_ul">
 
                           <li className="item_li"><Link to="#">О нас</Link></li>
@@ -68,5 +68,5 @@ export const Header = () => (
       </div>
       </div>
     </header>
-
 )
+

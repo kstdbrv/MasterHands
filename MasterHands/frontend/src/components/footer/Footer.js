@@ -57,34 +57,7 @@ export const Footer = () => (
         </div>
       </div>
       <div className="footer__right">
-        <div className="hamburger-menu">
-          <input id="menu__toggle" type="checkbox" />
-          <label className="menu__btn" htmlFor="menu__toggle">
-            <span></span>
-          </label>
-      
-          <ul className="menu__box">
-              <li><Link to="/" className="menu__item">Услуги</Link>
-                      <input id="li_toggle2" type="checkbox" />
-                      <label htmlFor="li_toggle2">
-                          <span className="span_item">О нас</span></label>
-                          <ul className="item_ul">
-                              <li className="item_li"><Link to="/">О нас</Link></li>
-                              <li className="item_li"><Link to="/">Документация</Link></li>
-                              <li className="item_li"><Link to="/">Контакты</Link></li>
-                          </ul>
-                  </li>
-                  <li>
-                      <input id="li_toggle3" type="checkbox" />
-                      <label htmlFor="li_toggle3">
-                          <span className="span_item">Мастеру</span></label>
-                          <ul className="item_ul">
-                              <li className="item_li"><Link to="/">Личный кабинет</Link></li>
-                              <li className="item_li"><Link to="/">Стать мастером</Link></li>
-                          </ul>
-                  </li>
-          </ul>
-        </div>
+        
        <nav className="footer__right-nav">
          <ul className="footer__right-menu">
            <li className="footer__right-menu-item"><Link to="/">Услуги</Link></li>
