@@ -11,6 +11,7 @@ import CategoriesGrid from './containers/categories-grid/CategoriesGrid'
 import Subcategories from './containers/subcategories/Subcategories'
 import Services from './containers/services/Services'
 import Services2 from './containers/services/services2'
+import categories2 from './containers/categories/categories2'
 
 const App = () => {
   return (

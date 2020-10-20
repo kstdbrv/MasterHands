@@ -11,21 +11,30 @@ const Breadcrumbs = (props) => {
               Услуги
             </Link>
           </li>
+          {
+           props.categoryName ?
           <li className="breadcrumbs__list-item">
             <Link to="#">
-              {props.categoryName} электрика
+              {props.categoryName}
             </Link>
-          </li>
-{/*           <li className="breadcrumbs__list-item">
+          </li> : null
+          }
+          {
+          props.subcategoryName ?
+          <li className="breadcrumbs__list-item">
             <Link to="#">
-              {props.subcategoryName} освещение
+              {props.subcategoryName}
             </Link>
-          </li> */}
-{/*           <li className="breadcrumbs__list-item">
-            <Link to="#">
-              {props.serviceName} повесить люстру
-            </Link>
-          </li> */}  
+          </li> : null
+          }
+          {
+            props.serviceName ? 
+            <li className="breadcrumbs__list-item">
+              <Link to="#">
+                {props.serviceName}
+              </Link>
+            </li> : null  
+          }
         </ul>
       </div>
   )
