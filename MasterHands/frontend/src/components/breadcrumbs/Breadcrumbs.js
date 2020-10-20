@@ -16,16 +16,16 @@ const Breadcrumbs = (props) => {
               {props.categoryName} электрика
             </Link>
           </li>
-{/*           <li className="breadcrumbs__list-item">
+          <li className="breadcrumbs__list-item">
             <Link to="#">
-              {props.subcategoryName}
+              {props.subcategoryName} освещение
             </Link>
-          </li> */}
-{/*           <li className="breadcrumbs__list-item">
+          </li>
+          <li className="breadcrumbs__list-item">
             <Link to="#">
-              {props.serviceName}
+              {props.serviceName} повесить люстру
             </Link>
-          </li>   */}
+          </li>  
         </ul>
       </div>
   )

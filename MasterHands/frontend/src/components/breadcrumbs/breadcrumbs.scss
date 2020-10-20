@@ -1,6 +1,14 @@
 .breadcrumbs {
   margin-top: 53px;
   margin-bottom: 43px;
+  @media (max-width:1215px){
+    overflow-x: scroll;
+  }
+  &__list {
+    @media (max-width: 1215px){
+      width: 1165px;
+    }
+  }  
   &__list-item{
     display: inline-block;
     padding-right: 65px;
@@ -24,7 +32,7 @@
         border-bottom:  2px solid #0F0F0F;
       }  
     }
-    &::after{
+    &::after {
       position: absolute;
       content: "";
       right: 0;
@@ -38,7 +46,7 @@
         bottom: 4px;
       }
     }
-    &:last-child::after{
+    &:last-child::after {
       display: none;
     }
   }
