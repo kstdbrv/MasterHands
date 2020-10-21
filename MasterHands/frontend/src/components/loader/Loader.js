@@ -8,7 +8,7 @@ export const Loader = () => {
 
   if (loading) {
     return (
-      <p>Loading...</p>
+      <h1>Loading...</h1>
     )
   } else {
     return null

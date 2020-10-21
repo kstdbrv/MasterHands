@@ -1,58 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import CategoriesService from '../../ApiService'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './services.scss'
-import { useDispatch } from 'react-redux'
 import { fetchService } from '../../store/actions'
+import { useSelector, useDispatch } from 'react-redux'
+import ServicesText from '../../components/services-text/ServicesText'
 
-const categoryService = new CategoriesService()
 
 const Services = () => {
 
   const dispatch = useDispatch();
+  const subcategories = useSelector(state => state.services.services);
+  const service = useSelector(state => state.services.service);
 
-  const [state, setState] = useState({
-    subcategories: [],
-    isLoaded: false
-  })
+  const getService = id => {
+    if (service.length === 0) {
+      dispatch(fetchService(`/services/${id}`))
+    }
+  }
 
-  useEffect(() => {
-    categoryService.getCategoriesByURL(window.location.pathname).then(result => {
-      setState({
-        subcategories: result, 
-        isLoaded: true
-      })
-    })
-},[])
-
-  if (!state.isLoaded) {
-    return <Loader />
-  } else {
     return (
     <>
+      <Loader />  
       <Breadcrumbs
 /*         categoryName={}
         subcategoryName={state.subcategories.subcategory_name}  */ 
       />    
-      <h1>{state.subcategories.subcategory_name}</h1>
+      <div className="services__list">
       {
-       state.subcategories.services.map(s => {
-        return (
-          <Link
-            to={`/services/${s.id}`} key={s.id}
-            onClick={ () => dispatch(fetchService(`/services/${s.id}`)) }
-          >
-           <p>{s.service_name}</p>
-           <p>{s.price}</p>
-          </Link> 
-         )
-       })
-      }
+       subcategories.services.map(s => (
+        <Link
+         to={`/services/${s.id}`} key={s.id}
+         onClick={() => getService(s.id)}
+         className="services__item"  
+        >
+        <p>{s.service_name}</p>
+        <span className="services__price">
+          <span>{s.price}</span>
+          <span> ₽</span> 
+        </span>
+        </Link> 
+       ))
+      }    
+      </div>
+      <ServicesText />  
     </>
     )
-  }
+  
 }
 
 export default Services

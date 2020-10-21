@@ -1,4 +1,7 @@
-import { HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SUPERCATEGORIES } from './types'
+import {
+  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES
+} from './types'
 import axios from 'axios'
 
 const API_URL = 'http://localhost:8000';
@@ -18,6 +21,55 @@ export function fetchSupercategories() {
       dispatch({
         type: FETCH_SUPERCATEGORIES,
         supercategories: response.data
+      });
+
+      dispatch(hideLoader());
+        
+    } catch (err) {
+      if (axios.isCancel(err)) {
+       return "axios request cancelled";
+      }
+     return err;
+     }
+  }
+}
+
+export function fetchСategories(id) {
+  
+  return async dispatch => {
+    try {
+      dispatch(showLoader());
+
+      const url = `${API_URL}/api/categories/${id}`;
+      const response = await axios.get(url);
+         
+      dispatch({
+        type: FETCH_СATEGORIES,
+        categories: response.data
+      });
+
+      dispatch(hideLoader());
+        
+    } catch (e) {
+      console.log(e)
+/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
+      dispatch(hideLoader()) */
+    }
+  }
+}
+
+export function fetchServices(link) {
+  
+  return async dispatch => {
+    try {
+      dispatch(showLoader());
+
+      const url = `${API_URL}/api${link}`;
+      const response = await axios.get(url)
+
+      dispatch({
+        type: FETCH_SERVICES,
+        services: response.data
       });
 
       dispatch(hideLoader());
