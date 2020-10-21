@@ -29,7 +29,6 @@ const Categories = () => {
   }
 
   const renderCategories = () => { 
-    console.log(supercategories)
       return (
         supercategories.map(s => (          
           <React.Fragment key={s.id}>

@@ -1,34 +1,36 @@
-import React, {  useEffect, useState } from 'react'
+import React, {  useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import CategoriesService from '../../ApiService'
 import { Loader } from '../../components/loader/Loader'
+import { Search } from '../../components/search/Search'
+import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './categories-grid.scss'
+import lamp from '../../assets/images/lamp.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchSupercategories } from '../../store/actions'
+import { fetchСategories } from '../../store/actions'
 
 
-const categoryService = new CategoriesService()
+const CategoriesGrid = () => {
 
-const CategoriesGrid = (props) => {
+  const dispatch = useDispatch();
+  const supercategories = useSelector(state => state.services.supercategories);
+  const categories = useSelector(state => state.services.categories);
 
-  const [state, setState] = useState({
-    supercategories: [],
-    isLoaded: false
-  })
+  useEffect(() => {
+    if (supercategories.length === 0) {
+      dispatch(fetchSupercategories())
+    }
+  }, [])
+  
+  const getCategories = id => {
+    if (categories.subcategory.length === 0) {
+      dispatch(fetchСategories(id))
+    }
+  }
 
-  useEffect(() => {    // эмулирует componentDidMount - getSuperCategories() вызывается после рендеринга компонента один раз
-    categoryService.getSuperCategories().then(result => {
-      setState({
-        supercategories: result,
-        isLoaded: true
-      })
-    })
- },[])
-
-  const renderCategories = () => {  // получаем список суперкатегории + категории + кол-во услуг
-    if (!state.isLoaded) {
-      return <Loader/>
-    } else {
+  const renderCategories = () => { 
       return (
-        state.supercategories.map(s => (          
+        supercategories.map(s => (          
           <React.Fragment key={s.id}>
            <li className="list-service__title">
              <p>{s.supercategory_name}</p>
@@ -36,8 +38,14 @@ const CategoriesGrid = (props) => {
            {
              s.category.map(c => (
                <li key={c.id} className="list-service__item">
+                <p>
+                 <img src={lamp} alt="иконка"/>
                  <span>{c.category_name}</span>
-                <Link to={`/categories/${c.id}`}> 
+                </p>
+                <Link
+                  to={`/categories/${c.id}`}
+                   onClick={ () => { getCategories(c.id) } }
+                > 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}                                         
                  <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
                 </Link>
@@ -47,21 +55,23 @@ const CategoriesGrid = (props) => {
           </React.Fragment>
         ))
       )
-    }
   }
 
   return (
-  <>
-   <div className="service">
-    <div className="service__inner">
-      <div className="service__list list-service">
-        <ul className="list-service__list">
-         { renderCategories() }    
-        </ul>
-      </div>
-    </div>
-   </div>
-  </>    
+      <>
+       <Loader />
+       <Search />
+       <div className="service">
+        <div className="service__inner">
+          <div className="service__list list-service">
+            <ul className="list-service__list">
+             { renderCategories() }    
+            </ul>
+          </div>
+          <ServicesRight />
+        </div>
+       </div>
+      </>    
   )
 }
 

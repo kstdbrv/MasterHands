@@ -16,17 +16,13 @@ let initialState = Object.freeze({
 const servicesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_SUPERCATEGORIES:
-      return Object.assign({}, state, { supercategories: action.supercategories }
-      );
+      return Object.assign({}, state, { supercategories: action.supercategories });
     case FETCH_СATEGORIES:
-      return Object.assign({}, state, { categories: action.categories }
-      );
+      return Object.assign({}, state, { categories: action.categories });
     case FETCH_SERVICES:
-      return Object.assign({}, state, { services: action.services }
-      ); 
+      return Object.assign({}, state, { services: action.services }); 
     case FETCH_SERVICE:
-      return Object.assign({}, state, { service: action.service }
-      ); 
+      return Object.assign({}, state, { service: action.service }); 
     default:
       return state
   }
