@@ -5,10 +5,11 @@ import './subcategories.scss'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
+import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
 const categoryService = new CategoriesService()
 
-const Subcategories = (props) => {
+const Subcategories = () => {
 
   const [state, setState] = useState({
     categories: [],
@@ -30,16 +31,18 @@ const Subcategories = (props) => {
     return (
       <>
         <Breadcrumbs
-          /* categoryName={state.categories.category_name} */
+          /* categoryName={state.categories.category_name}  электрика */
         />
-       <div>{state.categories.category_name}</div>
-       <ul>
+       <ul className="subcategories__list">
         {
           state.categories.subcategory.map(s => {
             return (
-              <Link to={`/subcategories/${s.id}`} key={s.id}>
-                <li>{s.subcategory_name}</li>
-              </Link>  
+            <li key={s.id}>  
+              <Link to={`/subcategories/${s.id}`} className="subcategories__item">
+                {s.subcategory_name}
+                <ArrowLink />
+              </Link>
+            </li>
             )
           })
         }

@@ -5,25 +5,38 @@ import './breadcrumbs.scss'
 const Breadcrumbs = (props) => {
   return (
     <div className="breadcrumbs">
-      <div className="container">
         <ul className="breadcrumbs__list">
           <li className="breadcrumbs__list-item">
             <Link to="/categories-grid">
               Услуги
             </Link>
+          </li>
+          {
+           props.categoryName ?
+          <li className="breadcrumbs__list-item">
             <Link to="#">
               {props.categoryName}
             </Link>
+          </li> : null
+          }
+          {
+          props.subcategoryName ?
+          <li className="breadcrumbs__list-item">
             <Link to="#">
               {props.subcategoryName}
             </Link>
-            <Link to="#">
-              {props.serviceName}
-            </Link>
-          </li>  
+          </li> : null
+          }
+          {
+            props.serviceName ? 
+            <li className="breadcrumbs__list-item">
+              <Link to="#">
+                {props.serviceName}
+              </Link>
+            </li> : null  
+          }
         </ul>
       </div>
-    </div>  
   )
 }
 

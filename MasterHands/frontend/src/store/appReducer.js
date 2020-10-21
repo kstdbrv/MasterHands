@@ -1,7 +1,7 @@
 import { HIDE_LOADER, SHOW_LOADER } from './types'
 
 let initialState = Object.freeze({
-  isLoading: false,
+  isLoading: false
 })
 
 const appReducer = (state = initialState, action) => {
