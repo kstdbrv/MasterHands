@@ -47,7 +47,7 @@ const Categories = (props) => {
                  <Link
                    to={`/categories/${c.id}`}> 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}                                         
-                 <span> услуг{/* { if((q%2=0)){} } */} ❯</span>
+                 <span><span>услуг</span>{/* { if((q%2=0)){} } */}❯</span>
                 </Link>
               </li>
              ))

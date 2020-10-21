@@ -14,7 +14,7 @@ export const Search = () => {
       Например, &nbsp;
       <Link to="/"> починить окно, </Link>&nbsp;
       <Link to="/">ремонт стиральной машины </Link>&nbsp;
-      и еще
+      и еще 
       <Link to="/"> 604 услуги</Link>
     </p>
    </section>

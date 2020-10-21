@@ -13,20 +13,41 @@
     border:10px solid #0052B0;
     border-right-width:21px;
     border-left-width:16px;
+    @media (max-width:425px) {
+      margin-top: 130px;
+      height: 38px;
+      border-radius: 6px 6px;
+    }
     &::before {
      position: absolute;
      content: url('../../assets/images/master_hand.svg');
      top: -38px;
      left: -22px;
      z-index: 8;
+     @media (max-width:425px) {
+      position: absolute;
+      content: url('../../assets/images/hand_body.svg');
+      top: -22px;
+      left: -22px;
+      z-index: 8;
     }
-    &::after {
+    }
+    &::after {    
       position: absolute;
       content: url('../../assets/images/master.svg');
       top: -160px;
       left: 10px;
       z-index: -1;
+      @media (max-width:425px) {
+        position: absolute;
+        content: url('../../assets/images/body.svg');
+        top: -98px;
+        left: -2px;
+        z-index: -1;
+      }
     }
+   
+    
   }
 
   &__input {
@@ -36,10 +57,18 @@
     outline: none;
     border: none;
     width: 735px;
+    @media (max-width:425px) {
+        font-size: 60%;
+        padding-left: 19px;
+    }
     &::placeholder{
      font-size: 20px;
      color: #6A6A6A;
      background:#fff;
+     @media (max-width:425px) {
+        font-size: 12px;
+        margin: 0 auto;
+      }
     }
   }
 
@@ -52,6 +81,9 @@
     cursor: pointer;
     outline: none;
     border: none;
+    @media (max-width:425px) {
+      background-size: 15px;
+    }
   }
   
   &__bg {
@@ -64,6 +96,11 @@
     left: 7px;
     margin-right: 18px;
     z-index: 5;
+    @media (max-width:425px) {
+        border-radius: 4px;
+        height: 44px;
+        margin-right: 14px;
+    }
   }
 
   &__text {
@@ -72,9 +109,17 @@
     max-width: 660px;
     margin-left: 200px;
     margin-bottom: 50px;
+    @media (max-width:425px) {
+      margin-left: 0px;
+      font-size: 12px;
+      margin-bottom: 0px;
+    }
     a {
       font-size: 20px;
       color: #269FE3;
+      @media (max-width:425px) {
+        font-size: 12px;
+      }
     }
   }
 }

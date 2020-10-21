@@ -4,6 +4,9 @@ footer{
   background: #0052B0;
   height: 498px;
   margin-top: 120px; 
+  @media (max-width: 425px) {
+    margin-top: 80px;
+  }
 }
 
 
