@@ -36,8 +36,8 @@
 
 .become-master{
   bottom: 0;
-  @media (max-width: 768px) {
-      margin-top: 50px;
+  @media (max-width: 1024px) {
+      margin-top: 60px;
   }
 }
 
@@ -45,10 +45,17 @@
   font-size: 24px;
   display: block;
   margin-bottom: 20px;
+  @media (max-width: 425px) {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .become-master button{
   margin-bottom: 120px;
+  @media (max-width: 425px) {
+    margin-bottom: 0;
+  }
 }
 
 .become-master__task{
@@ -58,7 +65,7 @@
 }
 .no-panic{
   display: inline-block;
- margin: 10px 0;
+  margin: 10px 0;
 }
 
 .become-master__title{
@@ -73,4 +80,13 @@
   font-size: 20px;
   color: #6A6A6A;
   text-decoration: none;
+}
+
+@media (max-width: 425px) {
+  .become-master .no-panic,
+  .become-master__task,
+  .become-master__title,
+  .text, .become-master__more a{
+    display: none;
+  }
 }

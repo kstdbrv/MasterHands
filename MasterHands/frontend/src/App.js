@@ -9,6 +9,8 @@ import Service from './containers/service/Service'
 import CategoriesGrid from './containers/categories-grid/CategoriesGrid'
 import Subcategories from './containers/subcategories/Subcategories'
 import Services from './containers/services/Services'
+import BecomeMaster from './components/become-master/BecomeMaster'
+import Contacts from './components/contacts/Contacts'
 
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/services/:id" component={Service} />
           <Route path="/documents" component={Documents} />
           <Route path="/documentsCondition" component={DocumentsCondition} />
+          <Route path="/become-master" component={BecomeMaster} />
+          <Route path="/contacts" component={Contacts} />
         </Switch>
       </Layout>
   )

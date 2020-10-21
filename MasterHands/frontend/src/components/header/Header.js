@@ -14,7 +14,9 @@ export const Header = () => (
           <path d="M40.5392 19.4036V34.6369C40.5721 35.5653 40.242 36.47 39.619 37.1592C39.3163 37.4837 38.9477 37.7397 38.5379 37.9101C38.1281 38.0805 37.6866 38.1612 37.243 38.1469C36.8013 38.1544 36.3633 38.0664 35.9588 37.889C35.5543 37.7115 35.1929 37.4487 34.8994 37.1186C34.2638 36.417 33.9243 35.4966 33.9522 34.5504L33.9982 25.4629L39.094 16.4809C39.2409 16.5731 39.3787 16.6791 39.5054 16.7975C40.1928 17.4227 40.5392 18.2941 40.5392 19.4036Z" fill="white"/>
           <path d="M21.0084 34.5504C21.0356 35.4995 20.6897 36.4215 20.0449 37.1186C19.7447 37.4482 19.3778 37.7103 18.9687 37.8876C18.5595 38.0649 18.1174 38.1532 17.6716 38.1469C17.2307 38.1562 16.7929 38.0709 16.3877 37.8967C15.9825 37.7226 15.6193 37.4637 15.3226 37.1375C14.6938 36.4592 14.3557 35.5615 14.3808 34.6369V20.0666C14.3808 18.8037 14.748 17.7862 15.4822 17.014C15.7506 16.7241 16.0674 16.4832 16.4186 16.3023L20.9623 25.5034L21.0084 34.5504Z" fill="white"/>
           <path d="M27.5493 27.1651L24.9161 32.5207L20.9623 25.5007L16.4186 16.2996C17.0232 15.9892 17.6957 15.8347 18.3752 15.8504C19.6011 15.8504 20.5862 16.0912 21.3141 16.5756C22.0421 17.06 22.7972 18.0586 23.609 19.5876L24.4209 21.1221L26.7022 25.5089L27.5493 27.1651Z" fill="white"/>
-          </svg></span>
+          </svg>
+          
+          </span>
         </Link>
         <Link to="/"><span>Мастер на все руки</span></Link>
     </div>
@@ -33,7 +35,7 @@ export const Header = () => (
 
                           <li className="item_li"><Link to="#">О нас</Link></li>
                           <li className="item_li"><Link to="/documents">Документация</Link></li>
-                          <li className="item_li"><Link to="#">Контакты</Link></li>
+                          <li className="item_li"><Link to="/contacts">Контакты</Link></li>
                       </ul>
               </li>
               <li>
@@ -42,7 +44,7 @@ export const Header = () => (
                       <span className="span_item">Мастеру</span></label>
                       <ul className="item_ul">
                           <li className="item_li"><Link to="#">Личный кабинет</Link></li>
-                          <li className="item_li"><Link to="#">Стать мастером</Link></li>
+                          <li className="item_li"><Link to="/become-master">Стать мастером</Link></li>
                       </ul>
               </li>
       </ul>
@@ -54,13 +56,13 @@ export const Header = () => (
             <ul className="submenu">
               <li><Link to="#">О сервисе</Link></li>
               <li><Link to="/documents">Документация</Link></li>
-              <li><Link to="#">Контакты</Link></li>
+              <li><Link to="/contacts">Контакты</Link></li>
             </ul>
           </li>
           <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
             <ul className="submenu">
               <li><Link to="#">Личный кабинет</Link></li>
-              <li><Link to="#">Стать мастером</Link></li>
+              <li><Link to="/become-master">Стать мастером</Link></li>
             </ul>
           </li>
         </ul>
