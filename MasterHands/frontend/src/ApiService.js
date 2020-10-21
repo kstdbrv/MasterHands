@@ -8,10 +8,10 @@ export default class CategoriesService{
         return axios.get(url).then(response => response.date);
     }
 
-    getSuperCategories() {
+/*     getSuperCategories() {
         const url = `${API_URL}/api/supercategories/`;
         return axios.get(url).then(response => response.data);
-    }
+    } */
 
     getCategoriesByURL(link){
         const url = `${API_URL}/api${link}`;
@@ -23,7 +23,7 @@ export default class CategoriesService{
         return axios.get(url).then(response => response.data);
     }
 
-    deleteCategory(category){
+/*     deleteCategory(category){
         const url = `${API_URL}/api/categories/${category.id}`;
         return axios.delete(url);
     }
@@ -36,6 +36,6 @@ export default class CategoriesService{
     updateCategory(category){
         const url = `${API_URL}/api/categories/${category.id}`;
         return axios.put(url,category);
-    }
+    } */
 };
 
