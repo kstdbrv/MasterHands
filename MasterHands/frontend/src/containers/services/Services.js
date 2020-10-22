@@ -22,7 +22,7 @@ const Services = () => {
 
     return (
     <>
-      <Loader />  
+      <Loader />   
       <Breadcrumbs
 /*         categoryName={}
         subcategoryName={state.subcategories.subcategory_name}  */ 
