@@ -1,10 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './header.scss'
+import { useEffect } from 'react' 
 
-export const Header = () => (
 
-  <header className="header">
+export const Header = () => {
+
+ 
+  useEffect(() => {
+    var body  = document.querySelector("body");
+    var menu  = document.getElementById("menu__toggle");
+    var burg  = document.querySelector(".menu__btn span");
+    let link  = document.querySelector(".menu__item");
+    
+    menu.addEventListener('change', () => {
+        if(menu.checked){
+            body.style.overflow = "hidden";
+        } else {
+            body.style.overflow = "";
+        }
+    })
+
+    document.addEventListener('scroll', () =>{
+        if ( window.scrollY > 60){
+                 burg.style.background = "#0F0F0F";
+             } else {
+                burg.style.background = "white";
+             }
+    })
+       
+}, [])
+
+  return(
+    <header className="header">
     <div className="container">
     <div className="header__inner">
     <div className="header__logo">
@@ -61,7 +89,7 @@ export const Header = () => (
           </li>
           <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
             <ul className="submenu">
-              <li><Link to="#">Личный кабинет</Link></li>
+              <li><Link to="/auth">Личный кабинет</Link></li>
               <li><Link to="/become-master">Стать мастером</Link></li>
             </ul>
           </li>
@@ -70,5 +98,6 @@ export const Header = () => (
       </div>
       </div>
     </header>
-)
+  )
+}
 

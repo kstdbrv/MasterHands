@@ -7,7 +7,7 @@ $mainColor               : #0052B0;
 $mainFontSize            : 20px;
 
 //FONTS
-%Rubik-Medium {
+%Rubik-Medium { //mainFont
   font-family: 'Rubik-Medium', sans-serif;
   font-weight: 500;
 }
@@ -17,14 +17,9 @@ $mainFontSize            : 20px;
   font-weight: 400;
 }
 
-%Rubik-Bold {
-  font-family: 'Rubik-Bold', sans-serif;
-  font-weight: 700;
-}
-
 
 body {
-  @extend %Rubik-Regular;
+  @extend %Rubik-Regular !optional;
   font-size: $mainFontSize;
   color: $mainFontColor;
   width: 100%;
@@ -79,17 +74,4 @@ ul, li {
   font-style: normal;
   font-display: swap;
 }
-
-@font-face {
-  font-family: 'Rubik-Bold';
-  src: url("./assets/fonts/Rubik-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
-
-
 
