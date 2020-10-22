@@ -16,7 +16,7 @@ export function fetchSupercategories() {
       dispatch(showLoader());
 
       const url = `${API_URL}/api/supercategories/`;
-      const response = await axios.get(url, {cancelToken: source.token});
+      const response = await axios.get(url);
          
       dispatch({
         type: FETCH_SUPERCATEGORIES,
@@ -25,16 +25,12 @@ export function fetchSupercategories() {
 
       dispatch(hideLoader());
         
-    } catch(thrown) {
-      if (axios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message);
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+    } catch (err) {
+      if (axios.isCancel(err)) {
+       return "axios request cancelled";
       }
-    }
+     return err;
+     }
   }
 }
 
@@ -56,8 +52,8 @@ export function fetchСategories(id) {
         
     } catch (e) {
       console.log(e)
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
+      dispatch(hideLoader()) */
     }
   }
 }
