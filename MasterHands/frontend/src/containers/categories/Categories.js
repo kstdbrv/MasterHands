@@ -17,13 +17,13 @@ const Categories = () => {
   const categories = useSelector(state => state.services.categories);
 
   useEffect(() => {
-    if (supercategories.length === 0) {
+    if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
   }, [])
 
   const getCategories = id => {
-    if (categories.subcategory.length === 0) {
+    if (!categories.subcategory.length) {
       dispatch(fetchСategories(id))
     }
   }

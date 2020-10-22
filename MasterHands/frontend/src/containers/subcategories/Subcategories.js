@@ -24,7 +24,7 @@ const Subcategories = (props) => {
   function getServices(id) {
     setServicesId({servicesId: id})
     console.log(id)
-    if (services.services.length/*  && nextProps.id !== prevProps.id */) {
+    if (!services.services.length/*  && nextProps.id !== prevProps.id */) {
       dispatch(fetchServices(`/subcategories/${id}`))
     }
   }
@@ -32,7 +32,7 @@ const Subcategories = (props) => {
   useMemo(() => (
     () => (
       console.log('memo works'),
-      getServices(props.match.params.id) 
+      getServices(props.match.params.id)
     )
   ),[servicesId])
     
