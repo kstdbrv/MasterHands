@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './documents-condition.scss'
 
 export default function DocumentsCondition() {
@@ -79,8 +78,8 @@ export default function DocumentsCondition() {
            </div>
            <div className="condition__right">
                 <div className="condition__right-link">
-                    <Link to="#area">Область применения (предмет, принятие, изменение)</Link> <br/>
-                    <Link to="#reg">Регистрация Пользователя. Учётная запись Пользователя.</Link>
+                    <a href="#area">Область применения (предмет, принятие, изменение)</a> <br/>
+                    <a href="#reg">Регистрация Пользователя. Учётная запись Пользователя.</a>
                 </div>              
            </div>
         </div>
