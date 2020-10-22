@@ -44,7 +44,7 @@ const Categories = () => {
                 </p>
                 <Link
                   to={`/categories/${c.id}`}
-                   onClick={ () => { getCategories(c.id) } }
+                  onClick={ () => { getCategories(c.id) } }
                 > 
                  <span>{ c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}                                         
                  <span><span>услуг</span>{/* { if((q%2=0)){} } */}❯</span>
