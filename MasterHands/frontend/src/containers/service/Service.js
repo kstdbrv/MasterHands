@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './service.scss'
 import { useSelector } from 'react-redux'
+import ServiceBody from '../../components/service-body/ServiceBody'
 
 
 const Service = () => {
@@ -17,8 +18,7 @@ const Service = () => {
         subcategoryName={service.subcategory}
         serviceName={service.service_name}
       />
-      <p>{service.service_name}</p>
-      <p>{service.price}</p>
+      <ServiceBody price={service.price} />
     </>
   )
 }
