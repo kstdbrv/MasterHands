@@ -69,8 +69,8 @@ const Categories = () => {
     <>
       <Loader />
       <Search />
-      <div className="service">
-        <div className="service__inner">
+      <section className="categories">
+        <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
               {renderCategories()}
@@ -78,7 +78,7 @@ const Categories = () => {
           </div>
           <ServicesRight />
         </div>
-      </div>
+      </section>
     </>
   )
 }
