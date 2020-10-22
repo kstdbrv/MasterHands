@@ -1,18 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
-import { Loader } from '../../components/loader/Loader'
-import './Services.scss'
-import { fetchService } from '../../store/actions'
-import { useSelector, useDispatch } from 'react-redux'
-import ServicesText from '../../components/services-text/ServicesText'
-
-
-const Services = () => {
-
-  const dispatch = useDispatch();
-  const subcategories = useSelector(state => state.services.services);
-  const service = useSelector(state => state.services.service);
 
   const getService = id => {
     if (service.length === 0) {
@@ -22,7 +7,7 @@ const Services = () => {
 
     return (
     <>
-      <Loader />  
+      <Loader />   
       <Breadcrumbs
 /*         categoryName={}
         subcategoryName={state.subcategories.subcategory_name}  */ 
@@ -46,8 +31,6 @@ const Services = () => {
       </div>
       <ServicesText />  
     </>
-    )
-  
-}
+  )
 
 export default Services

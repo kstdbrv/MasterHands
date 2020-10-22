@@ -1,21 +1,21 @@
- .services {
-   &__list {
-    background: #F4F4F4;
-    border-radius: 10px;
-    padding: 26px 110px;
-   }
-   &__item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 60px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-      p {
-      font-size: 24px;
+.services {
+  &__list {
+   background: #F4F4F4;
+   border-radius: 10px;
+   padding: 26px 90px 26px 110px;
+  }
+  &__item {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 60px;
+     &:last-child {
+       margin-bottom: 0;
      }
-    &__price {
-     
+     p {
+     font-size: 24px;
     }
-   }
- }
+  }
+  &__price {
+    width: 90px;
+  }
+}
