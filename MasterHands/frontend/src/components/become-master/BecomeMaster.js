@@ -3,8 +3,24 @@ import './become-master.scss'
 import { Link } from 'react-router-dom'
 import Master from '../../assets/images/master.png'
 import Phone from '../../assets/images/phone.png'
+import { useEffect } from 'react' 
 
 export default function BecomeMaster() {
+
+    useEffect(() => {
+        var show  = document.getElementById("show-more");
+        var arrow = document.getElementById("show-more");
+      
+        show.addEventListener('click', function(e){
+            var visible = document.querySelectorAll(".speciality__works .visible");
+            arrow.classList.toggle('show-more__active');
+            visible.forEach(function(v) {
+                v.style.display = v.style.display === 'block' ? 'none' : 'block';
+            });
+           
+        })
+    }, [])
+
     return (
         <div className="container-fixed">
             <h1>Стать мастером</h1>

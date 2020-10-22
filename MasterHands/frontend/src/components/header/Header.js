@@ -10,8 +10,8 @@ export const Header = () => {
     var body  = document.querySelector("body");
     var menu  = document.getElementById("menu__toggle");
     var burg  = document.querySelector(".menu__btn span");
-    var show  = document.getElementById("show-more");
-    var arrow = document.getElementById("show-more");
+    let link  = document.querySelector(".menu__item");
+    console.log(link)
     
     menu.addEventListener('change', () => {
         if(menu.checked){
@@ -28,15 +28,7 @@ export const Header = () => {
                 burg.style.background = "white";
              }
     })
-
-    show.addEventListener('click', function(e){
-        var visible = document.querySelectorAll(".speciality__works .visible");
-        arrow.classList.toggle('show-more__active');
-        visible.forEach(function(v) {
-            v.style.display = v.style.display === 'block' ? 'none' : 'block';
-        });
        
-    })
 }, [])
 
   return(
