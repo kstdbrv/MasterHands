@@ -6,20 +6,36 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchServices } from '../../store/actions'
+import { useMemo } from 'react'
 
 
-const Subcategories = () => {
+
+
+
+
+const Subcategories = (props) => {
+
+  const [servicesId, setServicesId] = useState({})
 
   const dispatch = useDispatch();
   const categories = useSelector(state => state.services.categories);
   const services = useSelector(state => state.services.services);
 
-  const getServices = id => {
-    if (services.services.length === 0) {
+  function getServices(id) {
+    setServicesId({servicesId: id})
+    console.log(id)
+    if (services.services.length/*  && nextProps.id !== prevProps.id */) {
       dispatch(fetchServices(`/subcategories/${id}`))
     }
   }
-  
+
+  useMemo(() => (
+    () => (
+      console.log('memo works'),
+      getServices(props.match.params.id) 
+    )
+  ),[servicesId])
+    
   return (
     <>
       <Loader />
