@@ -12,13 +12,14 @@
   background: #FFFFFF;
   border: 1px solid #0F0F0F;
   box-sizing: border-box;
-  border-radius: 5px;
-  transition: all .3s;
+  border-radius: 10px;
   background: transparent;
+  transition: all .3s;
   &:hover {
     border: none;
     background: #0052B0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
     color: #FFFFFF;
   }
   &:active {
