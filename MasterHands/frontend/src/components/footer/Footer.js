@@ -70,7 +70,7 @@ export const Footer = () => (
            </li>
            <li className="footer__right-menu-item"><Link to="/" className="down">Мастеру</Link>
              <ul>
-               <li><Link to="/">Личный кабинет</Link></li>
+               <li><Link to="/auth">Личный кабинет</Link></li>
                <li><Link to="/">Стать мастером</Link></li>
              </ul>
            </li>

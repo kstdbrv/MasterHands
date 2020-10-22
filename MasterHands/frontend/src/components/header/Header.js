@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './header.scss'
 import { useEffect } from 'react' 
 
+
 export const Header = () => {
 
  
@@ -11,7 +12,6 @@ export const Header = () => {
     var menu  = document.getElementById("menu__toggle");
     var burg  = document.querySelector(".menu__btn span");
     let link  = document.querySelector(".menu__item");
-    console.log(link)
     
     menu.addEventListener('change', () => {
         if(menu.checked){
@@ -89,7 +89,7 @@ export const Header = () => {
           </li>
           <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
             <ul className="submenu">
-              <li><Link to="#">Личный кабинет</Link></li>
+              <li><Link to="/auth">Личный кабинет</Link></li>
               <li><Link to="/become-master">Стать мастером</Link></li>
             </ul>
           </li>
