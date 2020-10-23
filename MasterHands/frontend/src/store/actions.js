@@ -69,12 +69,13 @@ export function fetchСategories(id) {
 }
 
 export function fetchServices(link) {
-
-  useMemo(() => (
-    
-  ),[])
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const prevLink = getState().link;
+    console.log(prevLink)
+    if (prevLink === link) return;
+
     try {
       dispatch(showLoader());
 
@@ -141,3 +142,21 @@ export function hideLoader() {
     type: HIDE_LOADER
   }
 }
+
+
+/* const [servicesId, setServicesId] = useState({})
+
+const services = useSelector(state => state.services.services);
+
+function getServices(id) {
+  setServicesId({servicesId: id})
+  console.log(id) */
+  //if (services.services.length/*  && nextProps.id !== prevProps.id */) {
+/*     dispatch(fetchServices(`/subcategories/${id}`))
+  }
+}
+
+useMemo(() => (
+    console.log('memo works'),
+    getServices(props.match.params.id) 
+),[servicesId]) */

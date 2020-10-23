@@ -14,8 +14,8 @@ import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 const Categories = () => {
 
   const dispatch = useDispatch();
-  const supercategories = useSelector(state => state.services.supercategories);
-  const categories = useSelector(state => state.services.categories);
+  const supercategories = useSelector(state => state.supercategories);
+  const categories = useSelector(state => state.categories);
 
   useEffect(() => {
     if (!supercategories.length) {
@@ -24,7 +24,7 @@ const Categories = () => {
   }, [])
 
   const getCategories = id => {
-    if (!categories.subcategory.length) {
+    if (!categories.length) {
       dispatch(fetchСategories(id))
     }
   }
@@ -53,7 +53,7 @@ const Categories = () => {
               >
                 <p>
                   <img src={lamp} alt="иконка" />
-                  <span>{c.category_name}</span>
+                  <span className="list-service__name">{c.category_name}</span>
                 </p>
                 <p>
                   <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}

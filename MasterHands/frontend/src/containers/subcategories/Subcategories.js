@@ -8,24 +8,11 @@ import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchServices } from '../../store/actions'
 
- //function getServices(id) {
-  // setServicesId({ servicesId: id });
-
-  // if (!services.services.length/*  && nextProps.id !== prevProps.id */) {
-   //  dispatch(fetchServices(`/subcategories/${id}`));
-   //}
- //}
-
-const Subcategories = (props) => {
-
-  // const [servicesId, setServicesId] = useState({});
+const Subcategories = () => {
 
   const dispatch = useDispatch();
-
-  const categories = useSelector(state => state.services.categories);
-  const services = useSelector(state => state.services.services);
-
-    
+  const categories = useSelector(state => state.categories);
+   console.log(categories)
   return (
     <>
       <Loader />
