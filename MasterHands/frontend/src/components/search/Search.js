@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './search.scss'
+import './Search.scss'
 
 export const Search = () => {
   return (

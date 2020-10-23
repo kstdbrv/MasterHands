@@ -1,4 +1,4 @@
-@import '../../index.scss';
+//@import '../../index.scss';
 
 .service {
   background: #F4F4F4;
@@ -48,7 +48,7 @@
   &__price {
     display: flex;
     font-size: 48px;
-    @extend %Rubik-Bold;
+   // @extend %Rubik-Bold;
     margin-bottom: 10px;
     @media (max-width:580px) {
       font-size: 32px;
@@ -79,7 +79,7 @@
 }
 .button-blue {
   margin-right: 61px;
-  background-color:$mainColor;
+  //background-color:$mainColor;
   color: #fff;
   border: none;
   &:hover{

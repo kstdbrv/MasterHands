@@ -1,4 +1,4 @@
-@import "../../index.scss";
+//@import "../../index.scss";
 
 .Auth {
   background-color: #f4f4f4;
@@ -25,7 +25,7 @@
     }
   }
   & h2 {
-    @extend %Rubik-Medium;
+    //@extend %Rubik-Medium;
     text-align: center;
     font-size: 32px;
     line-height: 38px;
@@ -59,7 +59,7 @@
 }
 
 .Auth__btn-active {
-  @extend %Rubik-Regular;
+ // @extend %Rubik-Regular;
   font-size: 24px;
   line-height: 28px;
   padding: 8px 54px 8px 54px;
@@ -92,7 +92,7 @@
 }
 
 .Auth__btn-inactive {
-  @extend %Rubik-Regular;
+ // @extend %Rubik-Regular;
   color: #797979;
   font-size: 24px;
   line-height: 28px;
