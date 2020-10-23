@@ -1,8 +1,16 @@
 .services {
+  display: flex;
+  flex-direction: column;
   &__list {
    background: #F4F4F4;
    border-radius: 10px;
    padding: 26px 90px 26px 110px;
+   @media (max-width:950px) {
+    padding: 26px 20px 26px 40px;
+   }
+   @media (max-width:550px) {
+    padding: 18px 5px 18px 20px;
+   }
   }
   &__item {
      display: flex;
@@ -13,9 +21,19 @@
      }
      p {
      font-size: 24px;
+     @media (max-width:550px) {
+      font-size: 20px;
+      width: 170px;
+     }
     }
+    @media (max-width:550px) {
+      margin-bottom: 50px;
+     }
   }
   &__price {
     width: 90px;
+    @media (max-width:550px) {
+      width: 80px;
+    }
   }
 }

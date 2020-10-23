@@ -1,0 +1,28 @@
+.grids {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+  }
+  &__item {
+    background: #F4F4F4;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 420px;
+    height: 180px;
+    padding: 20px 20px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 38px;
+  }
+  &__item-name {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+  &__item-num {
+    font-size: 24px;
+    text-transform: lowercase;
+  }
+}

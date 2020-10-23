@@ -17,9 +17,8 @@
    padding: 60px 28px 86px 29px;
    @media (max-width: 425px) {
     padding: 20px 15px 41px 15px;
+   }
   }
-  }
-    
   &__title {
     margin-bottom: 55px;
     @media (max-width: 425px) {
@@ -37,6 +36,7 @@
       margin-bottom: 30px;
     }
     a {
+      text-transform: lowercase;
       span:last-child{
         margin-right: 10px;
       }
@@ -44,11 +44,7 @@
     @media (max-width: 425px) {
       font-size: 16px;
     }
-    /* padding-left: 110px; */
     margin-bottom: 55px;
-    &:last-child {
-      margin-bottom: 0;
-    }
     p {
       display: flex;
       align-items: center;
@@ -58,6 +54,11 @@
         @media (max-width: 425px) {
          display: none;
         }
+      }
+      svg {
+        margin-left: 10px;
+        width: 11px;
+        height: 17px;
       }
     }
     img {

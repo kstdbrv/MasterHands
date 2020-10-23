@@ -3,6 +3,7 @@ import {
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES
 } from './types'
 import axios from 'axios'
+import { useMemo } from 'react';
 
 const API_URL = 'http://localhost:8000';
 
@@ -10,7 +11,7 @@ const cancelToken = axios.CancelToken;
 const source = cancelToken.source();
 
 export function fetchSupercategories() {
-  
+
   return async dispatch => {
     try {
       dispatch(showLoader());
@@ -45,7 +46,7 @@ export function fetchСategories(id) {
       dispatch(showLoader());
 
       const url = `${API_URL}/api/categories/${id}`;
-      const response = await axios.get(url);
+      const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
         type: FETCH_СATEGORIES,
@@ -54,22 +55,31 @@ export function fetchСategories(id) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
       /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
       dispatch(hideLoader())
+      }
     }
   }
 }
 
 export function fetchServices(link) {
+
+  useMemo(() => (
+    
+  ),[])
   
   return async dispatch => {
     try {
       dispatch(showLoader());
 
       const url = `${API_URL}/api${link}`;
-      const response = await axios.get(url)
+      const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
         type: FETCH_SERVICES,
@@ -78,10 +88,15 @@ export function fetchServices(link) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
-/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
-      dispatch(hideLoader()) */
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader());
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader());
+      }
     }
   }
 }
@@ -93,7 +108,7 @@ export function fetchService(link) {
       dispatch(showLoader());
 
       const url = `${API_URL}/api${link}`;
-      const response = await axios.get(url)
+      const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
         type: FETCH_SERVICE,
@@ -102,10 +117,15 @@ export function fetchService(link) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
-/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
-      dispatch(hideLoader()) */
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+      dispatch(hideLoader())
+      }
     }
   }
 }
