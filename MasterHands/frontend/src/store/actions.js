@@ -3,7 +3,6 @@ import {
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES
 } from './types'
 import axios from 'axios'
-import { useMemo } from 'react';
 
 const API_URL = 'http://localhost:8000';
 
@@ -72,7 +71,7 @@ export function fetchServices(link) {
   
   return async (dispatch, getState) => {
 
-    const prevLink = getState().link;
+    const prevLink = getState().app.link;
     console.log(prevLink)
     if (prevLink === link) return;
 
@@ -142,6 +141,7 @@ export function hideLoader() {
     type: HIDE_LOADER
   }
 }
+
 
 
 /* const [servicesId, setServicesId] = useState({})

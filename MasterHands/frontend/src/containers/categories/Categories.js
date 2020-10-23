@@ -55,7 +55,7 @@ const Categories = () => {
                   <img src={lamp} alt="иконка" />
                   <span className="list-service__name">{c.category_name}</span>
                 </p>
-                <p>
+                <p className="list-service__num">
                   <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}
                   <span>{serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))}</span>
                   <ArrowLink />

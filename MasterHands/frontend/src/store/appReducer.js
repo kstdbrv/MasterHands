@@ -2,7 +2,7 @@ import { HIDE_LOADER, SHOW_LOADER } from './types'
 
 let initialState = ({
   isLoading: false,
-  link : ''
+  link: ''
 })
 
 const appReducer = (state = initialState, action) => {

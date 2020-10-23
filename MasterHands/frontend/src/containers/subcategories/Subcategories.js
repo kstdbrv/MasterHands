@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Loader } from '../../components/loader/Loader'
 import './subcategories.scss'
 import { Link } from 'react-router-dom'
@@ -12,7 +12,7 @@ const Subcategories = () => {
 
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
-   console.log(categories)
+
   return (
     <>
       <Loader />
@@ -27,7 +27,10 @@ const Subcategories = () => {
               <Link
                 to={`/subcategories/${s.id}`}
                 className="subcategories__item"
-                onClick={() => { dispatch(fetchServices(`/subcategories/${s.id}`)); } }
+                onClick={() => {
+                  dispatch(fetchServices(`/subcategories/${s.id}`));
+                 /*  dispatch(setLink(`/subcategories/${s.id}`)) */
+                }}
               >
               {s.subcategory_name}
               <ArrowLink />
