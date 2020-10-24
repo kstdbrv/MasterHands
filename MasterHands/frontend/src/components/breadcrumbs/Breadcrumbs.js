@@ -1,8 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './breadcrumbs.scss'
 
-const Breadcrumbs = (props) => {
+const Breadcrumbs = ({ serviceName }) => {
+
+  let { category_name } = useSelector(state => state.categories);
+  let { subcategory_name } = useSelector(state => state.services);
+
+  let link = useSelector(state => state.prevlink);
+   
   return (
     <div className="breadcrumbs">
         <ul className="breadcrumbs__list">
@@ -12,27 +19,27 @@ const Breadcrumbs = (props) => {
             </Link>
           </li>
           {
-           props.categoryName ?
+           category_name ?
           <li className="breadcrumbs__list-item">
-            <Link to="#">
-              {props.categoryName}
+            <Link to={ link.categoriesLink }>
+              { category_name }
             </Link>
           </li> : null
           }
           {
-          props.subcategoryName ?
+          subcategory_name ?
           <li className="breadcrumbs__list-item">
-            <Link to="#">
-              {props.subcategoryName}
+            <Link to={ link.servicesLink }>
+              { subcategory_name }
             </Link>
           </li> : null
           }
           {
-            props.serviceName ? 
+            serviceName ? 
             <li className="breadcrumbs__list-item">
-              <Link to="#">
-                {props.serviceName}
-              </Link>
+              <p>
+                { serviceName }
+              </p>
             </li> : null  
           }
         </ul>

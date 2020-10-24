@@ -1,4 +1,4 @@
-import { HIDE_LOADER, SHOW_LOADER } from './types'
+import { HIDE_LOADER, SHOW_LOADER } from '../types'
 
 let initialState = ({
   isLoading: false

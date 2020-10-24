@@ -1,4 +1,4 @@
-import { SET_CATEGORIES_LINK, SET_SERVICES_LINK, SET_SERVICE_LINK } from './types'
+import { SET_CATEGORIES_LINK, SET_SERVICES_LINK, SET_SERVICE_LINK } from '../types'
 
 let initialState = {
   categoriesLink: '',

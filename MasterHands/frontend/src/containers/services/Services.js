@@ -17,10 +17,7 @@ const Services = () => {
     return (
     <>
       <Loader />   
-      <Breadcrumbs
-/*         categoryName={}
-        subcategoryName={state.subcategories.subcategory_name}  */ 
-      />    
+      <Breadcrumbs />    
       <div className="services">
         <div className="services__list">
         {

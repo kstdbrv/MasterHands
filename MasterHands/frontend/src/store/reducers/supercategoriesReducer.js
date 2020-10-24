@@ -1,4 +1,4 @@
-import { FETCH_SUPERCATEGORIES } from './types'
+import { FETCH_SUPERCATEGORIES } from '../types'
 
 let initialState = [];
 

@@ -65,7 +65,9 @@ const CategoriesGrid = () => {
   return (
     <>
       <Loader />
-      <Breadcrumbs />
+      <Breadcrumbs
+       /* subcategoryName= */
+      />
       <section className="grids">
         <ul className="grids__list">
           {renderCategories()}

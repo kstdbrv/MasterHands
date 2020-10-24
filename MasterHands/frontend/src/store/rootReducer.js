@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import appReducer from './appReducer'
-import categoriesReducer from './categoriesReducer'
-import servicesReducer from './servicesReducer'
-import supercategoriesReducer from './supercategoriesReducer'
-import serviceReducer from './serviceReducer'
-import linkReducer from './linkReducer'
+import appReducer from './reducers/appReducer'
+import categoriesReducer from './reducers/categoriesReducer'
+import servicesReducer from './reducers/servicesReducer'
+import supercategoriesReducer from './reducers/supercategoriesReducer'
+import serviceReducer from './reducers/serviceReducer'
+import linkReducer from './reducers/linkReducer'
 
 const rootReducer = combineReducers({
   app: appReducer,

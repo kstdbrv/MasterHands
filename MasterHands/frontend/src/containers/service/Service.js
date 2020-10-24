@@ -13,11 +13,7 @@ const Service = () => {
   return (
     <>
       <Loader />
-      <Breadcrumbs
-        categoryName={service.category}
-        subcategoryName={service.subcategory}
-        serviceName={service.service_name}
-      />
+      <Breadcrumbs serviceName={service.service_name} />
       <ServiceBody price={service.price} />
     </>
   )
