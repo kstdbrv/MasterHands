@@ -2,10 +2,8 @@
   &__list{ 
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: -40px;
-    @media (max-width: 1070px) {
-      justify-content: space-around;
-    }
     @media (max-width: 480px) {
       margin-bottom: 0;
     }

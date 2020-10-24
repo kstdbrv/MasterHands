@@ -11,11 +11,3 @@ const categoriesReducer = (state = initialState, action) => {
 }
 
 export default categoriesReducer;
-
-
-/* let initialState = Object.freeze({
-  supercategories: [],
-  categories: { "subcategory": [] },
-  services: { "services": [] },
-  service: [],
-}); */

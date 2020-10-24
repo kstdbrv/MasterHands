@@ -1,6 +1,6 @@
 import { FETCH_SERVICES } from './types'
 
-let initialState = [];
+let initialState = { "services": [] }
 
 const servicesReducer = (state = initialState, action) => {
   switch (action.type) {

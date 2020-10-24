@@ -2,29 +2,23 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 import './categories-grid.scss'
-import lamp from '../../assets/images/lamp-grid.svg'
+import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions'
 import { fetchСategories } from '../../store/actions'
+import { setCategoriesLink } from '../../store/actions'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 
 const CategoriesGrid = () => {
 
   const dispatch = useDispatch();
-  const supercategories = useSelector(state => state.services.supercategories);
-  const categories = useSelector(state => state.services.categories);
+  const supercategories = useSelector(state => state.supercategories);
 
   useEffect(() => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
   }, [])
-
-  const getCategories = id => {
-    if (!categories.subcategory.length) {
-      dispatch(fetchСategories(id))
-    }
-  }
 
   function serviceEnding(number) {
     const arr = String(number).split("")
@@ -42,9 +36,12 @@ const CategoriesGrid = () => {
             s.category.map(c => (
               <li key={c.id}>
                 <Link
-                  to={`/categories/${c.id}`}
-                  onClick={() => { getCategories(c.id) }}
                   className="grids__item"
+                  to={`/categories/${c.id}`}
+                  onClick={() => {
+                    dispatch(fetchСategories(`/categories/${c.id}`));
+                    dispatch(setCategoriesLink(`/categories/${c.id}`));
+                }}
                 >
                  <p>  
                     <span

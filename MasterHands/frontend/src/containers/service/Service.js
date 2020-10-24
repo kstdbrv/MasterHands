@@ -8,7 +8,7 @@ import ServiceBody from '../../components/service-body/ServiceBody'
 
 const Service = () => {
 
-  const service = useSelector(state => state.services.service)
+  const service = useSelector(state => state.service)
 
   return (
     <>

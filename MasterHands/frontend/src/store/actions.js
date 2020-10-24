@@ -1,6 +1,6 @@
 import {
-  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES
+  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_LINK,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_LINK, SET_SERVICES_LINK
 } from './types'
 import axios from 'axios'
 
@@ -38,13 +38,17 @@ export function fetchSupercategories() {
   }
 }
 
-export function fetchСategories(id) {
+export function fetchСategories(nextlink) {
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const { prevlink } = getState()
+    if (prevlink.categoriesLink === nextlink) return;
+
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api/categories/${id}`;
+      const url = `${API_URL}/api${nextlink}`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -67,18 +71,17 @@ export function fetchСategories(id) {
   }
 }
 
-export function fetchServices(link) {
+export function fetchServices(nextlink) {
   
   return async (dispatch, getState) => {
 
-    const prevLink = getState().app.link;
-    console.log(prevLink)
-    if (prevLink === link) return;
+    const { prevlink } = getState()
+    if (prevlink.servicesLink === nextlink) return;
 
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api${link}`;
+      const url = `${API_URL}/api${nextlink}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -101,13 +104,17 @@ export function fetchServices(link) {
   }
 }
 
-export function fetchService(link) {
+export function fetchService(nextlink) {
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const { prevlink } = getState()
+    if (prevlink.serviceLink === nextlink) return;
+
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api${link}`;
+      const url = `${API_URL}/api${nextlink}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -142,21 +149,23 @@ export function hideLoader() {
   }
 }
 
-
-
-/* const [servicesId, setServicesId] = useState({})
-
-const services = useSelector(state => state.services.services);
-
-function getServices(id) {
-  setServicesId({servicesId: id})
-  console.log(id) */
-  //if (services.services.length/*  && nextProps.id !== prevProps.id */) {
-/*     dispatch(fetchServices(`/subcategories/${id}`))
+export function setCategoriesLink(link) {
+  return {
+    type: SET_CATEGORIES_LINK,
+    categoriesLink: link
   }
 }
 
-useMemo(() => (
-    console.log('memo works'),
-    getServices(props.match.params.id) 
-),[servicesId]) */
+export function setServicesLink(link) {
+  return {
+    type: SET_SERVICES_LINK,
+    servicesLink: link
+  }
+}
+
+export function setServiceLink(link) {
+  return {
+    type: SET_SERVICE_LINK,
+    serviceLink: link
+  }
+}

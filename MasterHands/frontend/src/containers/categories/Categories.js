@@ -7,27 +7,21 @@ import './Categories.scss'
 import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions'
-import { fetchСategories } from '../../store/actions'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
+import { fetchСategories } from '../../store/actions'
+import { setCategoriesLink } from '../../store/actions'
 
 
 const Categories = () => {
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
-  const categories = useSelector(state => state.categories);
 
   useEffect(() => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
   }, [])
-
-  const getCategories = id => {
-    if (!categories.length) {
-      dispatch(fetchСategories(id))
-    }
-  }
 
   function serviceEnding(number) {
     const arr = String(number).split("")
@@ -49,7 +43,10 @@ const Categories = () => {
             <li key={c.id}>
               <Link className="list-service__item"
                 to={`/categories/${c.id}`}
-                onClick={() => { getCategories(c.id) }}
+                  onClick={() => {
+                    dispatch(fetchСategories(`/categories/${c.id}`));
+                    dispatch(setCategoriesLink(`/categories/${c.id}`));
+                }}
               >
                 <p>
                   <img src={lamp} alt="иконка" />
@@ -77,7 +74,7 @@ const Categories = () => {
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
-              {renderCategories()}
+              { renderCategories() }
             </ul>
           </div>
           <ServicesRight />
