@@ -68,12 +68,12 @@ const Categories = () => {
 
   return (
     <>
-      <Loader />
       <Search />
       <section className="categories">
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
+              <Loader />
               { renderCategories() }
             </ul>
           </div>

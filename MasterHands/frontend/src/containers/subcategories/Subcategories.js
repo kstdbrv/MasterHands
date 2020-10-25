@@ -16,11 +16,9 @@ const Subcategories = () => {
 
   return (
     <>
-      <Loader />
-      <Breadcrumbs
-       /* categoryName={categories.category_name}  электрика */
-      />
+      <Breadcrumbs deleteServicesBreadcrmb={ categories.id } />
       <ul className="subcategories__list">
+        <Loader />
       {
        categories.subcategory.map(s => {
           return (

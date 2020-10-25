@@ -12,8 +12,8 @@ const Service = () => {
 
   return (
     <>
-      <Loader />
       <Breadcrumbs serviceName={service.service_name} />
+      <Loader />
       <ServiceBody price={service.price} />
     </>
   )

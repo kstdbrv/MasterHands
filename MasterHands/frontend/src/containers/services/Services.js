@@ -12,16 +12,16 @@ import { setServiceLink } from '../../store/actions'
 const Services = () => {
 
   const dispatch = useDispatch();
-  const subcategories = useSelector(state => state.services);
+  const services = useSelector(state => state.services);
 
     return (
     <>
-      <Loader />   
       <Breadcrumbs />    
       <div className="services">
         <div className="services__list">
+          <Loader />  
         {
-         subcategories.services.map(s => (
+         services.services.map(s => (
           <Link
            to={`/services/${s.id}`} key={s.id}
              onClick={() => {
@@ -30,11 +30,11 @@ const Services = () => {
            }}
            className="services__item"  
           >
-          <p>{s.service_name}</p>
-          <span className="services__price">
-            <span>{s.price}</span>
-            <span> ₽</span> 
-          </span>
+            <p>{s.service_name}</p>
+            <span className="services__price">
+              <span>{s.price}</span>
+              <span> ₽</span> 
+            </span>
           </Link> 
          ))
         }    

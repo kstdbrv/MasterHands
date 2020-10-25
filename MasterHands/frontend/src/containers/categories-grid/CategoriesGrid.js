@@ -64,12 +64,10 @@ const CategoriesGrid = () => {
 
   return (
     <>
-      <Loader />
-      <Breadcrumbs
-       /* subcategoryName= */
-      />
+      <Breadcrumbs deleteNextLinks={ true } />
       <section className="grids">
         <ul className="grids__list">
+          <Loader />
           {renderCategories()}
         </ul>
       </section>
