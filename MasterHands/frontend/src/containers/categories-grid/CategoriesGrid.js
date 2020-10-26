@@ -2,12 +2,13 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 import './categories-grid.scss'
-import lamp from '../../assets/images/lamp.svg'
+import lamp from '../../assets/images/lamp-grid.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions'
 import { fetchСategories } from '../../store/actions'
 import { setCategoriesLink } from '../../store/actions'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
+import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
 const CategoriesGrid = () => {
 
@@ -43,17 +44,20 @@ const CategoriesGrid = () => {
                     dispatch(setCategoriesLink(`/categories/${c.id}`));
                 }}
                 >
-                 <p>  
+                 <p className="grids__item-info">  
                     <span
                       className="grids__item-name"
                     >{c.category_name}</span>
                     <p className="grids__item-num">
-                    <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}
-                    <span> {serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))} ❯</span>
+                     <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}
+                     <span> {serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))}</span>
+                    <ArrowLink />
                     </p>
-                 </p>
-                  <img src={lamp} alt="иконка" />
-                </Link>
+                  </p>
+                  <p className="grids__item-img">
+                    <img src={lamp} alt="иконка" />
+                  </p>
+                </Link> 
               </li>
             ))
           }
