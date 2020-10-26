@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 const ServiceBody = ({price}) => {
   return (
+  <div className="service-main">
     <div className="service">
     <p className="service__text">
       Соберём люстру, повесим на потолок, подключим к 
@@ -40,6 +41,7 @@ const ServiceBody = ({price}) => {
     <button className="button">
       Быстрый заказ
     </button>
+   </div>  
   </div>
   )
 }

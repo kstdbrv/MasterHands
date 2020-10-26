@@ -77,9 +77,11 @@
   margin: 10px 0;
 }
 .become-master__more a{
-  font-size: 20px;
   color: #6A6A6A;
-  text-decoration: none;
+  transition: all .2s;
+}
+.become-master__more a:hover{
+  color: #0F0F0F;
 }
 
 @media (max-width: 425px) {
