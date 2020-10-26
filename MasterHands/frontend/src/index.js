@@ -9,6 +9,10 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import rootReducer from './store/rootReducer'
 import { hydrate } from 'react-dom';
+import * as $ from 'jquery'
+import 'slick-slider'
+
+
 
 const store = createStore(
   rootReducer,

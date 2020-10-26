@@ -26,7 +26,7 @@ export default function Contacts() {
                 </div>
                 <div className="contacts__map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.8154861462467!2d38.972465315414716!3d45.028670979098216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f04fbc902ab9f5%3A0x2b3bdf3f369f2299!2z0JrRgNCw0YHQvdC-0LDRgNC80LXQudGB0LrQsNGPINGD0LsuLCA2NCDQutC-0YDQv9GD0YEgMiwg0JrRgNCw0YHQvdC-0LTQsNGALCDQmtGA0LDRgdC90L7QtNCw0YDRgdC60LjQuSDQutGA0LDQuSwgMzUwMDAw!5e0!3m2!1sru!2sru!4v1601638935982!5m2!1sru!2sru" 
-                    width='100%' height='550px' frameborder={0} style={{border:0}} allowfullscreen={true} aria-hidden={false} tabindex={0}/>
+                    title='seo' width='100%' height='550px' frameborder={0} style={{border:0}} allowfullscreen={true} aria-hidden={false} tabindex={0}/>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ export const Header = () => {
     var menu  = document.getElementById("menu__toggle");
     var burg  = document.querySelector(".menu__btn span");
     let link  = document.querySelector(".menu__item");
-    console.log(link)
+    var links  = document.querySelectorAll(".item_ul");
     
     menu.addEventListener('change', () => {
         if(menu.checked){
@@ -28,6 +28,18 @@ export const Header = () => {
                 burg.style.background = "white";
              }
     })
+
+    link.addEventListener('click', function(e){    
+        menu.checked = false;      
+    })
+
+   
+      links.forEach(function(l) {
+        l.addEventListener('click', function(e){
+        menu.checked = false;  
+    });    
+           
+   })
        
 }, [])
 
@@ -61,7 +73,7 @@ export const Header = () => {
                       <span className="span_item"> О сервисе</span></label>
                       <ul className="item_ul">
 
-                          <li className="item_li"><Link to="#">О нас</Link></li>
+                          <li className="item_li"><Link to="/about">О нас</Link></li>
                           <li className="item_li"><Link to="/documents">Документация</Link></li>
                           <li className="item_li"><Link to="/contacts">Контакты</Link></li>
                       </ul>
@@ -80,9 +92,9 @@ export const Header = () => {
     <nav>
         <ul className="header__menu">
           <li className="header_menu-item"><Link to="/">Услуги</Link></li>
-          <li className="header_menu-item"><Link to="#" className="down">О нас</Link>
+          <li className="header_menu-item"><Link to="#" className="down">О сервисе</Link>
             <ul className="submenu">
-              <li><Link to="#">О сервисе</Link></li>
+              <li><Link to="/about">О нас</Link></li>
               <li><Link to="/documents">Документация</Link></li>
               <li><Link to="/contacts">Контакты</Link></li>
             </ul>
