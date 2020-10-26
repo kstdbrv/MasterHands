@@ -3,22 +3,18 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './service.scss'
 import { useSelector } from 'react-redux'
+import ServiceBody from '../../components/service-body/ServiceBody'
 
 
 const Service = () => {
 
-  const service = useSelector(state => state.services.service)
+  const service = useSelector(state => state.service)
 
   return (
     <>
+      <Breadcrumbs serviceName={service.service_name} />
       <Loader />
-      <Breadcrumbs
-        categoryName={service.category}
-        subcategoryName={service.subcategory}
-        serviceName={service.service_name}
-      />
-      <p>{service.service_name}</p>
-      <p>{service.price}</p>
+      <ServiceBody price={service.price} />
     </>
   )
 }

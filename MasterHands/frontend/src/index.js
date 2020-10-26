@@ -16,9 +16,7 @@ import 'slick-slider'
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
-    applyMiddleware(thunk)     //теперь мы можем диспачить асинхронные события
-  )
+  composeWithDevTools(applyMiddleware(thunk))
 )  
 
 const app = (

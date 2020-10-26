@@ -1,0 +1,73 @@
+.grids {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (max-width:1400px) {
+      justify-content: center;
+    }
+  }
+  &__item {
+    background: #F4F4F4;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 420px;
+    height: 187px;
+    padding: 20px 20px 15px 20px;
+    display: flex;
+    margin-bottom: 38px;
+    @media (max-width:1400px) {
+      margin-right: 10px;
+      margin-left: 10px;
+    } 
+    @media (max-width:480px) {
+      margin-right: 0;
+      margin-left: 0;
+      width: 320px;
+      height: 160px;
+    }
+    @media (max-width:325px) {
+      width: 300px;
+  
+    }
+  }
+  &__item-info {
+    width: 65%;
+  }
+  &__item-img {
+    width: 35%;
+    text-align: right;
+    margin-top: 10px;
+    img{
+      max-width: 100%;
+      @media (max-width:480px) {
+        max-width: 75%;
+      }
+    }
+  }
+  &__item-name {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 15px;
+    @media (max-width:480px) {
+      font-size: 24px;
+    }
+  }
+  &__item-num {
+    font-size: 24px;
+    text-transform: lowercase;
+    svg {
+      margin-left: 15px;
+      width: 11px;
+      height: 17px;
+      @media (max-width:480px) {
+        margin-left: 10px;
+        width: 10px;
+        height: 15px;
+      }
+    }
+    @media (max-width:480px) {
+      font-size: 20px;
+    }
+  }
+}

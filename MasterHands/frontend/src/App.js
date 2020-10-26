@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from './hoc/Layout/Layout'
 import { Route, Switch } from 'react-router-dom'
 import Categories from './containers/categories/Categories'
-import './app.scss'
-import Documents from './components/documents/Documents'
+import './App.scss'
+import Documents from './components/Documents/Documents'
 import DocumentsCondition from './components/documents-condition/DocumentsCondition'
 import Service from './containers/service/Service'
 import CategoriesGrid from './containers/categories-grid/CategoriesGrid'
@@ -12,7 +12,7 @@ import Services from './containers/services/Services'
 import BecomeMaster from './components/become-master/BecomeMaster'
 import Contacts from './components/contacts/Contacts'
 import About from './components/about/About'
-
+import Auth from './containers/auth/auth'
 
 
 const App = () => {
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/become-master" component={BecomeMaster} />
           <Route path="/contacts" component={Contacts} />
           <Route path="/about" component={About} />
+          <Route path="/auth" component={Auth} />
         </Switch>
       </Layout>
   )

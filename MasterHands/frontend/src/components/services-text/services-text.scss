@@ -1,0 +1,13 @@
+.servises__text {
+  max-width: 1080px;
+  color: #6A6A6A;
+  text-align: left;
+  margin-left: 110px;
+  margin-top: 40px;
+  @media (max-width:550px) {
+    order: -1;
+    margin: 0;
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
+}

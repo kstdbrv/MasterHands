@@ -3,7 +3,7 @@ import './contacts.scss'
 
 export default function Contacts() {
     return (
-        <div>
+        <div className="contacts-head">
             <h1>Контакты</h1>
             <div className="contacts">
                 <div className="contacts__content">

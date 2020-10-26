@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './header.scss'
+import './Header.scss'
 import { useEffect } from 'react' 
+
 
 export const Header = () => {
 
@@ -101,7 +102,7 @@ export const Header = () => {
           </li>
           <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
             <ul className="submenu">
-              <li><Link to="#">Личный кабинет</Link></li>
+              <li><Link to="/auth">Личный кабинет</Link></li>
               <li><Link to="/become-master">Стать мастером</Link></li>
             </ul>
           </li>
