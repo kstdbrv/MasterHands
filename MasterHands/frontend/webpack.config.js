@@ -9,7 +9,7 @@ module.exports = {
     filename: "index_bundle.js"
   },
   module: {
-      rules: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -20,14 +20,14 @@ module.exports = {
         use: [miniCss.loader, "css-loader",]
       },
       {
-         test: /\.s[ac]ss$/i,
-         use: [
+        test: /\.s[ac]ss$/i,
+        use: [
           miniCss.loader,
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
           'sass-loader',
-         ]
+        ]
       },
       {
         test: /\.svg$/,
@@ -41,18 +41,18 @@ module.exports = {
         ]
       },
       {
-          test: /\.ttf$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: './font/[hash].[ext]',
-              },
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './font/[hash].[ext]',
             },
-          ]
+          },
+        ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -60,10 +60,10 @@ module.exports = {
         ],
       },
     ]
-   },
-   plugins: [
-      new miniCss({
-         filename: 'style.css',
-      }),
-   ]
+  },
+  plugins: [
+    new miniCss({
+      filename: 'style.css',
+    }),
+  ]
 };
