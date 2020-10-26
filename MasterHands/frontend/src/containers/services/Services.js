@@ -6,45 +6,41 @@ import './Services.scss'
 import { fetchService } from '../../store/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
+import { setServiceLink } from '../../store/actions'
 
 
 const Services = () => {
 
   const dispatch = useDispatch();
-  const subcategories = useSelector(state => state.services.services);
-  const service = useSelector(state => state.services.service);
-
-  const getService = id => {
-    if (service.length === 0) {
-      dispatch(fetchService(`/services/${id}`))
-    }
-  }
+  const services = useSelector(state => state.services);
 
     return (
     <>
-      <Loader />   
-      <Breadcrumbs
-/*         categoryName={}
-        subcategoryName={state.subcategories.subcategory_name}  */ 
-      />    
-      <div className="services__list">
-      {
-       subcategories.services.map(s => (
-        <Link
-         to={`/services/${s.id}`} key={s.id}
-         onClick={() => getService(s.id)}
-         className="services__item"  
-        >
-        <p>{s.service_name}</p>
-        <span className="services__price">
-          <span>{s.price}</span>
-          <span> ₽</span> 
-        </span>
-        </Link> 
-       ))
-      }    
-      </div>
-      <ServicesText />  
+      <Breadcrumbs />    
+      <div className="services">
+        <div className="services__list">
+          <Loader />  
+        {
+         services.services.map(s => (
+          <Link
+           to={`/services/${s.id}`} key={s.id}
+             onClick={() => {
+               dispatch(fetchService(`/services/${s.id}`))
+               dispatch(setServiceLink(`/services/${s.id}`));
+           }}
+           className="services__item"  
+          >
+            <p>{s.service_name}</p>
+            <span className="services__price">
+              <span>{s.price}</span>
+              <span> ₽</span> 
+            </span>
+          </Link> 
+         ))
+        }    
+        </div>
+        <ServicesText />
+      </div>  
     </>
     )
   

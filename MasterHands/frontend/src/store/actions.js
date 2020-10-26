@@ -1,6 +1,6 @@
 import {
-  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES
+  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_LINK,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_LINK, SET_SERVICES_LINK
 } from './types'
 import axios from 'axios'
 
@@ -10,7 +10,7 @@ const cancelToken = axios.CancelToken;
 const source = cancelToken.source();
 
 export function fetchSupercategories() {
-  
+
   return async dispatch => {
     try {
       dispatch(showLoader());
@@ -38,14 +38,18 @@ export function fetchSupercategories() {
   }
 }
 
-export function fetchСategories(id) {
+export function fetchСategories(nextlink) {
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const { prevlink } = getState()
+    if (prevlink.categoriesLink === nextlink) return;
+
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api/categories/${id}`;
-      const response = await axios.get(url);
+      const url = `${API_URL}/api${nextlink}`;
+      const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
         type: FETCH_СATEGORIES,
@@ -54,22 +58,31 @@ export function fetchСategories(id) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
       /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
       dispatch(hideLoader())
+      }
     }
   }
 }
 
-export function fetchServices(link) {
+export function fetchServices(nextlink) {
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const { prevlink } = getState()
+    if (prevlink.servicesLink === nextlink) return;
+
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api${link}`;
-      const response = await axios.get(url)
+      const url = `${API_URL}/api${nextlink}`;
+      const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
         type: FETCH_SERVICES,
@@ -78,22 +91,31 @@ export function fetchServices(link) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
-/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
-      dispatch(hideLoader()) */
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader());
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader());
+      }
     }
   }
 }
 
-export function fetchService(link) {
+export function fetchService(nextlink) {
   
-  return async dispatch => {
+  return async (dispatch, getState) => {
+
+    const { prevlink } = getState()
+    if (prevlink.serviceLink === nextlink) return;
+
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api${link}`;
-      const response = await axios.get(url)
+      const url = `${API_URL}/api${nextlink}`;
+      const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
         type: FETCH_SERVICE,
@@ -102,10 +124,15 @@ export function fetchService(link) {
 
       dispatch(hideLoader());
         
-    } catch (e) {
-      console.log(e)
-/*       dispatch(showAlert('Что-то пошло не так...', 'danger'))
-      dispatch(hideLoader()) */
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+      dispatch(hideLoader())
+      }
     }
   }
 }
@@ -119,5 +146,26 @@ export function showLoader() {
 export function hideLoader() {
   return {
     type: HIDE_LOADER
+  }
+}
+
+export function setCategoriesLink(link) {
+  return {
+    type: SET_CATEGORIES_LINK,
+    categoriesLink: link
+  }
+}
+
+export function setServicesLink(link) {
+  return {
+    type: SET_SERVICES_LINK,
+    servicesLink: link
+  }
+}
+
+export function setServiceLink(link) {
+  return {
+    type: SET_SERVICE_LINK,
+    serviceLink: link
   }
 }
