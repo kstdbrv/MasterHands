@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+
+import React from 'react'
 import { Loader } from '../../components/loader/Loader'
 import './subcategories.scss'
 import { Link } from 'react-router-dom'
@@ -6,42 +7,74 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchServices } from '../../store/actions'
-import { useMemo } from 'react'
+import { setServicesLink } from '../../store/actions'
+
+const Subcategories = () => {
+
+  const dispatch = useDispatch();
+  const categories = useSelector(state => state.categories);
+
+  return (
+    <>
+      <Breadcrumbs deleteServicesBreadcrmb={ categories.id } />
+      <ul className="subcategories__list">
+        <Loader />
+      {
+       categories.subcategory.map(s => {
+          return (
+          <li key={s.id}>  
+              <Link
+                to={`/subcategories/${s.id}`}
+                className="subcategories__item"
+                onClick={() => {
+                  dispatch(fetchServices(`/subcategories/${s.id}`));
+                  dispatch(setServicesLink(`/subcategories/${s.id}`));
+                }}
+              >
+              {s.subcategory_name}
+              <ArrowLink />
+            </Link>
+          </li>
+          )
+        })
+      }
+      </ul>
+    </>
+  )
+}
+
+export default Subcategories;
 
 
 
 
 
+/* import React from 'react'
+import { Loader } from '../../components/loader/Loader'
+import './subcategories.scss'
+import { Link } from 'react-router-dom'
+import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
+import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchServices } from '../../store/actions'
 
-const Subcategories = (props) => {
 
-  const [servicesId, setServicesId] = useState({})
+const Subcategories = () => {
 
   const dispatch = useDispatch();
   const categories = useSelector(state => state.services.categories);
   const services = useSelector(state => state.services.services);
 
-  function getServices(id) {
-    setServicesId({servicesId: id})
-    console.log(id)
-    if (services.services.length/*  && nextProps.id !== prevProps.id */) {
+  const getServices = id => {
+    if (services.services.length === 0) {
       dispatch(fetchServices(`/subcategories/${id}`))
     }
   }
-
-  useMemo(() => (
-    () => (
-      console.log('memo works'),
-      getServices(props.match.params.id) 
-    )
-  ),[servicesId])
-    
+  
   return (
     <>
       <Loader />
-      <Breadcrumbs
-       /* categoryName={categories.category_name}  электрика */
-      />
+      <Breadcrumbs />
       <ul className="subcategories__list">
       {
        categories.subcategory.map(s => {
@@ -66,4 +99,4 @@ const Subcategories = (props) => {
 
 
 
-export default Subcategories;
+export default Subcategories; */

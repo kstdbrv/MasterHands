@@ -21,8 +21,17 @@ $mainFontSize            : 20px;
   font-family: 'Rubik-Bold', sans-serif;
   font-weight: 700;
 }
+// убрать видимый горизонтальный скролл
+html {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
+}
 
-
+::-webkit-scrollbar { /* chrome based */
+  width: 0px;  /* ширина scrollbar'a */
+  background: transparent;  /* опционально */
+}
+//
 body {
   @extend %Rubik-Regular;
   font-size: $mainFontSize;
@@ -58,8 +67,8 @@ ul, li {
 }
 
 .container {
-  max-width: 1320px; // задается всему макету
-  padding: 0 10px;  // для отступов, чтобы не прилипал контент
+  max-width: 1340px; // задается всему макету
+  padding: 0 20px;  // для отступов, чтобы не прилипал контент
   margin: 0 auto;   // центрирование 
 }
 

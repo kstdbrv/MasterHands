@@ -8,16 +8,12 @@ import ServiceBody from '../../components/service-body/ServiceBody'
 
 const Service = () => {
 
-  const service = useSelector(state => state.services.service)
+  const service = useSelector(state => state.service)
 
   return (
     <>
+      <Breadcrumbs serviceName={service.service_name} />
       <Loader />
-      <Breadcrumbs
-        categoryName={service.category}
-        subcategoryName={service.subcategory}
-        serviceName={service.service_name}
-      />
       <ServiceBody price={service.price} />
     </>
   )

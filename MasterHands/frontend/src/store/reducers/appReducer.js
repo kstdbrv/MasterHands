@@ -1,15 +1,15 @@
-import { HIDE_LOADER, SHOW_LOADER } from './types'
+import { HIDE_LOADER, SHOW_LOADER } from '../types'
 
-let initialState = Object.freeze({
+let initialState = ({
   isLoading: false
 })
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_LOADER:
-      return { ...state, isloading: true }
+      return { ...state, isLoading: true }
     case HIDE_LOADER:
-      return { ...state, isloading: false }
+      return { ...state, isLoading: false }
     default: return state
   }
 }
