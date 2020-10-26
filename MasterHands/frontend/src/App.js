@@ -11,6 +11,7 @@ import Subcategories from './containers/subcategories/Subcategories'
 import Services from './containers/services/Services'
 import BecomeMaster from './components/become-master/BecomeMaster'
 import Contacts from './components/contacts/Contacts'
+import About from './components/about/About'
 import Auth from './containers/auth/auth'
 
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/documentsCondition" component={DocumentsCondition} />
           <Route path="/become-master" component={BecomeMaster} />
           <Route path="/contacts" component={Contacts} />
+          <Route path="/about" component={About} />
           <Route path="/auth" component={Auth} />
         </Switch>
       </Layout>

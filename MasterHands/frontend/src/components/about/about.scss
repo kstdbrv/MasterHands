@@ -1,0 +1,395 @@
+.container-fixed h1{
+    width: 100%;
+}
+
+.intro{
+    display: flex;
+    margin-bottom: 122px;
+    &__left{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-right: 20px;
+        span{
+            font-size: 64px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        p{
+            font-size: 24px;
+        }
+    }
+    @media (max-width:1024px) {
+        flex-direction: column;
+        
+    }
+}
+
+.intro__right{
+    @media (max-width:1024px) {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+}
+// carousel
+.carousel{
+    max-width: 100vw;
+    @media (min-width:1441px) {
+        max-width: 100%;
+    }
+}
+
+
+
+// qualification
+.qualification{
+    display: flex;
+    margin-top: 85px;
+    margin-bottom: 120px;
+    @media(max-width:425px){
+        margin-top: 0px;
+    }
+    &__text{
+        margin-top: 90px;
+        margin-left: 20px;
+    }
+    &__text span{
+        display: block;
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    &__text p{
+        font-size: 24px;
+    }
+}
+
+
+// who-work
+
+.who{
+    background: #F4F4F4;
+    padding-top: 40px;
+    align-items: center;
+    margin-bottom: 119px;
+    width: 100vw;
+}
+
+.who > .container > span{
+    color: #0F0F0F;
+    font-size: 40px;
+    margin-bottom: 40px;
+    display: block;
+}
+
+.who__work{
+    display: flex;
+}
+
+.who__left{
+    width: 70%;
+    margin-right: 40px;
+    @media (max-width:425px){
+        order:1;
+        margin-right: 0;
+    }
+}
+
+.who__left p{
+    color: #0F0F0F;
+    font-size: 24px;
+    margin-bottom: 22px;
+    word-wrap: break-word;
+}
+
+.left__download{
+    margin-bottom: 36px;
+    display: flex;
+}
+
+#one{
+    display: block;
+}
+
+#two{
+    display: none;
+}
+
+.left__download > svg{
+    margin-right: 19px;
+}
+
+.left__img img{
+    max-width: 100%;
+    display: block;
+}
+
+
+.number__item{
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.number__item:last-child{
+    margin-bottom: 0;
+}
+
+.number__item span{
+    display: block;
+    font-size: 56px;
+    margin-right: 43px;
+}
+
+.who__right{
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+    @media (max-width:425px){
+        order:0;
+    }
+}
+
+.number__item p{
+    font-size: 24px;
+}
+
+// ansver
+
+/* answer */
+.answer{
+    margin-bottom: 0px;
+}
+.answer > span{
+    display: block;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.answer__item-faq{
+    background: #F4F4F4;
+}
+
+.answer__item-faq{
+    background: #F4F4F4;
+    width: 100vw;
+}
+
+.faq__item {
+    position: relative;
+    margin-bottom: 5px;
+    padding-left: 88px;
+    @media (max-width:425px){
+        padding-left: 40px;
+    }
+}
+
+.faq__title::before{
+    position: absolute;
+    content: "";
+    background-image: url('../../assets/images/стрелочка.svg');
+    top: 50%;
+    transform: translateY(-50%);
+    left: -55px;
+    width: 18px;
+    height: 30px;
+    background-size: 18px 30px;
+    transition: all .3s ease;
+    @media (max-width:425px){
+        left: -38px;
+        width: 10px;
+        height: 15px;
+        background-size: 10px 15px;
+    }
+}
+
+.faq__item hr{
+    background: #6A6A6A;
+    height: 1px;
+    margin-top: 4px;
+}
+
+.faq__item label{
+    font-size: 24px;
+}
+
+.faq__title {
+    display: block;
+    padding: 15px 0;
+    position: relative;
+
+    color: #000;
+    cursor: pointer;
+}
+
+.faq__item span{
+    display: block;
+    height: 18px;
+}
+
+.faq-input {
+    width: 0;
+    height: 0;
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    position: absolute;
+}
+
+
+
+.faq-input:checked ~ .faq__title::before{
+    top:8px;
+   transform: rotate(90deg);
+}
+
+.faq-input:checked ~ .faq-text {
+    display: block;
+}
+
+.faq-text {
+    display: none;
+    
+    padding-top: 15px;
+    padding-bottom: 10px;
+
+    color: #000;
+    font-size: 20px;
+}
+
+@media (max-width: 1024px){
+    body{
+        font-size: 12px;
+    }
+    .intro{
+        flex-direction: column; 
+        justify-content: space-between;   
+    }
+    .intro__left{
+        width: 100%;
+    }
+    .intro__work{
+        flex-direction: column;
+    }
+    .intro__left{
+        order: 0;
+    }
+    .intro__right{
+        margin-bottom: 45px;
+       
+        margin: 0 auto;
+        img{
+            max-width: 100%;
+            margin-top: 45px;
+        }
+    }
+    .intro__left{
+        width: 100%;
+    }
+    .qualification{
+        flex-direction: column;
+    }
+    .qualification__image{
+        margin: 0 auto;
+        margin-top: 45px;
+        order: 1;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+
+@media (max-width:768px){
+
+    h1{
+        margin-top: 40px;
+        margin-bottom: 45px;
+        font-size: 28px;
+    }
+
+    .intro__left p {
+        font-size: 16px;
+    }
+
+    .intro__left span {
+        margin-bottom: 20px;
+        font-size: 32px;
+    }
+
+    .qualification__text{
+        margin-left: 0;
+        span{
+        font-size: 24px;
+        }
+        p{
+            font-size: 16px;
+        }
+    }
+        
+    .who{
+        padding-top: 32px;
+        margin-bottom: 56px;
+    }
+
+    .who > .container > span {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .number__item p {
+        font-size: 16px;
+    }
+
+    .number__item span {
+        margin-right: 21px;
+        font-size: 24px;
+    }
+
+    .number__item {
+        margin-bottom: 20px;
+    }
+
+    .who__right {
+        padding-bottom: 33px;
+    }
+
+    .who__left p {
+        font-size: 16px;
+    }
+
+    #one{
+        display: none;
+    }
+    
+    #two{
+        display: block;
+    }
+
+    .left__download {
+        margin-bottom: 0;
+    }
+
+    .answer > span {
+        margin-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .faq__item label {
+        font-size: 16px;
+    }
+
+    .faq-text {
+        font-size: 12px;
+    }
+
+    .answer {
+        margin-bottom: 64px;
+    }
+}
+
+@media (max-width:425px){
+    .who__work{
+        flex-direction: column;
+    }
+}
