@@ -341,21 +341,21 @@ ul, li {
 
 @font-face {
   font-family: 'Rubik-Medium';
-  src: url(./font/c9459b0b7c4e69f6716b5d2af97e9575.ttf) format("truetype");
+  src: url(./font/Rubik-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap; }
 
 @font-face {
   font-family: 'Rubik-Regular';
-  src: url(./font/0f56ab0b295fd9fca620c2e3097dc8c4.ttf) format("truetype");
+  src: url(./font/Rubik-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap; }
 
 @font-face {
   font-family: 'Rubik-Bold';
-  src: url(./font/d62658f24eb7c7dc739e6b79292c3ff8.ttf) format("truetype");
+  src: url(./font/Rubik-Bold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap; }
@@ -941,27 +941,27 @@ nav a {
         border-radius: 6px 6px; } }
     .search__form::before {
       position: absolute;
-      content: url(e8aafb74514c462bd8cbec981b2b8146.svg);
+      content: url(./svg/master_hand.svg);
       top: -38px;
       left: -22px;
       z-index: 8; }
       @media (max-width: 425px) {
         .search__form::before {
           position: absolute;
-          content: url(e7403401875150b9ef787fb9d526bc51.svg);
+          content: url(./svg/hand_body.svg);
           top: -22px;
           left: -22px;
           z-index: 8; } }
     .search__form::after {
       position: absolute;
-      content: url(829b0940940fea3cb48da810293249f4.svg);
+      content: url(./svg/master.svg);
       top: -160px;
       left: 10px;
       z-index: -1; }
       @media (max-width: 425px) {
         .search__form::after {
           position: absolute;
-          content: url(d84f7bf4668bb66fb17e051d91e4a5d5.svg);
+          content: url(./svg/body.svg);
           top: -98px;
           left: -2px;
           z-index: -1; } }

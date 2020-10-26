@@ -35,6 +35,7 @@ module.exports = {
           {
             loader: 'svg-url-loader',
             options: {
+              name : './svg/[name].[ext]',
               limit: 10000,
             },
           },
@@ -46,7 +47,7 @@ module.exports = {
             {
               loader: 'file-loader',
               options: {
-                name: './font/[hash].[ext]',
+                name: './font/[name].[ext]',
               },
             },
           ]
@@ -56,6 +57,9 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: './images/[name]-[hash].[ext]',
+            },
           },
         ],
       },
