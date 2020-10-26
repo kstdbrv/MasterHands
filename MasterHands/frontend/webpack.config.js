@@ -42,7 +42,7 @@ module.exports = {
         ]
       },
       {
-          test: /\.ttf$/,
+          test: /\.(eot|ttf|woff|woff2)$/,
           use: [
             {
               loader: 'file-loader',
@@ -58,7 +58,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './images/[name]-[hash].[ext]',
+              name: './images/[name].[ext]',
             },
           },
         ],
