@@ -35,27 +35,31 @@ module.exports = {
           {
             loader: 'svg-url-loader',
             options: {
+              name : './svg/[name].[ext]',
               limit: 10000,
             },
           },
         ]
       },
       {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: './font/[hash].[ext]',
+          test: /\.(eot|ttf|woff|woff2)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: './font/[name].[ext]',
+              },
             },
-          },
-        ]
+          ],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: './images/[name].[ext]',
+            },
           },
         ],
       },

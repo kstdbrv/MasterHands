@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import './slider.scss'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import './slider.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Group2 from '../../assets/images/Group2.png'
 import Group1 from '../../assets/images/Group1.jpg'
 import Group3 from '../../assets/images/Group3.png'
