@@ -2,8 +2,11 @@ const path = require("path");
 const miniCss = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  mode:'production',
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, "../static/"),
@@ -74,13 +77,18 @@ module.exports = {
     new miniCss({
       filename: 'style.css',
     }),
+    new CompressionPlugin({
+      filename: "[base].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$/,
+      minRatio: 0.8
+    })
   ],
   optimization: {
     minimize: true,
     minimizer: [
-      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-      // `...`
       new CssMinimizerPlugin(),
+      new TerserPlugin(),
     ],
   }
 };
