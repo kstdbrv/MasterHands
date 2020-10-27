@@ -1,12 +1,12 @@
 .breadcrumbs {
   margin-top: 53px;
   margin-bottom: 43px;
-  @media (max-width:1320px){
+  @media (max-width:1025px){
     overflow-x: scroll;
   }
   &__list {
     text-transform: lowercase;
-    @media (max-width: 1320px){
+    @media (max-width: 1025px){
       width: 1920px;
     }
   }  

@@ -1,6 +1,9 @@
 .services {
   display: flex;
   flex-direction: column;
+  @media (max-width:550px) {
+    align-items: center;
+   }
   &__list {
    background: #F4F4F4;
    border-radius: 10px;
@@ -10,6 +13,8 @@
    }
    @media (max-width:550px) {
     padding: 18px 5px 18px 20px;
+    border-radius: 0;
+    width: 100vw;
    }
   }
   &__item {
@@ -23,7 +28,7 @@
      font-size: 24px;
      @media (max-width:550px) {
       font-size: 20px;
-      width: 170px;
+      width: 175px;
      }
     }
     @media (max-width:550px) {
@@ -35,6 +40,7 @@
     width: 90px;
     @media (max-width:550px) {
       width: 80px;
+      font-size: 20px;
     }
   }
 }

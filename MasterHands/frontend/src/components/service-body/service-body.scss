@@ -1,5 +1,11 @@
 //@import '../../index.scss';
-
+.service-main {
+  @media (max-width:580px) {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  }
+}
 .service {
   background: #F4F4F4;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
@@ -9,7 +15,9 @@
     padding: 50px 50px;
   }
   @media (max-width:580px) {
+    width: 100vw;
     padding: 20px;
+    border-radius: 0;
   }
   &__terms {
     display: flex;
@@ -48,7 +56,8 @@
   &__price {
     display: flex;
     font-size: 48px;
-   // @extend %Rubik-Bold;
+    font-family: 'Rubik-Bold', sans-serif;
+    font-weight: 700;
     margin-bottom: 10px;
     @media (max-width:580px) {
       font-size: 32px;
@@ -61,6 +70,10 @@
     color: #6A6A6A;
     font-size: 16px;
     margin-bottom: 45px;
+    transition: all .2s;
+    &:hover {
+      color:#000;
+    }
     @media (max-width:880px) {
       margin-bottom: 25px;
     }
@@ -75,19 +88,5 @@
       font-size: 16px;
       padding: 0 20px;
     }
-  }
-}
-.button-blue {
-  margin-right: 61px;
-  //background-color:$mainColor;
-  color: #fff;
-  border: none;
-  &:hover{
-    background: #0052B0;
-    box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
-  }
-  &:active{
-    background: #2787F5;
-    box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
   }
 }
