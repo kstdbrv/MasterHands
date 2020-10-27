@@ -1,5 +1,7 @@
 const path = require("path");
 const miniCss = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
@@ -68,8 +70,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new miniCss({
       filename: 'style.css',
     }),
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      // `...`
+      new CssMinimizerPlugin(),
+    ],
+  }
 };
