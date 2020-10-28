@@ -1,11 +1,11 @@
 import {
-  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_LINK,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_LINK, SET_SERVICES_LINK
+  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_ID,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_ID, SET_SERVICES_ID
 } from './types'
 import axios from 'axios'
 
 const API_URL = 'http://77.222.63.249';
-
+/* http://77.222.63.249 */
 const cancelToken = axios.CancelToken;
 const source = cancelToken.source();
 
@@ -38,17 +38,18 @@ export function fetchSupercategories() {
   }
 }
 
-export function fetchСategories(nextlink) {
-  
+export function fetchСategories(id) {
+
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.categoriesLink === nextlink) return;
+    const { app } = getState();
+    if (app.categories === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setCategoriesId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `${API_URL}/api/categories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -71,17 +72,18 @@ export function fetchСategories(nextlink) {
   }
 }
 
-export function fetchServices(nextlink) {
+export function fetchServices(id) {
   
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.servicesLink === nextlink) return;
+    const { app } = getState()
+    if (app.services === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setServicesId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `${API_URL}/api/subcategories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -104,17 +106,18 @@ export function fetchServices(nextlink) {
   }
 }
 
-export function fetchService(nextlink) {
+export function fetchService(id) {
   
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.serviceLink === nextlink) return;
+    const { app } = getState()
+    if (app.service === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setServiceId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `${API_URL}/api/services/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -149,23 +152,23 @@ export function hideLoader() {
   }
 }
 
-export function setCategoriesLink(link) {
+export function setCategoriesId(id) {
   return {
-    type: SET_CATEGORIES_LINK,
-    categoriesLink: link
+    type: SET_CATEGORIES_ID,
+    categories: id
   }
 }
 
-export function setServicesLink(link) {
+export function setServicesId(id) {
   return {
-    type: SET_SERVICES_LINK,
-    servicesLink: link
+    type: SET_SERVICES_ID,
+    services: id
   }
 }
 
-export function setServiceLink(link) {
+export function setServiceId(id) {
   return {
-    type: SET_SERVICE_LINK,
-    serviceLink: link
+    type: SET_SERVICE_ID,
+    service: id
   }
 }

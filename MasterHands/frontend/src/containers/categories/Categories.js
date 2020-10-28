@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { fetchСategories } from '../../store/actions'
-import { setCategoriesLink } from '../../store/actions'
 
 
 const Categories = () => {
@@ -41,12 +40,9 @@ const Categories = () => {
           {
             s.category.map(c => (
             <li key={c.id}>
-              <Link className="list-service__item"
-                to={`/categories/${c.id}`}
-                  onClick={() => {
-                    dispatch(fetchСategories(`/categories/${c.id}`));
-                    dispatch(setCategoriesLink(`/categories/${c.id}`));
-                }}
+                <Link className="list-service__item"
+                  to={`/categories/${c.id}`}
+                  onClick={() => (dispatch(fetchСategories(c.id)))}
               >
                 <p>
                   <img src={lamp} alt="иконка" />

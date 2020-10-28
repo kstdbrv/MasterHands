@@ -6,7 +6,6 @@ import lamp from '../../assets/images/lamp-grid.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions'
 import { fetchСategories } from '../../store/actions'
-import { setCategoriesLink } from '../../store/actions'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
@@ -39,10 +38,7 @@ const CategoriesGrid = () => {
                 <Link
                   className="grids__item"
                   to={`/categories/${c.id}`}
-                  onClick={() => {
-                    dispatch(fetchСategories(`/categories/${c.id}`));
-                    dispatch(setCategoriesLink(`/categories/${c.id}`));
-                }}
+                  onClick={() => (dispatch(fetchСategories(c.id)))}
                 >
                  <p className="grids__item-info">  
                     <span

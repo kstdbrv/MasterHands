@@ -6,7 +6,6 @@ import './Services.scss'
 import { fetchService } from '../../store/actions'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
-import { setServiceLink } from '../../store/actions'
 
 
 const Services = () => {
@@ -24,10 +23,7 @@ const Services = () => {
          services.services.map(s => (
           <Link
            to={`/services/${s.id}`} key={s.id}
-             onClick={() => {
-               dispatch(fetchService(`/services/${s.id}`))
-               dispatch(setServiceLink(`/services/${s.id}`));
-           }}
+             onClick={() => {dispatch(fetchService(s.id))}}
            className="services__item"  
           >
             <p>{s.service_name}</p>

@@ -7,7 +7,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchServices } from '../../store/actions'
-import { setServicesLink } from '../../store/actions'
+
 
 const Subcategories = () => {
 
@@ -26,10 +26,7 @@ const Subcategories = () => {
               <Link
                 to={`/subcategories/${s.id}`}
                 className="subcategories__item"
-                onClick={() => {
-                  dispatch(fetchServices(`/subcategories/${s.id}`));
-                  dispatch(setServicesLink(`/subcategories/${s.id}`));
-                }}
+                onClick={() => (dispatch(fetchServices(s.id)))}
               >
               {s.subcategory_name}
               <ArrowLink />
