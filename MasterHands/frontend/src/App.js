@@ -13,6 +13,7 @@ import BecomeMaster from './components/become-master/BecomeMaster'
 import Contacts from './components/contacts/Contacts'
 import About from './components/about/About'
 import Auth from './containers/auth/auth'
+import Questionnaire from './components/questionnaire/Questionnaire'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/contacts" component={Contacts} />
           <Route path="/about" component={About} />
           <Route path="/auth" component={Auth} />
+          <Route path="/questionnaire" component={Questionnaire} />
         </Switch>
       </Layout>
   )

@@ -89,6 +89,9 @@
     align-items: center;
     text-decoration: none;
     margin-bottom: 8px;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 /* start */
 .start{
