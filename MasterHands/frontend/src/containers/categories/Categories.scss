@@ -9,17 +9,25 @@
   width: 860px;
   background: #F4F4F4;
   border-radius: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
   @media (max-width: 1024px) {
     width: 100%;
   }
+  @media (max-width: 425px) {
+    border-radius: 10px;
+   }
   &__list {
    padding: 60px 28px 86px 29px;
    @media (max-width: 425px) {
     padding: 20px 15px 41px 15px;
+    border-radius: 10px;
    }
   }
   &__title {
     margin-bottom: 55px;
+    @media (max-width:768px){
+      font-size: 20px;
+    }
     @media (max-width: 425px) {
       font-size: 12px;
       margin-bottom: 30px;

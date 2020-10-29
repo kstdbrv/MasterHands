@@ -13,7 +13,8 @@ export const Header = () => {
     var burg  = document.querySelector(".menu__btn span");
     let link  = document.querySelector(".menu__item");
     var links  = document.querySelectorAll(".item_ul");
-    
+    let menuBlock = document.querySelector(".menu__box");
+  
     menu.addEventListener('change', () => {
         if(menu.checked){
             body.style.overflow = "hidden";
@@ -23,21 +24,25 @@ export const Header = () => {
     })
 
     document.addEventListener('scroll', () =>{
-        if ( window.scrollY > 60){
+        if ( window.scrollY > 47){
                  burg.style.background = "#0F0F0F";
+                 menuBlock.style.top = "0";
+                 link.style.marginTop = "75px";
              } else {
                 burg.style.background = "white";
+                menuBlock.style.top = "60px";               
+                link.style.marginTop = "25px";
              }
     })
 
     link.addEventListener('click', function(e){    
-        menu.checked = false;      
+        menu.checked = false;    
+        body.style.overflow = "";  
     })
-
-   
       links.forEach(function(l) {
         l.addEventListener('click', function(e){
         menu.checked = false;  
+        body.style.overflow = "";
     });    
            
    })
@@ -101,7 +106,7 @@ export const Header = () => {
             </ul>
           </li>
           <li className="header_menu-item"><Link to="#" className="down">Мастеру</Link>
-            <ul className="submenu">
+            <ul id="menures" className="submenu">
               <li><Link to="/auth">Личный кабинет</Link></li>
               <li><Link to="/become-master">Стать мастером</Link></li>
             </ul>

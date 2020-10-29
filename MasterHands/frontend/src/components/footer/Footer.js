@@ -62,14 +62,14 @@ export const Footer = () => (
          <ul className="footer__right-menu">
            <li className="footer__right-menu-item"><Link to="/">Услуги</Link></li>
            <li className="footer__right-menu-item"><Link to="/" className="down">О сервисе</Link>
-             <ul>
+             <ul className="footer__right-submenu">
                <li><Link to="/">О нас</Link></li>
                <li><Link to="/documents">Документация</Link></li>
                <li><Link to="/">Контакты</Link></li>
              </ul>
            </li>
            <li className="footer__right-menu-item"><Link to="/" className="down">Мастеру</Link>
-             <ul>
+             <ul className="footer__right-submenu">
                <li><Link to="/auth">Личный кабинет</Link></li>
                <li><Link to="/">Стать мастером</Link></li>
              </ul>

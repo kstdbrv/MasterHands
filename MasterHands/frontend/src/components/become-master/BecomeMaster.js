@@ -30,7 +30,7 @@ export default function BecomeMaster() {
                         <span>Работа для мастеров 
                             в Краснодаре</span>
                         <p>Расскажем об условиях, вышлем прайсы и пригласим на собеседование</p> 
-                        <button  className="button" >Стать мастером</button>   
+                        <Link to="/questionnaire"><button className="button" >Стать мастером</button></Link>   
                     </div>
                 </div>
                 <div className="works__right">
@@ -141,7 +141,7 @@ export default function BecomeMaster() {
                         <div className="container">
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_1"/>
-                            <label className="faq__title" for="faq_1">Какой размер комиссии по заказам?</label>
+                            <label className="faq__title" htmlFor="faq_1">Какой размер комиссии по заказам?</label>
                             <div className="faq-text">
                                 <p>Разные заказы имеют разную стоимость, в зависимости от сложности. Средний размер комиссии 20-30%. Вы будете знать стоимость и процент комиссии заранее — до того, как возьмёте этот заказ.</p>
                             </div>
@@ -150,7 +150,7 @@ export default function BecomeMaster() {
                 
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_2"/>
-                            <label className="faq__title" for="faq_2">Как мастер получает оплату?</label>
+                            <label className="faq__title" htmlFor="faq_2">Как мастер получает оплату?</label>
                             <div className="faq-text">
                                 <p>Мастер получает полную оплату от клиента — наличными или на карту. После этого он перечисляет комиссию компании.</p>
                             </div>
@@ -159,7 +159,7 @@ export default function BecomeMaster() {
 
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_3"/>
-                            <label className="faq__title" for="faq_3">Как мастер оплачивает заказ?</label>
+                            <label className="faq__title" htmlFor="faq_3">Как мастер оплачивает заказ?</label>
                             <div className="faq-text">
                                 <p>У мастера есть личный кабинет и счёт в нём. Счёт можно пополнить банковской картой. После выполненного заказа цена заказа списывается с баланса в личном кабинете мастера. Баланс нужно пополнять 
                                     каждый раз после заказа или держать на нём депозит. Если мы прекращаем сотрудничество, вы сможете вывести оставшиеся на депозите деньги.</p>
@@ -169,7 +169,7 @@ export default function BecomeMaster() {
 
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_4"/>
-                            <label className="faq__title" for="faq_4">Кто определяет цену работ?</label>
+                            <label className="faq__title" htmlFor="faq_4">Кто определяет цену работ?</label>
                             <div className="faq-text">
                                 <p>Стоимость работ рассчитывается по прайс-листу. Цены фиксированные.</p>
                             </div>
@@ -178,7 +178,7 @@ export default function BecomeMaster() {
 
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_5"/>
-                            <label className="faq__title" for="faq_5">Нужно ли пополнять баланс заранее, чтобы получать заказы?</label>
+                            <label className="faq__title" htmlFor="faq_5">Нужно ли пополнять баланс заранее, чтобы получать заказы?</label>
                             <div className="faq-text">
                                 <p>Не нужно.</p>
                             </div>
@@ -187,7 +187,7 @@ export default function BecomeMaster() {
 
                         <div className="faq__item">
                             <input className="faq-input" type="radio" name="radio" id="faq_6"/>
-                            <label className="faq__title" for="faq_6">Предоставляете ли вы расходные материалы?</label>
+                            <label className="faq__title" htmlFor="faq_6">Предоставляете ли вы расходные материалы?</label>
                             <div className="faq-text">
                                 <p>Мелкие расходные материалы мастер покупает сам, они включены в стоимость заказа. Крупные материалы покупает клиент.</p>
                             </div>
