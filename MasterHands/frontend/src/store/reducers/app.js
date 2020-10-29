@@ -1,7 +1,7 @@
 import {
   HIDE_LOADER, SHOW_LOADER,
   SET_CATEGORIES_ID, SET_SERVICES_ID, SET_SERVICE_ID
-} from '../types'
+} from '../actions/actionTypes'
 
 let initialState = ({
   isLoading: false,

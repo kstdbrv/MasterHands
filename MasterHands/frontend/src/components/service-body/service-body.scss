@@ -56,13 +56,15 @@
   &__price {
     display: flex;
     font-size: 48px;
-    font-family: 'Rubik-Bold', sans-serif;
-    font-weight: 700;
+    font-family: 'Rubik-Regular', sans-serif;
+    font-weight: 400;
     margin-bottom: 10px;
-    @media (max-width:580px) {
-      font-size: 32px;
+    p {
       font-family: 'Rubik-Medium', sans-serif;
       font-weight: 500;
+    }
+    @media (max-width:580px) {
+      font-size: 32px;
     }
   }
   &__question {

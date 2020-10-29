@@ -1,13 +1,10 @@
+import axios from '../../axios/axios-quiz'
+import source from '../../axios/axios-quiz'
 import {
-  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_ID,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_ID, SET_SERVICES_ID
-} from './types'
-import axios from 'axios'
+  FETCH_SERVICE, FETCH_SERVICES,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
+} from './actionTypes'
 
-const API_URL = 'http://77.222.63.249';
-/* http://77.222.63.249 */
-const cancelToken = axios.CancelToken;
-const source = cancelToken.source();
 
 export function fetchSupercategories() {
 
@@ -15,7 +12,7 @@ export function fetchSupercategories() {
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api/supercategories/`;
+      const url = `/api/supercategories/`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -49,7 +46,7 @@ export function fetchСategories(id) {
       dispatch(showLoader());
       dispatch(setCategoriesId(id));
 
-      const url = `${API_URL}/api/categories/${id}`;
+      const url = `/api/categories/${id}`;  // const url = `${API_URL}/api/categories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -83,7 +80,7 @@ export function fetchServices(id) {
       dispatch(showLoader());
       dispatch(setServicesId(id));
 
-      const url = `${API_URL}/api/subcategories/${id}`;
+      const url = `/api/subcategories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -117,7 +114,7 @@ export function fetchService(id) {
       dispatch(showLoader());
       dispatch(setServiceId(id));
 
-      const url = `${API_URL}/api/services/${id}`;
+      const url = `/api/services/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -140,35 +137,32 @@ export function fetchService(id) {
   }
 }
 
-export function showLoader() {
-  return {
-    type: SHOW_LOADER
-  }
-}
+export function onEmptyStore(link, TYPE) {
 
-export function hideLoader() {
-  return {
-    type: HIDE_LOADER
-  }
-}
+  return async dispatch => {
 
-export function setCategoriesId(id) {
-  return {
-    type: SET_CATEGORIES_ID,
-    categories: id
-  }
-}
+    try {
+      dispatch(showLoader());
 
-export function setServicesId(id) {
-  return {
-    type: SET_SERVICES_ID,
-    services: id
-  }
-}
+      const url = `/api${link}`;
+      const response = await axios.get(url, {cancelToken: source.token})
+ 
+      dispatch({
+        type: TYPE,
+        payload: response.data
+      });
 
-export function setServiceId(id) {
-  return {
-    type: SET_SERVICE_ID,
-    service: id
+      dispatch(hideLoader());
+        
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+      dispatch(hideLoader())
+      }
+    }
   }
 }

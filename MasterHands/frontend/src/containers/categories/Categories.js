@@ -6,9 +6,9 @@ import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './Categories.scss'
 import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSupercategories } from '../../store/actions'
+import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
-import { fetchСategories } from '../../store/actions'
+import { fetchСategories } from '../../store/actions/quiz'
 
 
 const Categories = () => {

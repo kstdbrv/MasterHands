@@ -9,7 +9,7 @@ const Breadcrumbs = (props) => {
   let { subcategory_name } = useSelector(state => state.services);
 
   let id = useSelector(state => state.app);
-   
+
   return (
     <div className="breadcrumbs">
         <ul className="breadcrumbs__list">
@@ -21,7 +21,7 @@ const Breadcrumbs = (props) => {
           {
            category_name && !props.deleteNextLinks ?
           <li className="breadcrumbs__list-item">
-            <Link to={ `/categories/${id.categoriesId}` }>
+            <Link to={ `/categories/${id.categories}` }>
               { category_name }
             </Link>
           </li> : null
@@ -29,7 +29,7 @@ const Breadcrumbs = (props) => {
           {
             !props.deleteNextLinks && !props.deleteServicesBreadcrmb ?
           <li className="breadcrumbs__list-item">
-            <Link to={ `/subcategories/${id.servicesId}` }>
+            <Link to={ `/subcategories/${id.services}` }>
               { subcategory_name }
             </Link>
           </li> : null

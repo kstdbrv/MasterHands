@@ -1,4 +1,4 @@
-import { FETCH_SERVICES } from '../types'
+import { FETCH_SERVICES } from '../actions/actionTypes'
 
 let initialState = { "services": [] }
 

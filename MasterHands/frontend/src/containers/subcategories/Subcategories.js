@@ -6,13 +6,20 @@ import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchServices } from '../../store/actions'
+import { fetchServices } from '../../store/actions/quiz'
+import { onEmptyStore } from '../../store/actions/quiz'
+import { FETCH_СATEGORIES } from '../../store/actions/actionTypes'
 
 
 const Subcategories = () => {
 
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
+  console.log(!categories.id)
+  
+  if (!categories.id) {
+    onEmptyStore(window.location.pathname, FETCH_СATEGORIES)
+  }
 
   return (
     <>

@@ -23,7 +23,7 @@ const Service = () => {
       <Loader />
       <ServiceBody price={service.price} />
       <PopupService />
-      <Backdrop />
+      {/* <Backdrop /> */}
     </>
   )
 }

@@ -326,8 +326,6 @@
 
 /*! export getWidth [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export hideLoader [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export hydrate [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export hydrate [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-dom/cjs/react-dom.development.js .hydrate */
@@ -420,6 +418,8 @@
 
 /*! export memo [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.development.js .memo */
 
+/*! export onEmptyStore [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export parsePath [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export pureFinalPropsSelectorFactory [provided] [no usage info] [missing usage info prevents renaming] */
@@ -432,15 +432,7 @@
 
 /*! export setBatch [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export setCategoriesId [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export setServiceId [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export setServicesId [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export shallowEqual [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-redux/es/utils/shallowEqual.js .default */
-
-/*! export showLoader [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export siblingDirection [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -449,6 +441,8 @@
 /*! export slidesOnLeft [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export slidesOnRight [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export source [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export swipeEnd [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -750,8 +744,6 @@
 
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
 
-/*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
-
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
@@ -766,25 +758,25 @@
   !*** ./src/index.js ***!
   \**********************/
 
-/*!****************************!*\
-  !*** ./src/store/types.js ***!
-  \****************************/
-
 /*!******************************!*\
   !*** ./src/serviceWorker.js ***!
   \******************************/
 
-/*!******************************!*\
-  !*** ./src/store/actions.js ***!
-  \******************************/
+/*!*********************************!*\
+  !*** ./src/axios/axios-quiz.js ***!
+  \*********************************/
 
 /*!**********************************!*\
   !*** ./src/hoc/Layout/Layout.js ***!
   \**********************************/
 
-/*!**********************************!*\
-  !*** ./src/store/rootReducer.js ***!
-  \**********************************/
+/*!***********************************!*\
+  !*** ./src/store/actions/quiz.js ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./src/store/reducers/app.js ***!
+  \***********************************/
 
 /*!************************************!*\
   !*** ./src/assets/images/lamp.svg ***!
@@ -834,12 +826,20 @@
   !*** ./src/components/about/About.js ***!
   \***************************************/
 
+/*!***************************************!*\
+  !*** ./src/store/reducers/service.js ***!
+  \***************************************/
+
 /*!****************************************!*\
   !*** ./node_modules/react-is/index.js ***!
   \****************************************/
 
 /*!****************************************!*\
   !*** ./node_modules/redux/es/redux.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/store/reducers/services.js ***!
   \****************************************/
 
 /*!*****************************************!*\
@@ -887,7 +887,11 @@
   \******************************************/
 
 /*!******************************************!*\
-  !*** ./src/store/reducers/appReducer.js ***!
+  !*** ./src/store/actions/actionTypes.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/store/reducers/categories.js ***!
   \******************************************/
 
 /*!*******************************************!*\
@@ -896,6 +900,10 @@
 
 /*!*******************************************!*\
   !*** ./src/containers/service/Service.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/store/reducers/rootReducer.js ***!
   \*******************************************/
 
 /*!********************************************!*\
@@ -950,10 +958,6 @@
   !*** ./node_modules/redux-thunk/es/index.js ***!
   \**********************************************/
 
-/*!**********************************************!*\
-  !*** ./src/store/reducers/serviceReducer.js ***!
-  \**********************************************/
-
 /*!***********************************************!*\
   !*** ./node_modules/axios/lib/core/settle.js ***!
   \***********************************************/
@@ -979,7 +983,7 @@
   \***********************************************/
 
 /*!***********************************************!*\
-  !*** ./src/store/reducers/servicesReducer.js ***!
+  !*** ./src/store/reducers/supercategories.js ***!
   \***********************************************/
 
 /*!************************************************!*\
@@ -1008,10 +1012,6 @@
 
 /*!*************************************************!*\
   !*** ./src/containers/categories/Categories.js ***!
-  \*************************************************/
-
-/*!*************************************************!*\
-  !*** ./src/store/reducers/categoriesReducer.js ***!
   \*************************************************/
 
 /*!**************************************************!*\
@@ -1128,10 +1128,6 @@
 
 /*!******************************************************!*\
   !*** ./src/components/services-text/ServicesText.js ***!
-  \******************************************************/
-
-/*!******************************************************!*\
-  !*** ./src/store/reducers/supercategoriesReducer.js ***!
   \******************************************************/
 
 /*!*******************************************************!*\

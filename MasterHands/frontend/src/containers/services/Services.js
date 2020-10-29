@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './Services.scss'
-import { fetchService } from '../../store/actions'
+import { fetchService } from '../../store/actions/quiz'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
 
