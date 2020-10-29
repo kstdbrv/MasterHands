@@ -73,6 +73,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin,
     new miniCss({
       filename: 'style.css',
     }),
