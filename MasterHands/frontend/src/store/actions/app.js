@@ -40,13 +40,11 @@ export function showPopup() {
   return {
     type: SHOW_POPUP
   }
-  
 }
 
 export function hidePopup() {
   return {
     type: HIDE_POPUP
   }
-  
 }
 

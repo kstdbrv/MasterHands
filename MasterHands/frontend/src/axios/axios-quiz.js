@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'http://77.222.63.249',
+  baseURL: 'http://77.222.63.249'
 })
 
 const cancelToken = axios.CancelToken;

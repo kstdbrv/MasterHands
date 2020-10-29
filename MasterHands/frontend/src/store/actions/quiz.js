@@ -1,9 +1,14 @@
 import axios from '../../axios/axios-quiz'
-import source from '../../axios/axios-quiz'
+/* import axios from 'axios' */
+import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
 } from './actionTypes'
+import {
+  hideLoader, showLoader, setCategoriesId,
+  setServicesId, setServiceId
+} from '../actions/app'
 
 
 export function fetchSupercategories() {
