@@ -87,16 +87,18 @@ nav a {
 }
 .submenu {
   padding-top: 15px;
+  padding-left: 10px;
   position: absolute;
   top: 80px;
-  left: 20px;
   visibility: hidden;
   opacity: 0;
   z-index: 5;
   transform: perspective(600px) rotateX(-90deg);
   transform-origin: 0% 0%;
   transition: .3s ease-in-out;
-  width: 160px;
+  width: 200px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 0px 0px 5px 5px;
 }
 .header__menu > li:hover .submenu {
   visibility: visible;
@@ -107,8 +109,12 @@ nav a {
   color: #6A6A6A;
   font-size: 20px;
   padding-bottom: 10px;    
-  transition: .4s ease-in-out;
+  transition: .2s ease-in-out;
+  &:hover{
+    color: #0F0F0F;
+  }
 }
+
 
 .header__hamburger-menu{
   display: none;
@@ -116,7 +122,6 @@ nav a {
 .header__menu{
   display: block;
 }
-
 
 @media (max-width: 1244px){
   .header__menu > li{
@@ -127,10 +132,12 @@ nav a {
   .header__menu > li{
     margin-right: 40px;
 }
- .submenu {
-  width: 100px;
 }
-}
+@media(max-width:1024px){
+  #menures{
+    width: 135px;
+  }
+  }
 @media (max-width: 900px){
   .header__menu > li{
     margin-right: 20px;
@@ -247,13 +254,13 @@ nav a {
  top:60px;
  overflow-y: scroll; 
  right: -100%;
- width: 100%;
+ width: 80%;
  height: 100%;
  margin: 0;
  padding: 20px 0;
  list-style: none;
  background-color: #ECEFF1;
- box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+ box-shadow: 0px 0px 30px rgba(15, 15, 15, 0.25);
  text-align: end;
  transition-duration: .25s;
  z-index: 1;
@@ -328,11 +335,12 @@ width: 100%;
  margin-bottom: 10px;
  color: #6A6A6A;
  text-decoration: none;
+ transition: .2s;
+  &:hover{
+    color: #0F0F0F;
+  }
 }
 
-.item_li:hover {
- background-color: #CFD8DC;
-}
 
 #li_toggle1 {
    display: none;

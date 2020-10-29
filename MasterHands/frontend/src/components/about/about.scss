@@ -48,10 +48,14 @@
     margin-bottom: 120px;
     @media(max-width:425px){
         margin-top: 0px;
+        margin-bottom: 0px;
     }
     &__text{
         margin-top: 90px;
         margin-left: 20px;
+        @media(max-width:425px){
+            margin-top: 70px;
+        }
     }
     &__text span{
         display: block;
@@ -83,6 +87,9 @@
 
 .who__work{
     display: flex;
+    @media (max-width:620px){
+        flex-direction: column-reverse;
+    }
 }
 
 .who__left{
@@ -292,9 +299,16 @@
     .qualification__image{
         margin: 0 auto;
         margin-top: 45px;
+        margin-bottom: 55px;
         order: 1;
-        img{
+        @media (max-width:425px){
+            margin-top: 20px;
+        }
+        svg{
             max-width: 100%;
+            @media (max-width:425px){
+                height: 232px;
+            }
         }
     }
 }
