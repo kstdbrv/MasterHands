@@ -1,4 +1,4 @@
-import { FETCH_СATEGORIES } from '../types'
+import { FETCH_СATEGORIES } from '../actions/actionTypes'
 
 let initialState = { "subcategory": [] };
 

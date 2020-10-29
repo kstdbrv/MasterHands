@@ -29,12 +29,12 @@ const ServiceBody = ({price}) => {
     <div className="service__price">
       <p>
         { price }
-      </p>
-      <span> ₽</span>
+      </p>&nbsp;
+      <span>₽</span>
     </div>
-    <Link className="service__question">
+    <p className="service__question">
       Как формируется цена?
-    </Link>
+    </p>
     <button className="button button-blue">
       Рассчитать точную стоимость
     </button>

@@ -1,13 +1,15 @@
+import axios from '../../axios/axios-quiz'
+/* import axios from 'axios' */
+import { source } from '../../axios/axios-quiz'
 import {
-  HIDE_LOADER, SHOW_LOADER, FETCH_SERVICE, FETCH_SERVICES, SET_SERVICE_LINK,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES, SET_CATEGORIES_LINK, SET_SERVICES_LINK
-} from './types'
-import axios from 'axios'
+  FETCH_SERVICE, FETCH_SERVICES,
+  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
+} from './actionTypes'
+import {
+  hideLoader, showLoader, setCategoriesId,
+  setServicesId, setServiceId
+} from '../actions/app'
 
-const API_URL = 'http://77.222.63.249';
-
-const cancelToken = axios.CancelToken;
-const source = cancelToken.source();
 
 export function fetchSupercategories() {
 
@@ -15,7 +17,7 @@ export function fetchSupercategories() {
     try {
       dispatch(showLoader());
 
-      const url = `${API_URL}/api/supercategories/`;
+      const url = `/api/supercategories/`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -38,17 +40,18 @@ export function fetchSupercategories() {
   }
 }
 
-export function fetchСategories(nextlink) {
-  
+export function fetchСategories(id) {
+
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.categoriesLink === nextlink) return;
+    const { app } = getState();
+    if (app.categories === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setCategoriesId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `/api/categories/${id}`;  // const url = `${API_URL}/api/categories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
@@ -71,17 +74,18 @@ export function fetchСategories(nextlink) {
   }
 }
 
-export function fetchServices(nextlink) {
+export function fetchServices(id) {
   
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.servicesLink === nextlink) return;
+    const { app } = getState()
+    if (app.services === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setServicesId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `/api/subcategories/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -104,17 +108,18 @@ export function fetchServices(nextlink) {
   }
 }
 
-export function fetchService(nextlink) {
+export function fetchService(id) {
   
   return async (dispatch, getState) => {
 
-    const { prevlink } = getState()
-    if (prevlink.serviceLink === nextlink) return;
+    const { app } = getState()
+    if (app.service === id) return;
 
     try {
       dispatch(showLoader());
+      dispatch(setServiceId(id));
 
-      const url = `${API_URL}/api${nextlink}`;
+      const url = `/api/services/${id}`;
       const response = await axios.get(url, {cancelToken: source.token})
 
       dispatch({
@@ -137,35 +142,32 @@ export function fetchService(nextlink) {
   }
 }
 
-export function showLoader() {
-  return {
-    type: SHOW_LOADER
-  }
-}
+export function onEmptyStore(link, TYPE) {
 
-export function hideLoader() {
-  return {
-    type: HIDE_LOADER
-  }
-}
+  return async dispatch => {
 
-export function setCategoriesLink(link) {
-  return {
-    type: SET_CATEGORIES_LINK,
-    categoriesLink: link
-  }
-}
+    try {
+      dispatch(showLoader());
 
-export function setServicesLink(link) {
-  return {
-    type: SET_SERVICES_LINK,
-    servicesLink: link
-  }
-}
+      const url = `/api${link}`;
+      const response = await axios.get(url, {cancelToken: source.token})
+ 
+      dispatch({
+        type: TYPE,
+        payload: response.data
+      });
 
-export function setServiceLink(link) {
-  return {
-    type: SET_SERVICE_LINK,
-    serviceLink: link
+      dispatch(hideLoader());
+        
+    } catch(thrown) {
+      if (axios.isCancel(thrown)) {
+        console.log('Request canceled', thrown.message);
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
+      } else {
+      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+      dispatch(hideLoader())
+      }
+    }
   }
 }

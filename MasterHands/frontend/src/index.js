@@ -7,8 +7,8 @@ import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { Provider } from 'react-redux' 
 import thunk from 'redux-thunk'
-import rootReducer from './store/rootReducer'
-import { hydrate } from 'react-dom';
+import rootReducer from './store/reducers/rootReducer'
+import { hydrate } from 'react-dom'
 import 'slick-slider'
 
 
