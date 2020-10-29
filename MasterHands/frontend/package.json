@@ -30,7 +30,8 @@
     "eject": "react-scripts eject",
     "ssr": "node server/index.js",
     "pack-start": "webpack --mode development --watch",
-    "pack-start-prod": "webpack --mode production"
+    "pack-start-prod": "webpack --mode production",
+    "nodemon": "nodemon server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,6 +63,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-runtime": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^6.0.4",
     "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
@@ -69,6 +71,7 @@
     "i": "^0.3.6",
     "mini-css-extract-plugin": "^1.1.2",
     "node-sass": "^4.14.1",
+    "nodemon": "^2.0.6",
     "npm": "^7.0.3",
     "sass-loader": "^10.0.4",
     "svg-url-loader": "^6.0.0",
