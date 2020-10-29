@@ -73,7 +73,7 @@ export const Header = () => {
       </label>
   
       <ul className="menu__box">
-          <li><Link to="/" className="menu__item">Услуги</Link></li>
+          <li><Link to="/categories-grid" className="menu__item">Услуги</Link></li>
                 <li>  <input id="li_toggle2" type="checkbox" />
                   <label htmlFor="li_toggle2">
                       <span className="span_item"> О сервисе</span></label>
@@ -97,7 +97,7 @@ export const Header = () => {
     </div>
     <nav>
         <ul className="header__menu">
-          <li className="header_menu-item"><Link to="/">Услуги</Link></li>
+          <li className="header_menu-item"><Link to="/categories-grid">Услуги</Link></li>
           <li className="header_menu-item"><Link to="#" className="down">О сервисе</Link>
             <ul className="submenu">
               <li><Link to="/about">О нас</Link></li>

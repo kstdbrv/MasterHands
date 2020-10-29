@@ -2,7 +2,7 @@
 #Python
 #Confog file
 MasterHands/MasterHands/secret.py
-
+MasterHands/static/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

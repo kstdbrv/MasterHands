@@ -1,52 +1,85 @@
 .categories {
   &__inner {
    display: flex;
-   justify-content: space-between;
    flex-wrap: wrap;
   }
 }
 .list-service {
-  width: 860px;
+  flex-grow: 1;
+  max-width: 860px;
+  margin-right: 20px;
   background: #F4F4F4;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
   @media (max-width: 1024px) {
     width: 100%;
+    margin-right: 0;
   }
   @media (max-width: 425px) {
     border-radius: 10px;
    }
   &__list {
-   padding: 60px 28px 86px 29px;
+   padding: 60px 0 86px 0;
    @media (max-width: 425px) {
-    padding: 20px 15px 41px 15px;
-    border-radius: 10px;
-   }
+    padding-top: 20px;
+  }
   }
   &__title {
-    margin-bottom: 55px;
-    @media (max-width:768px){
-      font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-left: 28px;
+    @media (max-width: 425px) {
+      margin-left: 15px;
+      margin-top: 30px;
+    }
+    &:first-child {
+      margin-top: 0;
     }
     @media (max-width: 425px) {
       font-size: 12px;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
   }
-
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 24px;
+    height: 80px;
+    padding-left: 28px;
+    padding-right: 28px;
+/*     background: linear-gradient(to right, #F4F4F4 50%, #0052B0 50%);
+    background-size: 200% 100%; */
+    transition:all .3s;
+/*     -webkit-transition-delay: .5s;
+    -moz-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    transition-delay: .5s; */
     @media (max-width: 425px) {
-      margin-bottom: 30px;
-    }
-
-    @media (max-width: 425px) {
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 50px;
       font-size: 16px;
+     }
+     svg{
+      transition: all .3s;
+/*       -webkit-transition-delay: .5s;
+      -moz-transition-delay: .5s;
+      -o-transition-delay: .5s;
+      transition-delay: .5s; */
+     }
+    &:hover {
+      background:#2787F5;
+      background-position: -100% 0;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      color: #fff;
+      svg {
+        fill: #fff;
+      }
     }
-    margin-bottom: 55px;
+    &:active {
+     box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
+    }
     p {
       display: flex;
       align-items: center;
@@ -57,6 +90,9 @@
         margin-right: 20px;
         width: 14px;
         height: 20px;
+      }
+      &:hover {
+       color: #FFF;
       }
     }
   }
@@ -81,4 +117,5 @@
       height: 15px;
     }
   }
+
 }

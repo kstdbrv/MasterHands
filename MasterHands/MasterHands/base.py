@@ -34,7 +34,7 @@ SECRET_KEY = APP_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['77.222.63.249', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -91,13 +91,6 @@ WSGI_APPLICATION = 'MasterHands.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -143,14 +136,11 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1:8000',
     'http://localhost:8080',
+    'http://77.222.63.249',
 )
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
