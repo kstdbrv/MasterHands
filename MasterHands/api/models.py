@@ -52,11 +52,13 @@ class Subcategory(models.Model):
 
 
 class Service(models.Model):
+
     subcategory = models.ForeignKey(Subcategory,
                                     related_name='services',
                                     verbose_name='Подкатегория',
                                     on_delete=models.CASCADE)
     service_name = models.CharField(max_length=255, null=True, verbose_name='Название услуги')
+    description = models. TextField(null=True, blank=True, verbose_name='Описание')
     price = models.IntegerField(null=True, blank=True, verbose_name='Цена')
 
     def __str__(self):
