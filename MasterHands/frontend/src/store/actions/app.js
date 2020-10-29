@@ -1,6 +1,6 @@
 import {
   SHOW_LOADER, HIDE_LOADER, SET_CATEGORIES_ID,
-  SET_SERVICES_ID, SET_SERVICE_ID,
+  SET_SERVICES_ID, SET_SERVICE_ID, SHOW_POPUP, HIDE_POPUP
 } from './actionTypes'
 
 export function showLoader() {
@@ -36,5 +36,17 @@ export function setServiceId(id) {
   }
 }
 
+export function showPopup() {
+  return {
+    type: SHOW_POPUP
+  }
+  
+}
 
+export function hidePopup() {
+  return {
+    type: HIDE_POPUP
+  }
+  
+}
 

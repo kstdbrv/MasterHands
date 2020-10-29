@@ -58,6 +58,8 @@
 
 /*! export HIDE_LOADER [provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export HIDE_POPUP [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export HashRouter [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Header [provided] [no usage info] [missing usage info prevents renaming] */
@@ -129,6 +131,8 @@
 /*! export SET_SERVICE_ID [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export SHOW_LOADER [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export SHOW_POPUP [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Search [provided] [no usage info] [missing usage info prevents renaming] */
 

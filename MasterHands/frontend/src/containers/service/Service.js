@@ -16,14 +16,15 @@ const Service = () => {
   const popupHandler = () => {
     setPopup({ visible = !visible })
   } */
+  popoup = useSelector(state => state.app.popupVisible);
 
   return (
     <>
       <Breadcrumbs serviceName={service.service_name} />
       <Loader />
       <ServiceBody price={service.price} />
-      <PopupService />
-      {/* <Backdrop /> */}
+      { popup ? <PopupService /> : null }
+      { popoup ? <Backdrop /> : null }
     </>
   )
 }
