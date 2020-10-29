@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Loader } from '../../components/loader/Loader'
 import './subcategories.scss'
 import { Link } from 'react-router-dom'
@@ -12,14 +12,17 @@ import { FETCH_СATEGORIES } from '../../store/actions/actionTypes'
 
 
 const Subcategories = () => {
-
+console.log('render')
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
-  console.log(!categories.id)
+console.log(!categories.id)
   
-  if (!categories.id) {
-    onEmptyStore(window.location.pathname, FETCH_СATEGORIES)
+  useEffect(() => {
+    if (!categories.id) {
+      console.log('works onEmptyStore')
+    dispatch(onEmptyStore(window.location.pathname, FETCH_СATEGORIES))
   }
+}, [])
 
   return (
     <>
