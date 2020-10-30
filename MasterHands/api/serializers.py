@@ -1,4 +1,6 @@
 from rest_framework import serializers
+from rest_framework_recursive.fields import RecursiveField
+from collections import OrderedDict
 
 from .models import *
 
@@ -10,29 +12,17 @@ class ServiceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SubcategorySerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
+    children = RecursiveField(many=True, required=False)
     services = ServiceSerializer(many=True)
 
-    class Meta:
-        model = Subcategory
-        fields = ('id', 'subcategory_name', 'category', 'services')
-
-
-class CategorySerializer(serializers.ModelSerializer):
-    subcategory = SubcategorySerializer(many=True)
+    def to_representation(self, instance):
+        result = super(CategorySerializer, self).to_representation(instance)
+        return OrderedDict([(key, result[key]) for key in result if result[key] is not None and result[key] != []])
 
     class Meta:
         model = Category
-        fields = ('id', 'category_name', 'svg_icon', 'subcategory')
-
-
-class SupercategorySerializer(serializers.ModelSerializer):
-    category = CategorySerializer(many=True)
-
-    class Meta:
-        model = Supercategory
-        fields = ('id', 'supercategory_name', 'category')
-
+        fields = ('id', 'name', 'svg_icon', 'parent', 'children', 'services')
 
 
 

@@ -1,69 +1,9 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from mptt.templatetags.mptt_tags import cache_tree_children
 
 from rest_framework import generics
 
 from .serializers import *
 from .models import *
-
-
-class SupercategoryListCreate(generics.ListCreateAPIView):
-    """
-    Возвращает сериализованный список всех разделов,
-    категорий, подкатегорий, услуг, в
-    иерархическом порядке
-    """
-    queryset = Supercategory.objects.all()
-    serializer_class = SupercategorySerializer
-
-
-class SupercategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Возвращает сериализованый раздел по id,
-    вместе со входящими в него категориями, подкатегориями,
-    услугами, а так же обрабатывает POST, PUT, DELETE
-    """
-    queryset = Supercategory.objects.all()
-    serializer_class = SupercategorySerializer
-
-
-class CategoryListCreate(generics.ListCreateAPIView):
-    """
-    Возвращает сериализованный список всех
-    категорий, подкатегорий, услуг, в
-    иерархическом порядке
-    """
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-class CategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Возвращает сериализованную категорию по id,
-    вместе со входящими в нее подкатегориями,
-    услугами, а так же обрабатывает POST, PUT, DELETE
-    """
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-
-
-class SubcategoryListCreate(generics.ListCreateAPIView):
-    """
-    Возвращает сериализованный список всех
-    подкатегорий и услуг, в иерархическом порядке
-    """
-    queryset = Subcategory.objects.all()
-    serializer_class = SubcategorySerializer
-
-
-class SubcategoryRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Возвращает сериализованную подкатегорию по id,
-    вместе со входящими в нее услугами, а так же
-    обрабатывает POST, PUT, DELETE
-    """
-    queryset = Subcategory.objects.all()
-    serializer_class = SubcategorySerializer
 
 
 class ServiceListCreate(generics.ListCreateAPIView):
@@ -81,3 +21,16 @@ class ServiceRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
+
+
+class CategoryListCreate(generics.ListCreateAPIView):
+
+    def get_queryset(self):
+        return cache_tree_children(Category.objects.filter(level=self.kwargs['lvl']))
+
+    serializer_class = CategorySerializer
+
+
+class CategoryRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

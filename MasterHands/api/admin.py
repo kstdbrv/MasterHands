@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin, TreeRelatedFieldListFilter
+
 from .models import *
 
 
@@ -7,31 +9,21 @@ class CategoryInline(admin.TabularInline):
     model = Category
 
 
-class SubcategoryInline(admin.TabularInline):
-    model = Subcategory
-
-
 class ServiceInline(admin.TabularInline):
     model = Service
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_filter = ('supercategory_name',)
-    inlines = [SubcategoryInline]
-
-
-@admin.register(Subcategory)
-class SubcategoryAdmin(admin.ModelAdmin):
-    list_filter = ('category__supercategory_name', 'category')
-    inlines = [ServiceInline]
+class MyModelAdmin(DraggableMPTTAdmin):
+    inlines = [CategoryInline, ServiceInline]
+    mptt_level_indent = 30
+    list_filter = (
+        ('parent', TreeRelatedFieldListFilter),
+    )
 
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_filter = ('subcategory__category__supercategory_name', 'subcategory__category', 'subcategory')
-
-
-@admin.register(Supercategory)
-class SuperCategory(admin.ModelAdmin):
-    inlines = [CategoryInline]
+    list_filter = (
+        ('category', TreeRelatedFieldListFilter),
+    )
