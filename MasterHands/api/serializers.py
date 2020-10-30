@@ -23,10 +23,10 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ('id', 'category_name', 'subcategory')
+        fields = ('id', 'category_name', 'svg_icon', 'subcategory')
 
 
-class SuperategorySerializer(serializers.ModelSerializer):
+class SupercategorySerializer(serializers.ModelSerializer):
     category = CategorySerializer(many=True)
 
     class Meta:

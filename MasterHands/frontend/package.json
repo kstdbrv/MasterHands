@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/register": "^7.12.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "asset-require-hook": "^1.2.0",
     "axios": "^0.20.0",
     "ignore-styles": "^5.0.1",
@@ -25,7 +21,8 @@
     "redux-thunk": "^2.3.0",
     "resolve-url-loader": "^3.1.2",
     "slick-carousel": "^1.8.1",
-    "slick-slider": "^1.8.2"
+    "slick-slider": "^1.8.2",
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,7 +30,16 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ssr": "node server/index.js",
-    "pack-start": "webpack --mode development --watch"
+    "pack-start": "webpack --watch",
+    "pack-start1": "webpack --mode development --watch",
+    "pack-start-prod": "webpack --mode production",
+    "nodemon": "nodemon server/index.js"
+  },
+  "nodemonConfig": {
+    "delay": 3000,
+    "ignore": [
+      "node-modules/"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,18 +64,30 @@
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-runtime": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^6.0.4",
     "css-loader": "^5.0.0",
+    "css-minimizer-webpack-plugin": "^1.1.5",
     "file-loader": "^6.1.1",
     "i": "^0.3.6",
     "mini-css-extract-plugin": "^1.1.2",
     "node-sass": "^4.14.1",
+    "nodemon": "^2.0.6",
     "npm": "^7.0.3",
     "sass-loader": "^10.0.4",
     "svg-url-loader": "^6.0.0",
+    "terser-webpack-plugin": "^5.0.1",
     "ttf-loader": "^1.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.2.0",
+    "webpack-bundle-analyzer": "^3.9.0",
     "webpack-cli": "^4.1.0"
   },
   "main": "webpack.config.js",

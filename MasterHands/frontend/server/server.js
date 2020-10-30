@@ -6,7 +6,7 @@ import { StaticRouter } from "react-router";
 import App from '../src/App'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
-import rootReducer from '../src/store/rootReducer'
+import rootReducer from '../src/store/reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
