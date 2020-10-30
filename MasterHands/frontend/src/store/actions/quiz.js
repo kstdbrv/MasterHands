@@ -16,7 +16,7 @@ export function fetchSupercategories() {
     try {
       dispatch(showLoader());
 
-      const url = `/api/supercategories/`;
+      const url = `/api/categories/0`;
       const response = await axios.get(url, {cancelToken: source.token});
          
       dispatch({
