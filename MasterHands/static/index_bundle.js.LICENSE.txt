@@ -1,155 +1,5 @@
 /*!   exports [maybe provided (runtime-defined)] [no usage info] */
 
-/*! CommonJS bailout: exports is used directly at 275:0-7 */
-
-/*! CommonJS bailout: exports is used directly at 276:0-7 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 132:13-33 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 156:24-44 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 200:15-35 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 39:26-46 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 555:28-48 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 572:25-45 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 598:20-40 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 722:20-40 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 810:24-44 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 827:20-40 */
-
-/*! CommonJS bailout: module.exports is used directly at 102:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 103:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 11:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 13:1-15 */
-
-/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 14:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 18:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 18:43-57 */
-
-/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 1:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 1:11-25 */
-
-/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 27:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 27:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 2:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 2:13-27 */
-
-/*! CommonJS bailout: module.exports is used directly at 30:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 31:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 325:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 328:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 34:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 377:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 38:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 39:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 40:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 40:15-29 */
-
-/*! CommonJS bailout: module.exports is used directly at 41:38-52 */
-
-/*! CommonJS bailout: module.exports is used directly at 43:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 43:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 47:11-25 */
-
-/*! CommonJS bailout: module.exports is used directly at 480:7-21 */
-
-/*! CommonJS bailout: module.exports is used directly at 49:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 4:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 50:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 51:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 52:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 57:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 58:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 62:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 65:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:1-15 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:15-29 */
-
-/*! CommonJS bailout: module.exports is used directly at 732:31-45 */
-
-/*! CommonJS bailout: module.exports is used directly at 74:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 81:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 85:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 8:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 93:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 94:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 98:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 9:14-28 */
-
-/*! CommonJS bailout: this is used directly at 40:46-50 */
-
 /*! default exports */
 
 /*! dynamic exports */
@@ -179,8 +29,6 @@
 /*! export ContextProvider [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export ContextProvider [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .ContextProvider */
-
-/*! export Dots [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Element [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -214,8 +62,6 @@
 
 /*! export Header [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export InnerSlider [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export Lazy [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Lazy [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .Lazy */
@@ -234,13 +80,9 @@
 
 /*! export NavLink [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export NextArrow [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export Portal [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Portal [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .Portal */
-
-/*! export PrevArrow [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Profiler [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -308,8 +150,6 @@
 
 /*! export Switch [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-router/esm/react-router.js .Switch */
 
-/*! export Track [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export __DO_NOT_USE__ActionTypes [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export __HistoryContext [provided] [no usage info] [missing usage info prevents renaming] */
@@ -341,18 +181,6 @@
 /*! export batch [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-dom/cjs/react-dom.development.js .unstable_batchedUpdates */
 
 /*! export bindActionCreators [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export canGoNext [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export canUseDOM [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export changeSlide [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export checkNavigable [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export checkSpecKeys [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export clamp [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export cloneElement [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -420,8 +248,6 @@
 
 /*! export devToolsEnhancer [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export extractObject [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export f [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export f [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/@babel/polyfill/node_modules/core-js/modules/_wks.js */
@@ -454,32 +280,6 @@
 
 /*! export getDependsOnOwnProps [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export getHeight [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getNavigableIndexes [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getOnDemandLazySlides [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getPostClones [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getPreClones [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getRequiredLazySlides [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getSlideCount [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getSwipeDirection [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getTotalSlides [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getTrackAnimateCSS [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getTrackCSS [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getTrackLeft [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export getWidth [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export hideLoader [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export hidePopup [provided] [no usage info] [missing usage info prevents renaming] */
@@ -489,8 +289,6 @@
 /*! export hydrate [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-dom/cjs/react-dom.development.js .hydrate */
 
 /*! export impureFinalPropsSelectorFactory [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export initializedState [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export isAsyncMode [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -552,19 +350,9 @@
 
 /*! export isValidElementType [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .isValidElementType */
 
-/*! export keyHandler [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export lazy [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export lazy [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.development.js .lazy */
-
-/*! export lazyEndIndex [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export lazySlidesOnLeft [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export lazySlidesOnRight [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export lazyStartIndex [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export locationsAreEqual [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -602,21 +390,7 @@
 
 /*! export showPopup [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export siblingDirection [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export slideHandler [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export slidesOnLeft [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export slidesOnRight [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export source [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export swipeEnd [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export swipeMove [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export swipeStart [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export typeOf [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -868,8 +642,6 @@
 
 /*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 
-/*! runtime requirements: __webpack_exports__, __webpack_require__.r, __webpack_require__.g, __webpack_require__.d, __webpack_require__.* */
-
 /*! runtime requirements: __webpack_require__ */
 
 /*! runtime requirements: __webpack_require__, __webpack_exports__ */
@@ -879,8 +651,6 @@
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.d, __webpack_require__.r, __webpack_require__.* */
 
 /*! runtime requirements: __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
-
-/*! runtime requirements: __webpack_require__, __webpack_exports__, module */
 
 /*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 
@@ -896,13 +666,7 @@
 
 /*! runtime requirements: module */
 
-/*! runtime requirements: module, __webpack_exports__ */
-
 /*! runtime requirements: module, __webpack_require__ */
-
-/*! runtime requirements: module, __webpack_require__.g, __webpack_require__.* */
-
-/*! runtime requirements: module, top-level-this-exports, __webpack_exports__ */
 
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 
@@ -910,7 +674,7 @@
 
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.n, __webpack_exports__, __webpack_require__.r, __webpack_require__.d, __webpack_require__.* */
 
-/*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
 
 /*! runtime requirements: module.loaded, module.id, module, __webpack_require__.hmd, __webpack_require__, __webpack_require__.r, __webpack_exports__, __webpack_require__.d, __webpack_require__.* */
 
@@ -975,11 +739,11 @@
   \**************************************/
 
 /*!**************************************!*\
-  !*** ./src/assets/images/Group2.png ***!
+  !*** ./src/assets/images/Group2.jpg ***!
   \**************************************/
 
 /*!**************************************!*\
-  !*** ./src/assets/images/Group3.png ***!
+  !*** ./src/assets/images/Group3.jpg ***!
   \**************************************/
 
 /*!**************************************!*\
@@ -989,10 +753,6 @@
 /*!**************************************!*\
   !*** ./src/assets/images/phones.png ***!
   \**************************************/
-
-/*!***************************************!*\
-  !*** ./node_modules/json2mq/index.js ***!
-  \***************************************/
 
 /*!***************************************!*\
   !*** ./src/components/about/About.js ***!
@@ -1051,10 +811,6 @@
   \*****************************************/
 
 /*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-
-/*!******************************************!*\
   !*** ./node_modules/prop-types/index.js ***!
   \******************************************/
 
@@ -1083,12 +839,8 @@
   \********************************************/
 
 /*!********************************************!*\
-  !*** ./node_modules/jquery/dist/jquery.js ***!
+  !*** ./src/components/slider/newSlider.js ***!
   \********************************************/
-
-/*!*********************************************!*\
-  !*** ./node_modules/enquire.js/src/Util.js ***!
-  \*********************************************/
 
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
@@ -1096,10 +848,6 @@
 
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
-  \*********************************************/
-
-/*!*********************************************!*\
-  !*** ./src/assets/images/qualif_master.png ***!
   \*********************************************/
 
 /*!*********************************************!*\
@@ -1115,15 +863,7 @@
   \**********************************************/
 
 /*!**********************************************!*\
-  !*** ./node_modules/enquire.js/src/index.js ***!
-  \**********************************************/
-
-/*!**********************************************!*\
   !*** ./node_modules/react-redux/es/index.js ***!
-  \**********************************************/
-
-/*!**********************************************!*\
-  !*** ./node_modules/react-slick/lib/dots.js ***!
   \**********************************************/
 
 /*!**********************************************!*\
@@ -1135,23 +875,7 @@
   \***********************************************/
 
 /*!***********************************************!*\
-  !*** ./node_modules/lodash.debounce/index.js ***!
-  \***********************************************/
-
-/*!***********************************************!*\
-  !*** ./node_modules/react-slick/lib/index.js ***!
-  \***********************************************/
-
-/*!***********************************************!*\
-  !*** ./node_modules/react-slick/lib/track.js ***!
-  \***********************************************/
-
-/*!***********************************************!*\
   !*** ./src/components/Documents/Documents.js ***!
-  \***********************************************/
-
-/*!***********************************************!*\
-  !*** ./src/components/slider/SimpleSlider.js ***!
   \***********************************************/
 
 /*!***********************************************!*\
@@ -1164,14 +888,6 @@
 
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/helpers/bind.js ***!
-  \************************************************/
-
-/*!************************************************!*\
-  !*** ./node_modules/react-slick/lib/arrows.js ***!
-  \************************************************/
-
-/*!************************************************!*\
-  !*** ./node_modules/react-slick/lib/slider.js ***!
   \************************************************/
 
 /*!************************************************!*\
@@ -1190,10 +906,6 @@
   !*** ./node_modules/axios/lib/helpers/spread.js ***!
   \**************************************************/
 
-/*!**************************************************!*\
-  !*** ./node_modules/slick-slider/slick/slick.js ***!
-  \**************************************************/
-
 /*!***************************************************!*\
   !*** ./node_modules/@babel/polyfill/lib/index.js ***!
   \***************************************************/
@@ -1204,10 +916,6 @@
 
 /*!***************************************************!*\
   !*** ./node_modules/axios/lib/helpers/cookies.js ***!
-  \***************************************************/
-
-/*!***************************************************!*\
-  !*** ./node_modules/enquire.js/src/MediaQuery.js ***!
   \***************************************************/
 
 /*!***************************************************!*\
@@ -1251,19 +959,11 @@
   \*****************************************************/
 
 /*!*****************************************************!*\
-  !*** ./node_modules/enquire.js/src/QueryHandler.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
   \*****************************************************/
 
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/string-convert/camel2hyphen.js ***!
   \*****************************************************/
 
 /*!*****************************************************!*\
@@ -1284,10 +984,6 @@
 
 /*!******************************************************!*\
   !*** ./node_modules/react-redux/es/utils/warning.js ***!
-  \******************************************************/
-
-/*!******************************************************!*\
-  !*** ./node_modules/react-slick/lib/inner-slider.js ***!
   \******************************************************/
 
 /*!******************************************************!*\
@@ -1315,15 +1011,11 @@
   \*******************************************************/
 
 /*!*******************************************************!*\
-  !*** ./node_modules/react-slick/lib/default-props.js ***!
-  \*******************************************************/
-
-/*!*******************************************************!*\
-  !*** ./node_modules/react-slick/lib/initial-state.js ***!
-  \*******************************************************/
-
-/*!*******************************************************!*\
   !*** ./node_modules/symbol-observable/es/ponyfill.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./src/components/questionnaire/Questionnaire.js ***!
   \*******************************************************/
 
 /*!*******************************************************!*\
@@ -1376,10 +1068,6 @@
 
 /*!***********************************************************!*\
   !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
-  \***********************************************************/
-
-/*!***********************************************************!*\
-  !*** ./node_modules/enquire.js/src/MediaQueryDispatch.js ***!
   \***********************************************************/
 
 /*!***********************************************************!*\
@@ -1467,10 +1155,6 @@
   \****************************************************************/
 
 /*!****************************************************************!*\
-  !*** ./node_modules/react-slick/lib/utils/innerSliderUtils.js ***!
-  \****************************************************************/
-
-/*!****************************************************************!*\
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
   \****************************************************************/
 
@@ -1525,10 +1209,6 @@
 /*!************************************************************************!*\
   !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!
   \************************************************************************/
-
-/*!*************************************************************************!*\
-  !*** ./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js ***!
-  \*************************************************************************/
 
 /*!***************************************************************************!*\
   !*** ./node_modules/@babel/polyfill/node_modules/core-js/modules/_cof.js ***!

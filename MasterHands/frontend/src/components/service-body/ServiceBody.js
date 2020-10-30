@@ -1,6 +1,5 @@
 import React from 'react'
 import './service-body.scss'
-import { Link } from 'react-router-dom'
 
 
 const ServiceBody = ({price}) => {

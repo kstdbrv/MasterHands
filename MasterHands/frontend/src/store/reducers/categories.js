@@ -5,7 +5,7 @@ let initialState = { "subcategory": [] };
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_СATEGORIES:
-      return action.categories;
+      return action.payload;
     default: return state;
   }
 }

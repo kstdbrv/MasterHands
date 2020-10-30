@@ -29,6 +29,12 @@
     "pack-start-prod": "webpack --mode production",
     "nodemon": "nodemon server/index.js"
   },
+  "nodemonConfig": {
+    "delay": 1000,
+    "ignore": [
+      "node-modules/"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },

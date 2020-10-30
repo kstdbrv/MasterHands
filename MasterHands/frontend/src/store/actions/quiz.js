@@ -1,5 +1,4 @@
 import axios from '../../axios/axios-quiz'
-/* import axios from 'axios' */
 import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
@@ -143,15 +142,15 @@ export function fetchService(id) {
 }
 
 export function onEmptyStore(link, TYPE) {
-
+     
   return async dispatch => {
-
+    
     try {
       dispatch(showLoader());
 
       const url = `/api${link}`;
       const response = await axios.get(url, {cancelToken: source.token})
- 
+      console.log(response.data)
       dispatch({
         type: TYPE,
         payload: response.data
