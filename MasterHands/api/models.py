@@ -1,28 +1,12 @@
 from django.db import models
 from django.core import validators
 
-from smart_selects.db_fields import ChainedForeignKey
+from mptt.models import MPTTModel, TreeForeignKey
 
 
-class Supercategory(models.Model):
-    supercategory_name = models.CharField(max_length=255, null=True, verbose_name='Имя раздела')
-
-    def __str__(self):
-        return self.supercategory_name
-
-    class Meta:
-        verbose_name = 'Раздел'
-        verbose_name_plural = 'Разделы'
-        ordering = ['supercategory_name']
-
-
-class Category(models.Model):
-    supercategory_name = models.ForeignKey(Supercategory,
-                                           related_name='category',
-                                           null=True,
-                                           on_delete=models.CASCADE,
-                                           verbose_name='Раздел')
-    category_name = models.CharField(max_length=255, null=True, verbose_name='Имя категории')
+class Category(MPTTModel):
+    name = models.CharField(max_length=255, null=True, verbose_name='Имя категории')
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     svg_icon = models.FileField(upload_to='svg/',
                                 null=True,
                                 blank=True,
@@ -30,33 +14,23 @@ class Category(models.Model):
                                 verbose_name='Иконка')
 
     def __str__(self):
-        return self.category_name
+        return self.name
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
     class Meta:
-        ordering = ['category_name']
+        ordering = ['name']
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
 
-class Subcategory(models.Model):
-    category = models.ForeignKey(Category, related_name='subcategory', on_delete=models.CASCADE, verbose_name='Категория')
-    subcategory_name = models.CharField(max_length=255, null=True, verbose_name='Имя подкатегории')
-
-    def __str__(self):
-        return self.subcategory_name
-
-    class Meta:
-        ordering = ['subcategory_name']
-        verbose_name = 'Подкатегория'
-        verbose_name_plural = 'Подкатегории'
-
-
 class Service(models.Model):
 
-    subcategory = models.ForeignKey(Subcategory,
-                                    related_name='services',
-                                    verbose_name='Подкатегория',
-                                    on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,
+                                 related_name='services',
+                                 verbose_name='Категория',
+                                 on_delete=models.CASCADE)
     service_name = models.CharField(max_length=255, null=True, verbose_name='Название услуги')
     description = models. TextField(null=True, blank=True, verbose_name='Описание')
     price = models.IntegerField(null=True, blank=True, verbose_name='Цена')
