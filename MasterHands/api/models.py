@@ -5,8 +5,17 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Category(MPTTModel):
-    name = models.CharField(max_length=255, null=True, verbose_name='Имя категории')
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    name = models.CharField(max_length=255,
+                            null=True,
+                            verbose_name='Имя категории')
+
+    parent = TreeForeignKey('self',
+                            on_delete=models.CASCADE,
+                            null=True,
+                            blank=True,
+                            related_name='children',
+                            verbose_name='Родительская категория')
+
     svg_icon = models.FileField(upload_to='svg/',
                                 null=True,
                                 blank=True,

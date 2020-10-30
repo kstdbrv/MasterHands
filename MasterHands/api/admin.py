@@ -15,6 +15,11 @@ class ServiceInline(admin.TabularInline):
 
 @admin.register(Category)
 class MyModelAdmin(DraggableMPTTAdmin):
+    """
+    Добавление в админу возможности создавать и
+    редактировать дочерние элементы прямо из родительского,
+    а так же добавлен фильтр
+    """
     inlines = [CategoryInline, ServiceInline]
     mptt_level_indent = 30
     list_filter = (
@@ -24,6 +29,9 @@ class MyModelAdmin(DraggableMPTTAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
+    """
+    Добавлен фильтр в админку
+    """
     list_filter = (
         ('category', TreeRelatedFieldListFilter),
     )
