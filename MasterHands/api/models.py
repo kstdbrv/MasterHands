@@ -40,9 +40,18 @@ class Service(models.Model):
                                  related_name='services',
                                  verbose_name='Категория',
                                  on_delete=models.CASCADE)
-    service_name = models.CharField(max_length=255, null=True, verbose_name='Название услуги')
-    description = models. TextField(null=True, blank=True, verbose_name='Описание')
-    price = models.IntegerField(null=True, blank=True, verbose_name='Цена')
+
+    service_name = models.CharField(max_length=255,
+                                    null=True,
+                                    verbose_name='Название услуги')
+
+    description = models. TextField(null=True,
+                                    blank=True,
+                                    verbose_name='Описание')
+
+    price = models.IntegerField(null=True,
+                                blank=True,
+                                verbose_name='Цена')
 
     def __str__(self):
         return self.service_name

@@ -19,6 +19,7 @@ class CategorySerializer(serializers.ModelSerializer):
     Сериализует Категории в JSON, в иерархическом порядке
     с помощью рекурсивного обхода дочерних веток(RecursiveField),
     с сылкой на id родительского элемента.
+
     Так же убирает пустые поля, что бы в итоговом JSON их не было
     """
     children = RecursiveField(many=True, required=False)
@@ -33,7 +34,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ('id', 'name', 'svg_icon', 'parent', 'children', 'services')
+        fields = ('id', 'name', 'svg_icon', 'parent_id', 'children', 'services')
 
 
 
