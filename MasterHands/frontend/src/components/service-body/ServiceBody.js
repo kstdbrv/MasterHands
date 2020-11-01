@@ -40,6 +40,8 @@ const ServiceBody = ({ price }) => {
       className="service__question"
       onClick={() => (dispatch(showPopup()))}   
     >
+     Как формируется цена?
+    </p>
     <button className="button button-blue">
       Рассчитать точную стоимость
     </button>
