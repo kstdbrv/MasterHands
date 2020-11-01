@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './Search.scss'
-import { fetchSearchCategories } from '../../store/actions/quiz'
+import { fetchSearchCategories, fetchSearchService } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 
 
@@ -16,7 +16,6 @@ export const Search = () => {
   let arr = []
   let arr1 = []
   let arr2 = []
-  let randomService
   if (services.length) {
     services.map(e => {
       arr.push(e.service_name)
@@ -26,13 +25,10 @@ export const Search = () => {
     function randomInt(max) {
       return Math.floor(Math.random() * Math.floor(max))
     }
-    console.log(arr1)
 
     for (let i = 0; i < 2; i++) {
       arr2.push(arr1[randomInt(services.length)])
     }
-
-    console.log('За сервисом', arr2)
   }
 
   return (
@@ -48,9 +44,16 @@ export const Search = () => {
         {
           arr2.length
             ? <>
-              <Link to={'/'}>
+              <Link to={`/services/${arr2[0].id}`}
+                onClick={() => dispatch(fetchSearchService(arr2[0].id))}
+              >
                 {arr2[0].service_name}
-              </Link>
+              </Link>, &nbsp;
+              <Link to={`/services/${arr2[1].id}`}
+                onClick={() => dispatch(fetchSearchService(arr2[1].id))}
+              >
+                {arr2[1].service_name}
+              </Link> &nbsp;
             </>
             : null
         }
@@ -68,6 +71,6 @@ export const Search = () => {
       и еще &nbsp;
       {arr.length} {serviceEnding(arr.length)}
       </p>
-    </section>
+    </section >
   )
 }

@@ -40,7 +40,7 @@ const CategoriesGrid = () => {
                   to={`/categories/${c.id}`}
                   onClick={() => (dispatch(fetchСategories(c.id)))}
                 >
-                 <p className="grids__item-info">  
+                 <div className="grids__item-info">  
                     <span
                       className="grids__item-name"
                     >{c.category_name}</span>
@@ -49,7 +49,7 @@ const CategoriesGrid = () => {
                      <span> {serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))}</span>
                     <ArrowLink />
                     </p>
-                  </p>
+                  </div>
                   <p className="grids__item-img">
                     <img src={lamp} alt="иконка" />
                   </p>

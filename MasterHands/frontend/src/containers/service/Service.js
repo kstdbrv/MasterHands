@@ -11,20 +11,15 @@ import PopupService from '../../components/popup-service/PopupService'
 const Service = () => {
 
   const service = useSelector(state => state.service);
-
-/*   const [popup, setPopup] = useState({ visible = false }); // local state for popup
-  const popupHandler = () => {
-    setPopup({ visible = !visible })
-  } */
-  popoup = useSelector(state => state.app.popupVisible);
-
+  const popup = useSelector(state => state.app.popupVisible);
+  const searcService = useSelector(state => state.searchService)
   return (
     <>
-      <Breadcrumbs serviceName={service.service_name} />
+      <Breadcrumbs serviceName={service.service_name ? service.service_name : null} />
       <Loader />
-      <ServiceBody price={service.price} />
-      { popup ? <PopupService /> : null }
-      { popoup ? <Backdrop /> : null }
+      <ServiceBody price={service.price ? service.price : searcService.price} service ={service.service_name ? service.service_name : searcService.service_name} />
+      {popup ? <PopupService /> : null}
+      {popup ? <Backdrop /> : null}
     </>
   )
 }

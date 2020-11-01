@@ -1,10 +1,9 @@
 import axios from '../../axios/axios-quiz'
-/* import axios from 'axios' */
 import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
-  FETCH_SEARCH_CATEGORIES
+  FETCH_SEARCH_CATEGORIES, FETCH_SEARCH_SERVICE
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
@@ -50,6 +49,23 @@ export function fetchSearchCategories() {
       dispatch({
         type: FETCH_SEARCH_CATEGORIES,
         services: response.data
+      })
+
+    } catch (e) {
+      console.error(e)
+    }
+  }
+}
+
+export function fetchSearchService(id) {
+  return async dispatch => {
+    try {
+      const url = `/api/services/${id}`
+      const response = await axios.get(url)
+      console.log('fetchSearchService')
+      dispatch({
+        type: FETCH_SEARCH_SERVICE,
+        service: response.data
       })
 
     } catch (e) {
@@ -169,7 +185,7 @@ export function onEmptyStore(link, TYPE) {
 
       const url = `/api${link}`;
       const response = await axios.get(url, { cancelToken: source.token })
-
+      console.log(response.data)
       dispatch({
         type: TYPE,
         payload: response.data
