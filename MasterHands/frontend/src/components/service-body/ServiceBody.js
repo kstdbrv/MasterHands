@@ -1,13 +1,8 @@
 import React from 'react'
 import './service-body.scss'
-import { useDispatch } from 'react-redux'
-import { showPopup } from '../../store/actions/app'
 
 
-const ServiceBody = ({ price }) => {
-  
-  const dispatch = useDispatch();
-
+const ServiceBody = ({price}) => {
   return (
   <div className="service-main">
     <div className="service">
@@ -36,10 +31,7 @@ const ServiceBody = ({ price }) => {
       </p>&nbsp;
       <span>₽</span>
     </div>
-    <p
-      className="service__question"
-      onClick={() => (dispatch(showPopup()))}   
-    >
+    <p className="service__question">
       Как формируется цена?
     </p>
     <button className="button button-blue">
