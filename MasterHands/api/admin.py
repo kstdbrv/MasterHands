@@ -26,6 +26,9 @@ class MyModelAdmin(DraggableMPTTAdmin):
         ('parent', TreeRelatedFieldListFilter),
     )
 
+    def service_name(self, obj):
+        return obj.services.name
+
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):

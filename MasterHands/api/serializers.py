@@ -9,6 +9,7 @@ class ServiceSerializer(serializers.ModelSerializer):
     """
     Сериализует услуги в JSON
     """
+
     class Meta:
         model = Service
         fields = '__all__'
@@ -24,17 +25,18 @@ class CategorySerializer(serializers.ModelSerializer):
     """
     children = RecursiveField(many=True, required=False)
     services = ServiceSerializer(many=True)
+    services_count = serializers.ReadOnlyField(source='get_services_count')
 
     def to_representation(self, instance):
         """
         Убирает пустые поля у Категории
         """
         result = super(CategorySerializer, self).to_representation(instance)
-        return OrderedDict([(key, result[key]) for key in result if result[key] is not None and result[key] != []])
+        return OrderedDict([(key, result[key]) for key in result if result[key] is not None and (result[key]) != []])
 
     class Meta:
         model = Category
-        fields = ('id', 'name', 'svg_icon', 'parent_id', 'children', 'services')
+        fields = ('id', 'name', 'services_count', 'svg_icon', 'parent_id', 'children', 'services')
 
 
 

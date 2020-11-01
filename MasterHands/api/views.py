@@ -1,4 +1,5 @@
 from mptt.templatetags.mptt_tags import cache_tree_children
+from mptt.utils import get_cached_trees
 
 from rest_framework import generics
 
@@ -41,7 +42,7 @@ class CategoryListCreate(generics.ListCreateAPIView):
         Возвращает queryset в зависимости от требуемого уровня.
         (Пременная lvl, передается аргументом из urls)
         """
-        return cache_tree_children(Category.objects.filter(level=self.kwargs['lvl']))
+        return Category.objects.filter(level=self.kwargs['lvl'])
 
     serializer_class = CategorySerializer
 

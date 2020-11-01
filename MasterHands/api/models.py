@@ -25,6 +25,14 @@ class Category(MPTTModel):
     def __str__(self):
         return self.name
 
+    def get_services_count(self, count=0):
+        if self.is_leaf_node():
+            return self.services.count()
+
+        for child in self.get_children():
+            count += child.get_services_count()
+        return count
+
     class MPTTMeta:
         order_insertion_by = ['name']
 
