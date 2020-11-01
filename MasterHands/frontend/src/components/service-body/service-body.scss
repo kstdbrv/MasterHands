@@ -68,11 +68,12 @@
     }
   }
   &__question {
-    display: flex;
+    width: 190px;
     color: #6A6A6A;
     font-size: 16px;
     margin-bottom: 45px;
     transition: all .2s;
+    cursor: pointer;
     &:hover {
       color:#000;
     }
