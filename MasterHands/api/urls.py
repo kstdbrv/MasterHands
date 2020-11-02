@@ -1,13 +1,11 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
+
 from . import views
 
 urlpatterns = [
-    path('supercategories/', views.SupercategoryListCreate.as_view()),
-    path('supercategories/<int:pk>', views.SupercategoryRetrieveUpdateDestroy.as_view()),
-    path('categories/', views.CategoryListCreate.as_view()),
-    path('categories/<int:pk>', views.CategoryRetrieveUpdateDestroy.as_view()),
-    path('services/', views.ServiceListCreate.as_view()),
-    path('services/<int:pk>', views.ServiceRetrieveUpdateDestroy.as_view()),
-    path('subcategories/', views.SubcategoryListCreate.as_view()),
-    path('subcategories/<int:pk>', views.SubcategoryRetrieveUpdateDestroy.as_view()),
+    path('services/', cache_page(60*60*24*30)(views.ServiceListCreate.as_view())),
+    path('services/<int:pk>', cache_page(60*60*24*30)(views.ServiceRetrieveUpdateDestroy.as_view())),
+    path('categories/<int:lvl>', cache_page(60*60*24*30)(views.CategoryListCreate.as_view())),
+    path('categories/get/<int:pk>', cache_page(60*60*24*30)(views.CategoryRetrieveUpdateDestroyAPIView.as_view())),
 ]

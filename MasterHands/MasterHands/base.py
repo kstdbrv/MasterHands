@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'smart_selects',
+    'mptt',
 
     'api.apps.ApiConfig',
     'main.apps.MainConfig',

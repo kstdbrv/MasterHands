@@ -4,11 +4,15 @@ chardet==3.0.4
 coverage==5.3
 Django==3.1.2
 django-cors-headers==3.5.0
+django-js-asset==1.2.2
+django-mptt==0.11.0
 django-smart-selects==1.5.9
 django-webpack-loader==0.7.0
 djangorestframework==3.12.1
+djangorestframework-recursive==0.1.2
 idna==2.10
 Pillow==7.2.0
+psycopg2-binary==2.8.6
 pytz==2020.1
 requests==2.24.0
 six==1.15.0

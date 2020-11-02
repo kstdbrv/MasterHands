@@ -93,7 +93,8 @@
   }
 
   &__question {
-    display: flex;
+    width: 190px;
+    cursor: pointer;
     color: #6A6A6A;
     font-size: 16px;
     margin-bottom: 45px;

@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin, TreeRelatedFieldListFilter
+
 from .models import *
 
 
@@ -7,31 +9,32 @@ class CategoryInline(admin.TabularInline):
     model = Category
 
 
-class SubcategoryInline(admin.TabularInline):
-    model = Subcategory
-
-
 class ServiceInline(admin.TabularInline):
     model = Service
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_filter = ('supercategory_name',)
-    inlines = [SubcategoryInline]
+class MyModelAdmin(DraggableMPTTAdmin):
+    """
+    Добавление в админу возможности создавать и
+    редактировать дочерние элементы прямо из родительского,
+    а так же добавлен фильтр
+    """
+    inlines = [CategoryInline, ServiceInline]
+    mptt_level_indent = 30
+    list_filter = (
+        ('parent', TreeRelatedFieldListFilter),
+    )
 
-
-@admin.register(Subcategory)
-class SubcategoryAdmin(admin.ModelAdmin):
-    list_filter = ('category__supercategory_name', 'category')
-    inlines = [ServiceInline]
+    def service_name(self, obj):
+        return obj.services.name
 
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
-    list_filter = ('subcategory__category__supercategory_name', 'subcategory__category', 'subcategory')
-
-
-@admin.register(Supercategory)
-class SuperCategory(admin.ModelAdmin):
-    inlines = [CategoryInline]
+    """
+    Добавлен фильтр в админку
+    """
+    list_filter = (
+        ('category', TreeRelatedFieldListFilter),
+    )
