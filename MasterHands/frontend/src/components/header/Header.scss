@@ -89,7 +89,7 @@ nav a {
   padding-top: 15px;
   padding-left: 10px;
   position: absolute;
-  top: 80px;
+  top: 84px;
   visibility: hidden;
   opacity: 0;
   z-index: 5;
@@ -99,6 +99,7 @@ nav a {
   width: 200px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
   border-radius: 0px 0px 5px 5px;
+  background-color: #fff;
 }
 .header__menu > li:hover .submenu {
   visibility: visible;
