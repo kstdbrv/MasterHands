@@ -26,6 +26,7 @@ class CategorySerializer(serializers.ModelSerializer):
     children = RecursiveField(many=True, required=False)
     services = ServiceSerializer(many=True)
     services_count = serializers.ReadOnlyField(source='get_services_count')
+    svg_icon = serializers.SerializerMethodField('get_image_url')
 
     def to_representation(self, instance):
         """
@@ -33,6 +34,12 @@ class CategorySerializer(serializers.ModelSerializer):
         """
         result = super(CategorySerializer, self).to_representation(instance)
         return OrderedDict([(key, result[key]) for key in result if result[key] is not None and (result[key]) != []])
+
+    def get_image_url(self, obj):
+        if obj.svg_icon:
+            return self.context['request'].META['HTTP_HOST'] + obj.svg_icon.url
+        else:
+            return None
 
     class Meta:
         model = Category
