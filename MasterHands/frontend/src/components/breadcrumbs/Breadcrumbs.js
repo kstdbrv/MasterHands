@@ -5,8 +5,8 @@ import './breadcrumbs.scss'
 
 const Breadcrumbs = (props) => {
 
-  let { category_name } = useSelector(state => state.categories);
-  let { subcategory_name } = useSelector(state => state.services);
+  let categories = useSelector(state => state.categories);
+  let services = useSelector(state => state.services);
 
   let id = useSelector(state => state.app);
 
@@ -19,10 +19,10 @@ const Breadcrumbs = (props) => {
             </Link>
           </li>
           {
-           category_name && !props.deleteNextLinks ?
+           categories.name && !props.deleteNextLinks ?
           <li className="breadcrumbs__list-item">
             <Link to={ `/categories/${id.categories}` }>
-              { category_name }
+              { categories.name }
             </Link>
           </li> : null
           }
@@ -30,7 +30,7 @@ const Breadcrumbs = (props) => {
             !props.deleteNextLinks && !props.deleteServicesBreadcrmb ?
           <li className="breadcrumbs__list-item">
             <Link to={ `/subcategories/${id.services}` }>
-              { subcategory_name }
+              { services.name }
             </Link>
           </li> : null
           }

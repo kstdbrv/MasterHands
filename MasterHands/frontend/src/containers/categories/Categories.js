@@ -45,7 +45,7 @@ const Categories = () => {
                   onClick={() => (dispatch(getСategories(c.id)))}
                 >
                 <p>
-                  <img src={lamp} alt="иконка" />
+                  <img src={c.svg_icon} alt="иконка" />
                   <span className="list-service__name">{c.name}</span>
                 </p>
                 <p className="list-service__num">
