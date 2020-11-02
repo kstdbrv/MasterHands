@@ -8,7 +8,7 @@ export function showLoader() {
     type: SHOW_LOADER
   }
 }
-/* ccv */
+
 export function hideLoader() {
   return {
     type: HIDE_LOADER
