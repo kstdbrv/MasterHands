@@ -8,7 +8,7 @@ import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
-import { fetchСategories } from '../../store/actions/quiz'
+import { getСategories } from '../../store/actions/quiz'
 
 
 const Categories = () => {
@@ -35,22 +35,22 @@ const Categories = () => {
       supercategories.map(s => (
         <React.Fragment key={s.id}>
           <li className="list-service__title">
-            <p>{s.supercategory_name}</p>
+            <p>{s.name}</p>
           </li>
           {
-            s.category.map(c => (
+            s.children.map(c => (
             <li key={c.id}>
                 <Link className="list-service__item"
                   to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(fetchСategories(c.id)))}
-              >
+                  onClick={() => (dispatch(getСategories(c.id)))}
+                >
                 <p>
                   <img src={lamp} alt="иконка" />
-                  <span className="list-service__name">{c.category_name}</span>
+                  <span className="list-service__name">{c.name}</span>
                 </p>
                 <p className="list-service__num">
-                  <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}
-                  <span>{serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))}</span>
+                  <span>{c.services_count}</span>
+                  <span>{serviceEnding(c.services_count)}</span>
                   <ArrowLink />
                 </p>  
               </Link>

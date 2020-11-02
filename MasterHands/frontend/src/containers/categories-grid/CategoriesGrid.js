@@ -33,7 +33,7 @@ const CategoriesGrid = () => {
       supercategories.map(s => (
         <React.Fragment key={s.id}>
           {
-            s.category.map(c => (
+            s.children.map(c => (
               <li key={c.id}>
                 <Link
                   className="grids__item"
@@ -43,10 +43,10 @@ const CategoriesGrid = () => {
                  <div className="grids__item-info">  
                     <span
                       className="grids__item-name"
-                    >{c.category_name}</span>
+                    >{c.name}</span>
                     <p className="grids__item-num">
-                     <span>{c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0)}</span>  {/* количество услуг в суаеркатегории */}    {/* <span>{c.subcategory.length}</span> */}
-                     <span> {serviceEnding(c.subcategory.reduce((lenght, sub) => lenght + sub.services.reduce((lenght) => lenght + 1, 0), 0))}</span>
+                      <span>{c.services_count}</span> &nbsp;
+                      <span>{serviceEnding(c.services_count)}</span>
                     <ArrowLink />
                     </p>
                   </div>
