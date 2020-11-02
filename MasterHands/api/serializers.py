@@ -37,7 +37,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def get_image_url(self, obj):
         if obj.svg_icon:
-            return self.context['request'].META['HTTP_HOST'] + obj.svg_icon.url
+            return 'http://' + self.context['request'].META['HTTP_HOST'] + obj.svg_icon.url
         else:
             return None
 
