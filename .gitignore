@@ -7,7 +7,8 @@ MasterHands/static/
 __pycache__/
 *.py[cod]
 *$py.class
-
+index_bundle.js
+index_bundle.js.gz
 # C extensions
 *.so
 

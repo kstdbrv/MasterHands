@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { fetchСategories } from '../../store/actions/quiz'
-
+import {serviceEnding} from '../../utils/utils'
 
 const Categories = () => {
 
@@ -22,13 +22,6 @@ const Categories = () => {
     }
   }, [])
 
-  function serviceEnding(number) {
-    const arr = String(number).split("")
-    if (arr[arr.length - 2] == '1') return 'Услуг'
-    else if (arr[arr.length - 1] === '1') return 'Услуга'
-    else if (arr[arr.length - 1] === '2' || arr[arr.length - 1] === '3' || arr[arr.length - 1] === '4') return 'Услуги'
-    return 'Услуг'
-  }
 
   const renderCategories = () => {
     return (
