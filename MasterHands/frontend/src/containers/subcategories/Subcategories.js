@@ -12,17 +12,10 @@ import { FETCH_СATEGORIES } from '../../store/actions/actionTypes'
 
 
 const Subcategories = () => {
-console.log('render')
+
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
-console.log('empty store? ' + !categories.id)
 
-  useEffect(() => {
-    if (!categories.id) {
-      console.log('works onEmptyStore')
-    dispatch(onEmptyStore(window.location.pathname, FETCH_СATEGORIES))
-  }
-}, [])
 
   return (
     <>
@@ -30,7 +23,7 @@ console.log('empty store? ' + !categories.id)
       <ul className="subcategories__list">
         <Loader />
       {
-       categories.subcategory.map(s => {
+       categories.children.map(s => {
           return (
           <li key={s.id}>  
               <Link
@@ -38,7 +31,7 @@ console.log('empty store? ' + !categories.id)
                 className="subcategories__item"
                 onClick={() => (dispatch(fetchServices(s.id)))}
               >
-              {s.subcategory_name}
+              {s.name}
               <ArrowLink />
             </Link>
           </li>

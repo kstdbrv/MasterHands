@@ -3,11 +3,14 @@ import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
+  GET_СATEGORIES
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
   setServicesId, setServiceId
 } from '../actions/app'
+import { useSelector, useDispatch } from 'react-redux'
+
 
 
 export function fetchSupercategories() {
@@ -170,3 +173,54 @@ export function onEmptyStore(link, TYPE) {
     }
   }
 }
+
+
+
+
+
+
+function memoizedСategories() {
+  let cache = {};
+  return (id) => {
+    if (id in cache) {
+      return; // ничего не нужно возвращать
+    }
+    else {
+      const supercategories = useSelector(state => state.supercategories);
+      /* return dispatch(fetchСategories(id)); */
+
+
+      let payload = supercategories.map(s => {
+        s.children.filter(c => c.id === id)
+      });
+      dispatch({
+        type: GET_СATEGORIES,
+        payload
+      });
+      cache[id] = id;
+      return; // ничего не нужно возвращать
+    }
+  }
+}
+  
+export const getСategories = memoizedСategories();
+
+  
+
+
+
+
+/* export function getСategories(id) {
+  const categories = useSelector(state => state.categories);
+  if (!categories) {
+    const supercategories = useSelector(state => state.supercategories);
+    
+    let payload = supercategories.map(s => {
+      s.children.filter(c => c.id === id)
+    });
+    dispatch({
+      type: GET_СATEGORIES,
+      payload
+    });
+  }
+} */
