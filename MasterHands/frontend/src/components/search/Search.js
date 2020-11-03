@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './Search.scss'
 import { getAllServices } from '../../store/actions/quiz'
-import { serviceEnding } from '../../utils/utils'
+import { serviceEnding, randomInt } from '../../utils/utils'
 
 
 export const Search = (props) => {
@@ -27,13 +27,13 @@ export const Search = (props) => {
   if (arr1.length) {
     const arrServices = arr1.flat()
 
-    function randomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max))
-    }
-
     for (let i = 0; i < 2; i++) {
       arr2.push(arrServices[randomInt(services.length - 1)])
     }
+  }
+
+  function toLowerCase(str) {
+    return str.toLowerCase()
   }
 
   return (
@@ -51,12 +51,12 @@ export const Search = (props) => {
               <Link to={`/`}
               // onClick={() => dispatch(fetchSearchService(arr2[0].id))}
               >
-                {arr2[0].service_name}
+                {toLowerCase(arr2[0].service_name)}
               </Link>, &nbsp;
               <Link to={`/`}
               // onClick={() => dispatch(fetchSearchService(arr2[1].id))}
               >
-                {arr2[1].service_name}
+                {toLowerCase(arr2[1].service_name)}
               </Link> &nbsp;
             </>
             : null

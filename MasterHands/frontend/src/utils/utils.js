@@ -6,3 +6,7 @@ export const serviceEnding = number => {
   else if (arr[arr.length - 1] === '2' || arr[arr.length - 1] === '3' || arr[arr.length - 1] === '4') return 'услуги'
   return 'услуг'
 }
+
+export const randomInt = max => {
+  return Math.floor(Math.random() * Math.floor(max))
+}
