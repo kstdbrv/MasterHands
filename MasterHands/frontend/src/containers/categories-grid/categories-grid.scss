@@ -8,7 +8,7 @@
     }
   }
   &__item {
-    background: #F4F4F4;
+    background: #FFFFFF;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     width: 420px;
@@ -22,8 +22,12 @@
       background: #2787F5;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
       svg {
-        fill:#fff;
-      } 
+        transition: all .3s;
+        fill:#fff;  
+      }
+      img {
+        filter: invert(1);
+      }
     }
     &:active{
       box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
@@ -49,12 +53,16 @@
   &__item-img {
     width: 35%;
     text-align: right;
-    margin-top: 10px;
-    img{
-      max-width: 100%;
-      @media (max-width:480px) {
-        max-width: 75%;
+    margin-top: 20px;
+     @media (max-width:480px) {
+      margin-top: 5px;
       }
+    img {
+      filter: invert(0.4);
+      width: 130px;
+      height: 110px;
+      max-width: 100%;
+      transition: all .3s;
     }
   }
   &__item-name {
@@ -69,6 +77,7 @@
     font-size: 24px;
     text-transform: lowercase;
     svg {
+      transition: all .3s;
       margin-left: 15px;
       width: 11px;
       height: 17px;

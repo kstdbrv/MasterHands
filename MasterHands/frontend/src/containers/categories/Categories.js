@@ -44,15 +44,15 @@ const Categories = () => {
                   to={`/categories/${c.id}`}
                   onClick={() => (dispatch(getСategories(c.id)))}
                 >
-                <p>
+                 <div className="list-service__left">
                   <img src={c.svg_icon} alt="иконка" />
                   <span className="list-service__name">{c.name}</span>
-                </p>
-                <p className="list-service__num">
+                 </div>
+                <div className="list-service__num">
                   <span>{c.services_count}</span>
                   <span>{serviceEnding(c.services_count)}</span>
                   <ArrowLink />
-                </p>  
+                </div>  
               </Link>
             </li>
             ))
