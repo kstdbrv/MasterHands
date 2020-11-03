@@ -4,7 +4,6 @@ import { Loader } from '../../components/loader/Loader'
 import { Search } from '../../components/search/Search'
 import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './Categories.scss'
-import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
@@ -17,7 +16,7 @@ const Categories = () => {
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
-  const services = useRef(null)
+  const services = useRef(null) // prevent render
 
   useEffect(() => {
     if (!supercategories.length) {
@@ -48,7 +47,10 @@ const Categories = () => {
                   onClick={() => (dispatch(getСategories(c.id)))}
                 >
                  <div className="list-service__left">
-                  <img src={c.svg_icon} alt="иконка" />
+                  {
+                    c.name === "IKEA" ? <img className="list-service__ikea" src={c.svg_icon} alt="иконка" />
+                                      : <img src={c.svg_icon} alt="иконка" />
+                  }
                   <span className="list-service__name">{c.name}</span>
                  </div>
                 <div className="list-service__num">
