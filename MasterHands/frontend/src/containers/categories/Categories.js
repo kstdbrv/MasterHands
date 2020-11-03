@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 import { Search } from '../../components/search/Search'
@@ -9,12 +9,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { getСategories } from '../../store/actions/quiz'
+import { serviceEnding } from '../../utils/utils'
+
 
 
 const Categories = () => {
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
+  const services = useRef(null)
 
   useEffect(() => {
     if (!supercategories.length) {
@@ -22,21 +25,28 @@ const Categories = () => {
     }
   }, [])
 
+  let serviceQty = []
+  let allServices = []
+
 
   const renderCategories = () => {
-    return (
-      supercategories.map(s => (
+
+    return supercategories.map(s => {
+      serviceQty.push(s.services_count)
+      let servicesTotalQty = serviceQty.reduce((prev, next) => prev + next, 0)
+      services.current = servicesTotalQty
+
+      return (
         <React.Fragment key={s.id}>
           <li className="list-service__title">
             <p>{s.name}</p>
           </li>
-          {
-            s.children.map(c => (
+          {s.children.map(c => (
             <li key={c.id}>
-                <Link className="list-service__item"
-                  to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(getСategories(c.id)))}
-                >
+              <Link className="list-service__item"
+                to={`/categories/${c.id}`}
+                onClick={() => (dispatch(getСategories(c.id)))}
+              >
                 <p>
                   <img src={lamp} alt="иконка" />
                   <span className="list-service__name">{c.name}</span>
@@ -45,25 +55,25 @@ const Categories = () => {
                   <span>{c.services_count}</span>
                   <span>{serviceEnding(c.services_count)}</span>
                   <ArrowLink />
-                </p>  
+                </p>
               </Link>
             </li>
-            ))
+          ))
           }
         </React.Fragment>
-      ))
-    )
+      )
+    })
   }
 
   return (
     <>
-      <Search />
+      <Search serviceQty={services} />
       <section className="categories">
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
               <Loader />
-              { renderCategories() }
+              {renderCategories()}
             </ul>
           </div>
           <ServicesRight />

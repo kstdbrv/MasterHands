@@ -2,32 +2,37 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './Search.scss'
-import { fetchSearchCategories, fetchSearchService } from '../../store/actions/quiz'
+import { getAllServices } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 
 
-export const Search = () => {
+export const Search = (props) => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchSearchCategories())
+    dispatch(getAllServices())
   }, [])
 
-  const services = useSelector(state => state.searchServices)
-  let arr = []
+  const services = useSelector(state => state.allServices)
   let arr1 = []
   let arr2 = []
+
   if (services.length) {
     services.map(e => {
-      arr.push(e.service_name)
-      arr1.push(e)
+      if (e.services) {
+        arr1.push(e.services)
+      }
     })
+  }
+
+  if (arr1.length) {
+    const arrServices = arr1.flat()
 
     function randomInt(max) {
       return Math.floor(Math.random() * Math.floor(max))
     }
 
     for (let i = 0; i < 2; i++) {
-      arr2.push(arr1[randomInt(services.length)])
+      arr2.push(arrServices[randomInt(services.length - 1)])
     }
   }
 
@@ -40,36 +45,24 @@ export const Search = () => {
       <div className="search__bg"></div>
       <p className="search__text">
         Например, &nbsp;
-        {/* http://127.0.0.1:8000/services/135 */}
         {
-          arr2.length
+          arr2.length && arr2[0].service_name !== arr2[1].service_name
             ? <>
-              <Link to={`/services/${arr2[0].id}`}
-                onClick={() => dispatch(fetchSearchService(arr2[0].id))}
+              <Link to={`/`}
+              // onClick={() => dispatch(fetchSearchService(arr2[0].id))}
               >
                 {arr2[0].service_name}
               </Link>, &nbsp;
-              <Link to={`/services/${arr2[1].id}`}
-                onClick={() => dispatch(fetchSearchService(arr2[1].id))}
+              <Link to={`/`}
+              // onClick={() => dispatch(fetchSearchService(arr2[1].id))}
               >
                 {arr2[1].service_name}
               </Link> &nbsp;
             </>
             : null
         }
-        {/* <Link to="/"> {
-          arr2.length
-            ? arr2[0].service_name
-            : null},
-        </Link> &nbsp;
-        <Link to="/"> {
-          arr2.length
-            ? arr2[1].service_name
-            : null
-        }
-        </Link>&nbsp; */}
       и еще &nbsp;
-      {arr.length} {serviceEnding(arr.length)}
+      {props.serviceQty.current} {serviceEnding(props.serviceQty.current)}
       </p>
     </section >
   )

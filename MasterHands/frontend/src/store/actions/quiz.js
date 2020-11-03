@@ -3,7 +3,7 @@ import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
-  GET_СATEGORIES
+  GET_СATEGORIES, GET_SERVICES
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
@@ -20,8 +20,8 @@ export function fetchSupercategories() {
       dispatch(showLoader());
 
       const url = `/api/categories/0`;
-      const response = await axios.get(url, {cancelToken: source.token});
-         
+      const response = await axios.get(url, { cancelToken: source.token });
+
       dispatch({
         type: FETCH_SUPERCATEGORIES,
         supercategories: response.data
@@ -42,32 +42,14 @@ export function fetchSupercategories() {
   }
 }
 
-export function fetchSearchCategories() {
+export function getAllServices() {
   return async dispatch => {
     try {
-      const url = `/api/services/`;  // const url = `${API_URL}/api/categories/${id}`;
-      const response = await axios.get(url);
-
-      dispatch({
-        type: FETCH_SEARCH_CATEGORIES,
-        services: response.data
-      })
-
-    } catch (e) {
-      console.error(e)
-    }
-  }
-}
-
-export function fetchSearchService(id) {
-  return async dispatch => {
-    try {
-      const url = `/api/services/${id}`
+      const url = `/api/categories/2`
       const response = await axios.get(url)
-      console.log('fetchSearchService')
       dispatch({
-        type: FETCH_SEARCH_SERVICE,
-        service: response.data
+        type: GET_SERVICES,
+        allServices: response.data
       })
 
     } catch (e) {
@@ -236,10 +218,10 @@ function memoizedСategories() {
     }
   }
 }
-  
+
 export const getСategories = memoizedСategories();
 
-  
+
 
 
 
@@ -248,7 +230,7 @@ export const getСategories = memoizedСategories();
   const categories = useSelector(state => state.categories);
   if (!categories) {
     const supercategories = useSelector(state => state.supercategories);
-    
+
     let payload = supercategories.map(s => {
       s.children.filter(c => c.id === id)
     });

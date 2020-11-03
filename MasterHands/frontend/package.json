@@ -28,13 +28,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "ssr": "node server/index.js",
-    "pack-start": "webpack --watch",
-    "pack-start1": "webpack --mode development --watch",
+    "pack-start": "webpack --mode development --watch",
     "pack-start-prod": "webpack --mode production",
     "nodemon": "nodemon server/index.js"
   },
   "nodemonConfig": {
-    "delay": 3000,
+    "delay": 1000,
     "ignore": [
       "node-modules/"
     ]

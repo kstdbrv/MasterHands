@@ -4,8 +4,8 @@ import categoriesReducer from '../reducers/categories'
 import servicesReducer from '../reducers/services'
 import supercategoriesReducer from '../reducers/supercategories'
 import serviceReducer from '../reducers/service'
-import servicesQtyReducer from '../reducers/serviceQtyReducer'
-import searchServiceReducer from '../reducers/searchServiceReducer'
+import getAllServicesReducer from './getAllServicesReducer'
+
 
 const rootReducer = combineReducers({
   app: appReducer,
@@ -13,8 +13,7 @@ const rootReducer = combineReducers({
   categories: categoriesReducer,
   services: servicesReducer,
   service: serviceReducer,
-  searchServices: servicesQtyReducer,
-  searchService: searchServiceReducer
+  allServices: getAllServicesReducer,
 })
 
 export default rootReducer
