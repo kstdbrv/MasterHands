@@ -56,7 +56,7 @@
     margin-top: 20px;
      @media (max-width:480px) {
       margin-top: 5px;
-      }
+    }
     img {
       filter: invert(0.4);
       width: 130px;
@@ -64,6 +64,11 @@
       max-width: 100%;
       transition: all .3s;
     }
+  }
+  img.grids__item-ikea {
+    width: 200px;
+    margin-left: -67px;
+    max-width: 150%;
   }
   &__item-name {
     display: block;
