@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './Search.scss'
 import { getAllServices } from '../../store/actions/quiz'
-import { serviceEnding, randomInt } from '../../utils/utils'
+import { serviceEnding, randomInt, toLowerCase } from '../../utils/utils'
 
 
 export const Search = (props) => {
@@ -32,9 +32,7 @@ export const Search = (props) => {
     }
   }
 
-  function toLowerCase(str) {
-    return str.toLowerCase()
-  }
+
 
   return (
     <section className="search">

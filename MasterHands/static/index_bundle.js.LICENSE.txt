@@ -378,6 +378,8 @@
 
 /*! export pureFinalPropsSelectorFactory [provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export randomInt [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export register [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
@@ -401,6 +403,8 @@
 /*! export showPopup [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export source [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export toLowerCase [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export typeOf [provided] [no usage info] [missing usage info prevents renaming] */
 

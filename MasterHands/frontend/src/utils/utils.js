@@ -10,3 +10,7 @@ export const serviceEnding = number => {
 export const randomInt = max => {
   return Math.floor(Math.random() * Math.floor(max))
 }
+
+export const toLowerCase = str => {
+  return str.toLowerCase()
+}
