@@ -12,7 +12,7 @@ import Services from './containers/services/Services'
 import BecomeMaster from './components/become-master/BecomeMaster'
 import Contacts from './components/contacts/Contacts'
 import About from './components/about/About'
-import Auth from './containers/auth/auth'
+import Auth from './components/auth/auth'
 import Questionnaire from './components/questionnaire/Questionnaire'
 
 

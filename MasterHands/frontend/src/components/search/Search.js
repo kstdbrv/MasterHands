@@ -1,22 +1,69 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import './Search.scss'
+import { getAllServices } from '../../store/actions/quiz'
+import { serviceEnding } from '../../utils/utils'
 
-export const Search = () => {
+
+export const Search = (props) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAllServices())
+  }, [])
+
+  const services = useSelector(state => state.allServices)
+  let arr1 = []
+  let arr2 = []
+
+  if (services.length) {
+    services.map(e => {
+      if (e.services) {
+        arr1.push(e.services)
+      }
+    })
+  }
+
+  if (arr1.length) {
+    const arrServices = arr1.flat()
+
+    function randomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    }
+
+    for (let i = 0; i < 2; i++) {
+      arr2.push(arrServices[randomInt(services.length - 1)])
+    }
+  }
+
   return (
     <section className="search">
-    <form className="search__form">
-      <input className="search__input" type="text" placeholder="Введите запрос"/>
-      <input className="search__btn" type="submit"/>
-    </form>
-    <div className="search__bg"></div>
-    <p className="search__text">
-      Например, &nbsp;
-      <Link to="/"> починить окно, </Link>&nbsp;
-      <Link to="/">ремонт стиральной машины </Link>&nbsp;
+      <form className="search__form">
+        <input className="search__input" type="text" placeholder="Введите запрос" />
+        <button className="search__btn" />
+      </form>
+      <div className="search__bg"></div>
+      <p className="search__text">
+        Например, &nbsp;
+        {
+          arr2.length && arr2[0].service_name !== arr2[1].service_name
+            ? <>
+              <Link to={`/`}
+              // onClick={() => dispatch(fetchSearchService(arr2[0].id))}
+              >
+                {arr2[0].service_name}
+              </Link>, &nbsp;
+              <Link to={`/`}
+              // onClick={() => dispatch(fetchSearchService(arr2[1].id))}
+              >
+                {arr2[1].service_name}
+              </Link> &nbsp;
+            </>
+            : null
+        }
       и еще &nbsp;
-      <Link to="/"> 604 услуги</Link>
-    </p>
-   </section>
+      {props.serviceQty.current} {serviceEnding(props.serviceQty.current)}
+      </p>
+    </section >
   )
 }

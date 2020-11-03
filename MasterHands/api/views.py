@@ -1,6 +1,3 @@
-from mptt.templatetags.mptt_tags import cache_tree_children
-from mptt.utils import get_cached_trees
-
 from rest_framework import generics
 
 from .serializers import *

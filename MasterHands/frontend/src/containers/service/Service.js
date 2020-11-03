@@ -12,14 +12,14 @@ const Service = () => {
 
   const service = useSelector(state => state.service);
   const popup = useSelector(state => state.app.popupVisible);
-
+  const searcService = useSelector(state => state.searchService)
   return (
     <>
-      <Breadcrumbs serviceName={service.service_name} />
+      <Breadcrumbs serviceName={service.service_name ? service.service_name : null} />
       <Loader />
-      <ServiceBody price={service.price} />
-      { popup ? <PopupService /> : null }
-      { popup ? <Backdrop /> : null }
+      <ServiceBody price={service.price ? service.price : searcService.price} service ={service.service_name ? service.service_name : searcService.service_name} />
+      {popup ? <PopupService /> : null}
+      {popup ? <Backdrop /> : null}
     </>
   )
 }
