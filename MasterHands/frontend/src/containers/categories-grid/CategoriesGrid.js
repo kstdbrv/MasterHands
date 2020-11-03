@@ -51,7 +51,7 @@ const CategoriesGrid = () => {
                     </p>
                   </div>
                   <p className="grids__item-img">
-                    <img src={lamp} alt="иконка" />
+                  <img src={c.svg_icon} alt="иконка" />
                   </p>
                 </Link> 
               </li>

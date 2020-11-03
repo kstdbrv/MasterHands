@@ -11,8 +11,8 @@ import { onEmptyStore } from '../../store/actions/quiz'
 import { FETCH_СATEGORIES } from '../../store/actions/actionTypes'
 
 
-const Subcategories = () => {
-
+const Subcategories = (props) => {
+console.log(props.location.pathname)
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
 

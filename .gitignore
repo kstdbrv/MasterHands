@@ -2,7 +2,9 @@
 #Python
 #Confog file
 MasterHands/MasterHands/secret.py
-MasterHands/static/
+MasterHands/static/index_bundle.js
+MasterHands/static/index_bundle.js.LICENSE.txt
+MasterHands/static/index_bundle.js.gz
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
