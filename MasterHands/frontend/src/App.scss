@@ -5,7 +5,7 @@
 .button {
   font-size: 24px;
   height: 43px;
-  padding: 0 40px;
+  padding: 0 106px;
   color: #0F0F0F;
   outline: none;
   cursor: pointer;
@@ -15,12 +15,17 @@
   border-radius: 10px;
   background: transparent;
   transition: all .3s;
+    @media(max-width: 768px){
+      padding: 0 38px;
+      font-size: 16px;
+    }
   &:hover {
     border: none;
     background: #2787F5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 10px;
     color: #FFFFFF;
+    
   }
   &:active {
     background: #2787F5;
@@ -37,7 +42,7 @@
   border: none;
   &:hover{
     background: #0052B0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.32);
   }
   &:active{
     background: #0052B0;
