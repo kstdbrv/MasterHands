@@ -3,7 +3,7 @@ import { source } from '../../axios/axios-quiz'
 import {
   FETCH_SERVICE, FETCH_SERVICES,
   FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
-  GET_СATEGORIES
+  GET_СATEGORIES, GET_SERVICES
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
@@ -19,24 +19,40 @@ export function fetchSupercategories() {
       dispatch(showLoader());
 
       const url = `/api/categories/0`;
-      const response = await axios.get(url, {cancelToken: source.token});
-         
+      const response = await axios.get(url, { cancelToken: source.token });
+
       dispatch({
         type: FETCH_SUPERCATEGORIES,
         supercategories: response.data
       });
 
       dispatch(hideLoader());
-        
-    } catch(thrown) {
+
+    } catch (thrown) {
       if (axios.isCancel(thrown)) {
         console.log('Request canceled', thrown.message);
         /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader())
       } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
       }
+    }
+  }
+}
+
+export function getAllServices() {
+  return async dispatch => {
+    try {
+      const url = `/api/categories/2`
+      const response = await axios.get(url)
+      dispatch({
+        type: GET_SERVICES,
+        allServices: response.data
+      })
+
+    } catch (e) {
+      console.error(e)
     }
   }
 }
@@ -53,30 +69,30 @@ export function fetchСategories(id) {
       dispatch(setCategoriesId(id));
 
       const url = `/api/categories/${id}`;  // const url = `${API_URL}/api/categories/${id}`;
-      const response = await axios.get(url, {cancelToken: source.token});
-         
+      const response = await axios.get(url, { cancelToken: source.token });
+
       dispatch({
         type: FETCH_СATEGORIES,
         categories: response.data
       });
 
       dispatch(hideLoader());
-        
-    } catch(thrown) {
+
+    } catch (thrown) {
       if (axios.isCancel(thrown)) {
         console.log('Request canceled', thrown.message);
         /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader())
       } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
       }
     }
   }
 }
 
 export function fetchServices(id) {
-  
+
   return async (dispatch, getState) => {
 
     const { app } = getState()
@@ -87,7 +103,7 @@ export function fetchServices(id) {
       dispatch(setServicesId(id));
 
       const url = `/api/subcategories/${id}`;
-      const response = await axios.get(url, {cancelToken: source.token})
+      const response = await axios.get(url, { cancelToken: source.token })
 
       dispatch({
         type: FETCH_SERVICES,
@@ -95,14 +111,14 @@ export function fetchServices(id) {
       });
 
       dispatch(hideLoader());
-        
-    } catch(thrown) {
+
+    } catch (thrown) {
       if (axios.isCancel(thrown)) {
         console.log('Request canceled', thrown.message);
         /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader());
       } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader());
       }
     }
@@ -110,7 +126,7 @@ export function fetchServices(id) {
 }
 
 export function fetchService(id) {
-  
+
   return async (dispatch, getState) => {
 
     const { app } = getState()
@@ -121,7 +137,7 @@ export function fetchService(id) {
       dispatch(setServiceId(id));
 
       const url = `/api/services/${id}`;
-      const response = await axios.get(url, {cancelToken: source.token})
+      const response = await axios.get(url, { cancelToken: source.token })
 
       dispatch({
         type: FETCH_SERVICE,
@@ -129,29 +145,29 @@ export function fetchService(id) {
       });
 
       dispatch(hideLoader());
-        
-    } catch(thrown) {
+
+    } catch (thrown) {
       if (axios.isCancel(thrown)) {
         console.log('Request canceled', thrown.message);
         /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader())
       } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
       }
     }
   }
 }
 
 export function onEmptyStore(link, TYPE) {
-     
+
   return async dispatch => {
-    
+
     try {
       dispatch(showLoader());
 
       const url = `/api${link}`;
-      const response = await axios.get(url, {cancelToken: source.token})
+      const response = await axios.get(url, { cancelToken: source.token })
       console.log(response.data)
       dispatch({
         type: TYPE,
@@ -159,23 +175,19 @@ export function onEmptyStore(link, TYPE) {
       });
 
       dispatch(hideLoader());
-        
-    } catch(thrown) {
+
+    } catch (thrown) {
       if (axios.isCancel(thrown)) {
         console.log('Request canceled', thrown.message);
         /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
         dispatch(hideLoader())
       } else {
-      /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-      dispatch(hideLoader())
+        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
+        dispatch(hideLoader())
       }
     }
   }
 }
-
-
-
-
 
 
 //function memoizedСategories() {
@@ -187,8 +199,6 @@ export function onEmptyStore(link, TYPE) {
  //   else {
  //     const supercategories = useSelector(state => state.supercategories);
       /* return dispatch(fetchСategories(id)); */
-
-
   //    let payload = supercategories.map(s => {
   //      s.children.filter(c => c.id === id)
  //     });
@@ -203,11 +213,6 @@ export function onEmptyStore(link, TYPE) {
 //}
   
 //export const getСategories = memoizedСategories();
-
-  
-
-
-
 
 export function getСategories(id) {
 
@@ -239,3 +244,5 @@ export function getСategories(id) {
     }
   }  
 }
+
+

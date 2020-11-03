@@ -1,13 +1,13 @@
 const path = require("path");
 const miniCss = require('mini-css-extract-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode:'production',
+  mode: 'production',
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, "../static/"),
@@ -41,22 +41,20 @@ module.exports = {
           {
             loader: 'svg-url-loader',
             options: {
-              name : './svg/[name].[ext]',
+              name: './svg/[name].[ext]',
               limit: 10000,
             },
           },
         ]
       },
       {
-          test: /\.(eot|ttf|woff|woff2)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: './font/[name].[ext]',
-              },
-            },
-          ],
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+
+          },
+        ],
       },
       {
         test: /\.(jpe?g|png|gif)$/i,

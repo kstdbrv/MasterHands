@@ -54,6 +54,8 @@
 
 /*! export Fragment [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.development.js .Fragment */
 
+/*! export GET_SERVICES [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export GET_СATEGORIES [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export HIDE_LOADER [provided] [no usage info] [missing usage info prevents renaming] */
@@ -278,6 +280,8 @@
 
 /*! export generatePath [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-router/esm/react-router.js .generatePath */
 
+/*! export getAllServices [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export getBatch [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export getDependsOnOwnProps [provided] [no usage info] [missing usage info prevents renaming] */
@@ -379,6 +383,8 @@
 /*! export render [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export render [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-dom/cjs/react-dom.development.js .render */
+
+/*! export serviceEnding [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export setBatch [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -694,6 +700,10 @@
   !*** ./src/index.js ***!
   \**********************/
 
+/*!****************************!*\
+  !*** ./src/utils/utils.js ***!
+  \****************************/
+
 /*!******************************!*\
   !*** ./src/serviceWorker.js ***!
   \******************************/
@@ -735,7 +745,7 @@
   \*************************************/
 
 /*!*************************************!*\
-  !*** ./src/containers/auth/auth.js ***!
+  !*** ./src/components/auth/auth.js ***!
   \*************************************/
 
 /*!**************************************!*\
@@ -972,6 +982,10 @@
 
 /*!*****************************************************!*\
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./src/store/reducers/getAllServicesReducer.js ***!
   \*****************************************************/
 
 /*!******************************************************!*\

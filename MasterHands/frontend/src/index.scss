@@ -1,37 +1,7 @@
 @import "~normalize.css";
+@import "scssVariables.scss";
 
 
-// VARS
-$mainFontColor           : #0F0F0F;
-$mainColor               : #0052B0;
-$mainFontSize            : 20px;
-
-//FONTS
-%Rubik-Medium {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-weight: 500;
-}
-
-%Rubik-Regular {
-  font-family: 'Rubik-Regular', sans-serif;
-  font-weight: 400;
-}
-
-%Rubik-Bold {
-  font-family: 'Rubik-Bold', sans-serif;
-  font-weight: 700;
-}
-// убрать видимый горизонтальный скролл
-//html {
-//  -ms-overflow-style: none;  /* IE 10+ */
-//  scrollbar-width: none; /* Firefox */
-//}
-
-//::-webkit-scrollbar { /* chrome based */
-//  width: 0px;  /* ширина scrollbar'a */
- // background: transparent;  /* опционально */
-//}
-//
 body {
   @extend %Rubik-Regular;
   font-size: $mainFontSize;
@@ -41,11 +11,18 @@ body {
   min-width: 320px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-size: inherit;
 }
@@ -60,7 +37,8 @@ a {
   display: inline-block;
 }
 
-ul, li {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -68,8 +46,8 @@ ul, li {
 
 .container {
   max-width: 1340px; // задается всему макету
-  padding: 0 20px;  // для отступов, чтобы не прилипал контент
-  margin: 0 auto;   // центрирование 
+  padding: 0 20px; // для отступов, чтобы не прилипал контент
+  margin: 0 auto; // центрирование 
 }
 
 
@@ -96,4 +74,3 @@ ul, li {
   font-style: normal;
   font-display: swap;
 }
-
