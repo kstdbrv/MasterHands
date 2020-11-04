@@ -1,40 +1,47 @@
-// @import "../../index.scss";
+@import "../../scssVariables.scss";
 
 .Auth {
-  background-color: #f4f4f4;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   margin: 40px auto 80px auto;
   max-width: 860px;
+
   @media screen and (max-width: 870px) {
     margin: 20px auto -100px auto;
   }
+
   @media screen and (max-width: 500px) {
     margin: 0px -20px -120px -20px;
     border-radius: 0px;
   }
-  & > div {
+
+  &>div {
     padding: 78px 110px 40px 110px;
+
     @media screen and (max-width: 750px) {
       padding: 78px 52px 40px 52px;
     }
+
     @media screen and (max-width: 600px) {
       padding: 38px 20px 40px 20px;
     }
   }
+
   & h2 {
-   // @extend %Rubik-Medium;
+    // @extend %Rubik-Medium;
     text-align: center;
     font-size: 32px;
     line-height: 38px;
     color: #0f0f0f;
+
     @media screen and (max-width: 500px) {
       font-size: 23px;
       line-height: 28px;
     }
   }
+
   & input {
     width: 100%;
     background: #ffffff;
@@ -45,12 +52,14 @@
     height: 45px;
     padding: 9px 23px;
     color: #6a6a6a;
+
     @media screen and (max-width: 500px) {
       height: 30px;
       padding: 8px 10px;
       border-radius: 10px;
     }
   }
+
   & a {
     font-size: 16px;
     line-height: 19px;
@@ -59,10 +68,10 @@
 }
 
 .Auth__btn-active {
- // @extend %Rubik-Regular;
-  font-size: 24px;
-  line-height: 28px;
-  padding: 8px 54px 8px 54px;
+  @extend %Rubik-Regular;
+  font-size: 20px;
+  line-height: 23px;
+  padding: 11px 150px;
   background: #ffffff;
   border: 1px solid #0f0f0f;
   box-sizing: border-box;
@@ -72,27 +81,31 @@
   display: block;
   outline: none;
   transition: all 0.3s;
+
   @media screen and (max-width: 500px) {
     font-size: 16px;
     line-height: 19px;
     height: 40px;
   }
+
   @media screen and (max-width: 342px) {
     font-size: 14px;
   }
+
   &:hover {
     background: #2787f5;
     border: 1px solid #2787f5;
     color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
   }
+
   &:active {
     box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
   }
 }
 
 .Auth__btn-inactive {
- // @extend %Rubik-Regular;
+  // @extend %Rubik-Regular;
   color: #797979;
   font-size: 24px;
   line-height: 28px;
@@ -105,11 +118,13 @@
   display: block;
   outline: none;
   text-decoration: line-through;
+
   @media screen and (max-width: 500px) {
     font-size: 16px;
     line-height: 19px;
     height: 40px;
   }
+
   @media screen and (max-width: 342px) {
     font-size: 14px;
   }
@@ -117,13 +132,16 @@
 
 .Auth-tel {
   padding-top: 42px;
+
   @media screen and (max-width: 500px) {
     padding-top: 31px;
   }
+
   & p {
     font-size: 24px;
     line-height: 28px;
     padding-bottom: 20px;
+
     @media screen and (max-width: 500px) {
       font-size: 16px;
       padding-bottom: 10px;
@@ -134,13 +152,16 @@
 .Auth-password {
   padding-top: 20px;
   padding-bottom: 40px;
+
   @media screen and (max-width: 500px) {
     padding-top: 10px;
   }
+
   & p {
     padding-bottom: 20px;
     font-size: 24px;
     line-height: 28px;
+
     @media screen and (max-width: 500px) {
       font-size: 16px;
       line-height: 19px;
