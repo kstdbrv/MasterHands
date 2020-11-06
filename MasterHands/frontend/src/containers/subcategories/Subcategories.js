@@ -6,13 +6,19 @@ import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchServices } from '../../store/actions/quiz'
-import { onEmptyStore } from '../../store/actions/quiz'
-import { FETCH_СATEGORIES } from '../../store/actions/actionTypes'
+import { getServices } from '../../store/actions/quiz'
 
 
 const Subcategories = (props) => {
-console.log(props.location.pathname)
+  console.log(props.location.pathname)
+
+  const supercategories = useSelector(state => state.supercategories);
+  useEffect(() => {
+    if (!supercategories.length) {
+      dispatch(fetchSupercategories())
+    }
+  }, [])
+
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories);
 
@@ -29,7 +35,7 @@ console.log(props.location.pathname)
               <Link
                 to={`/subcategories/${s.id}`}
                 className="subcategories__item"
-                onClick={() => (dispatch(fetchServices(s.id)))}
+                onClick={() => (dispatch(getServices(s.id)))}
               >
               {s.name}
               <ArrowLink />

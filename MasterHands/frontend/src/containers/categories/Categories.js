@@ -16,7 +16,7 @@ const Categories = () => {
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
-  const services = useRef(null) // prevent render
+  const services = useRef(null); //use state, but  prevent render
 
   useEffect(() => {
     if (!supercategories.length) {

@@ -1,9 +1,8 @@
 import axios from '../../axios/axios-quiz'
 import { source } from '../../axios/axios-quiz'
 import {
-  FETCH_SERVICE, FETCH_SERVICES,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
-  GET_СATEGORIES, GET_SERVICES
+  FETCH_SUPERCATEGORIES, FETCH_SERVICES,
+  GET_СATEGORIES, GET_SERVICES, GET_SERVICE
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
@@ -47,7 +46,7 @@ export function getAllServices() {
       const url = `/api/categories/2`
       const response = await axios.get(url)
       dispatch({
-        type: GET_SERVICES,
+        type: FETCH_SERVICES,
         allServices: response.data
       })
 
@@ -217,32 +216,69 @@ export function onEmptyStore(link, TYPE) {
 export function getСategories(id) {
 
   return async (dispatch, getState) => {
-    const { app } = getState(); // проверяем, есть ли в store данные
+    const { app } = getState(); // проверяем, есть ли в store данные по конретному id
     if (app.categories === id) return; // если нет, не выполняем дальше
 
-    dispatch(setCategoriesId(id)); 
+    dispatch(setCategoriesId(id)); // устанавливаем id категории
 
     const { supercategories } = getState();
-    console.log(!supercategories.length)
-    if (!supercategories.length) {
-        const supercategories = await dispatch(fetchSupercategories())
-        let section = supercategories.flatMap(s => s.children);
-        let payload = section.find(c => c.id == id);
-        dispatch({
-          type: GET_СATEGORIES,
-          payload
-        });
-    } else {
       
-      let section = supercategories.flatMap(s => s.children);
-      let payload = section.find(c => c.id == id);
+    let section = supercategories.flatMap(s => s.children);
+    let payload = section.find(c => c.id == id);
   
-      dispatch({
-        type: GET_СATEGORIES,
-        payload
-      });
-    }
+    dispatch({
+      type: GET_СATEGORIES,
+      payload
+    });
   }  
 }
+
+export function getServices(id) {
+
+  return async (dispatch, getState) => {
+    const { app } = getState();
+    /* const { allServices } = getState(); */
+    if (app.services === id) return; 
+    /* if (allServices.services.length) return; */
+
+    dispatch(setServicesId(id)); 
+
+    const { supercategories } = getState();
+
+    let section = supercategories.flatMap(s =>
+      s.children.flatMap(c => c.children))
+        let services = section.find(s => s.id === id)
+  
+    dispatch({
+      type: GET_SERVICES,
+      services
+    });
+  }  
+}
+
+export function getService(id) {
+
+  return async (dispatch, getState) => {
+    const { app } = getState();
+    /* const { allServices } = getState(); */
+    if (app.service === id) return; 
+    /* if (allServices.services.length) return; */
+
+    dispatch(setServiceId(id)); 
+
+    const { supercategories } = getState();
+
+    let section = supercategories.flatMap(s =>
+      s.children.flatMap(c => c.children))
+        let service = section.find(s => s.id === id)
+  
+    dispatch({
+      type: GET_SERVICE,
+      service
+    });
+  }  
+}
+
+
 
 

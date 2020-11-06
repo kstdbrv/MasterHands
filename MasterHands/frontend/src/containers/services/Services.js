@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
 import './Services.scss'
-import { fetchService } from '../../store/actions/quiz'
+import { getService } from '../../store/actions/quiz'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
 
 
 const Services = () => {
+
+  const supercategories = useSelector(state => state.supercategories);
+  useEffect(() => {
+    if (!supercategories.length) {
+      dispatch(fetchSupercategories())
+    }
+  }, [])
 
   const dispatch = useDispatch();
   const services = useSelector(state => state.services);
@@ -23,7 +30,7 @@ const Services = () => {
          services.services.map(s => (
           <Link
            to={`/services/${s.id}`} key={s.id}
-             onClick={() => {dispatch(fetchService(s.id))}}
+             onClick={() => {dispatch(getService(s.id))}}
            className="services__item"  
           >
             <p>{s.service_name}</p>
