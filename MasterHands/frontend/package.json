@@ -33,7 +33,7 @@
     "nodemon": "nodemon server/index.js"
   },
   "nodemonConfig": {
-    "delay": 1000,
+    "delay": 500,
     "ignore": [
       "node-modules/"
     ]

@@ -44,15 +44,18 @@ const CategoriesGrid = () => {
                     <span
                       className="grids__item-name"
                     >{c.name}</span>
-                    <p className="grids__item-num">
+                    <div className="grids__item-num">
                       <span>{c.services_count}</span> &nbsp;
                       <span>{serviceEnding(c.services_count)}</span>
                     <ArrowLink />
-                    </p>
+                    </div>
                   </div>
-                  <p className="grids__item-img">
-                  <img src={c.svg_icon} alt="иконка" />
-                  </p>
+                  <div className="grids__item-img">
+                  {
+                    c.name === "IKEA" ? <img className="grids__item-ikea" src={c.svg_icon} alt="иконка" />
+                                      : <img src={c.svg_icon} alt="иконка" />
+                  }
+                  </div>
                 </Link> 
               </li>
             ))

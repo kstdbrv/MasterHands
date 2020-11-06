@@ -9,7 +9,9 @@ import { serviceEnding } from '../../utils/utils'
 export const Search = (props) => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getAllServices())
+    if (!services.length) {
+      dispatch(getAllServices())
+    }
   }, [])
 
   const services = useSelector(state => state.allServices)

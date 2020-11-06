@@ -1,10 +1,10 @@
-import { GET_SERVICES } from '../actions/actionTypes'
+import { FETCH_SERVICES } from '../actions/actionTypes'
 
-let initialState = []
+let initialState = { "services": [] }
 
 const getAllServicesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SERVICES:
+    case FETCH_SERVICES:
       return action.allServices
     default: return state
   }
