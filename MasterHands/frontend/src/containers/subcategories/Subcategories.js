@@ -7,6 +7,9 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { getServices } from '../../store/actions/quiz'
+import { fetchSupercategories } from '../../store/actions/quiz'
+import { onEmptyStore } from '../../store/actions/quiz'
+import { GET_SERVICES } from '../../store/actions/actionTypes'
 
 
 const Subcategories = (props) => {
@@ -15,7 +18,8 @@ const Subcategories = (props) => {
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      dispatch(fetchSupercategories())
+      
+      dispatch(onEmptyStore(props.location.pathname, GET_SERVICES));
     }
   }, [])
 

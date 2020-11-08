@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import { Loader } from '../../components/loader/Loader'
@@ -6,6 +6,7 @@ import './Services.scss'
 import { getService } from '../../store/actions/quiz'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
+import { fetchSupercategories } from '../../store/actions/quiz'
 
 
 const Services = () => {
@@ -29,15 +30,15 @@ const Services = () => {
         {
          services.services.map(s => (
           <Link
-           to={`/services/${s.id}`} key={s.id}
+             to={`/services/${s.id}`} key={s.id}
              onClick={() => {dispatch(getService(s.id))}}
-           className="services__item"  
+             className="services__item"  
           >
             <p>{s.service_name}</p>
-            <span className="services__price">
+            <div className="services__price">
               <span>{s.price}</span>
               <span> ₽</span> 
-            </span>
+            </div>
           </Link> 
          ))
         }    

@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 import './categories-grid.scss'
-import lamp from '../../assets/images/lamp-grid.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
-import { fetchСategories } from '../../store/actions/quiz'
+import { getСategories } from '../../store/actions/quiz'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
@@ -38,7 +37,7 @@ const CategoriesGrid = () => {
                 <Link
                   className="grids__item"
                   to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(fetchСategories(c.id)))}
+                  onClick={() => (dispatch(getСategories(c.id)))}
                 >
                  <div className="grids__item-info">  
                     <span

@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux'
 import { showPopup } from '../../store/actions/app'
 
 
-const ServiceBody = ({ price }) => {
+const ServiceBody = ({ price, serviceName }) => {
 
   const dispatch = useDispatch();
 
   return (
     <div className="service-main">
       <div className="service">
-        <h1>{service}</h1>
+        <h1>{serviceName}</h1>
         <p className="service__text">
           Соберём люстру, повесим на потолок, подключим к
           электричеству, спрячем провода. Работу выполним
