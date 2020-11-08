@@ -6,3 +6,25 @@ export const serviceEnding = number => {
   else if (arr[arr.length - 1] === '2' || arr[arr.length - 1] === '3' || arr[arr.length - 1] === '4') return 'услуги'
   return 'услуг'
 }
+
+ 
+export default function getNumber(string) {
+  let numEl = '';  // numEl изначально строка, чтобы числа не складывались друг с другом, а приписывались
+  for (let index in string) {  // Перебираем каждый символ. Если символ можно распарсить как номер, приписываем к строке
+    if ( parseInt(string[index]) ) { 
+      numEl += string[index]
+     }
+    }
+  return numEl;
+}
+
+
+
+/* getNumber();
+      
+function getNumber() {
+  let string = window.location.pathname
+  let id = parseInt(string.replace(/[^\d]/g, ''))
+  console.log(id)
+  dispatch(onEmptyStore(id, GET_СATEGORIES))
+} */

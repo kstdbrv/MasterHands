@@ -6,16 +6,18 @@ import './Services.scss'
 import { getService } from '../../store/actions/quiz'
 import { useSelector, useDispatch } from 'react-redux'
 import ServicesText from '../../components/services-text/ServicesText'
-import { fetchSupercategories } from '../../store/actions/quiz'
-
+import { onEmptyStore } from '../../store/actions/quiz'
+import { GET_SERVICES } from '../../store/actions/actionTypes'
+import getNumber from '../../utils/utils'
 
 const Services = () => {
 
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      dispatch(fetchSupercategories())
-    }
+      let id = getNumber(window.location.pathname);
+      dispatch(onEmptyStore(id, GET_SERVICES));
+    } 
   }, [])
 
   const dispatch = useDispatch();

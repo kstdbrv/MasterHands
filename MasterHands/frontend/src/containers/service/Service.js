@@ -5,16 +5,19 @@ import './service.scss'
 import { useSelector } from 'react-redux'
 import ServiceBody from '../../components/service-body/ServiceBody'
 import Backdrop from '../../components/UI/backdrop/Backdrop'
+import { onEmptyStore } from '../../store/actions/quiz'
 import PopupService from '../../components/popup-service/PopupService'
-import { fetchSupercategories } from '../../store/actions/quiz'
+import { GET_SERVICE } from '../../store/actions/actionTypes'
+import getNumber from '../../utils/utils'
 
 const Service = () => {
 
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      dispatch(fetchSupercategories())
-    }
+      let id = getNumber(window.location.pathname);
+      dispatch(onEmptyStore(id, GET_SERVICE));
+    } 
   }, [])
 
   const service = useSelector(state => state.service);
