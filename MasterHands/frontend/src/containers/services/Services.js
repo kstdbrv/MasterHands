@@ -15,8 +15,13 @@ const Services = () => {
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      let id = getNumber(window.location.pathname);
-      dispatch(onEmptyStore(id, GET_SERVICES));
+      getNumber(window.location.pathname);
+      
+      function getNumber(string) {
+        let id = parseInt(string.replace(/[^\d]/g, ''))
+        console.log(id)
+        dispatch(onEmptyStore(id, GET_SERVICES))
+      }
     } 
   }, [])
 

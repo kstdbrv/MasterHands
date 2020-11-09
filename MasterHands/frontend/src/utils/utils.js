@@ -15,7 +15,7 @@ export default function getNumber(string) {
       numEl += string[index]
      }
     }
-  return numEl;
+  return parseInt(numEl);
 }
 
 

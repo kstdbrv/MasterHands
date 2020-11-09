@@ -15,15 +15,20 @@ const Service = () => {
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      let id = getNumber(window.location.pathname);
-      dispatch(onEmptyStore(id, GET_SERVICE));
+      getNumber(window.location.pathname);
+      
+      function getNumber(string) {
+        let id = parseInt(string.replace(/[^\d]/g, ''))
+        console.log(id)
+        dispatch(onEmptyStore(id, GET_SERVICE))
+      }
     } 
   }, [])
 
   const service = useSelector(state => state.service);
 
   const popup = useSelector(state => state.app.popupVisible);
-  const searcService = useSelector(state => state.searchService)
+  const searcService = useSelector(state => state.searchService);
   return (
     <>
       <Breadcrumbs serviceName={service.service_name ? service.service_name : null} />
