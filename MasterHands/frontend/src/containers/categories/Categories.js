@@ -41,24 +41,27 @@ const Categories = () => {
           <li className="list-service__title">
             <p>{s.name}</p>
           </li>
-          {s.children.map(c => (
-            <li key={c.id}>
-              <Link className="list-service__item"
-                to={`/categories/${c.id}`}
-                onClick={() => (dispatch(getСategories(c.id)))}
-              >
-                <p>
-                  <img src={lamp} alt="иконка" />
-                  <span className="list-service__name">{c.name}</span>
-                </p>
-                <p className="list-service__num">
-                  <span>{c.services_count}</span>
-                  <span>{serviceEnding(c.services_count)}</span>
-                  <ArrowLink />
-                </p>
-              </Link>
-            </li>
-          ))
+          {s.children.map(c => {
+            console.log(c)
+            return (
+              <li key={c.id}>
+                <Link className="list-service__item"
+                  to={`/categories/${c.id}`}
+                // onClick={() => (dispatch(getСategories(c.id)))}
+                >
+                  <p>
+                    <img src={c.svg_icon} alt="иконка" />
+                    <span className="list-service__name">{c.name}</span>
+                  </p>
+                  <p className="list-service__num">
+                    <span>{c.services_count}</span>
+                    <span>{serviceEnding(c.services_count)}</span>
+                    <ArrowLink />
+                  </p>
+                </Link>
+              </li>
+            )
+          })
           }
         </React.Fragment>
       )
