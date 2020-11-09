@@ -1,10 +1,10 @@
-import { FETCH_SERVICE } from '../actions/actionTypes'
+import { GET_SERVICE } from '../actions/actionTypes'
 
 let initialState = [];
 
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_SERVICE:
+    case GET_SERVICE:
       return action.service;
     default: return state;
   }

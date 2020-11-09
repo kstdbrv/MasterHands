@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react'
 import { Loader } from '../../components/loader/Loader'
 import './subcategories.scss'
@@ -7,16 +6,19 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { useSelector, useDispatch } from 'react-redux'
 import { getServices } from '../../store/actions/quiz'
+import { onEmptyStore } from '../../store/actions/quiz'
+import { GET_СATEGORIES } from '../../store/actions/actionTypes'
+import getNumber from '../../utils/utils'
 
 
-const Subcategories = (props) => {
-  console.log(props.location.pathname)
+const Subcategories = () => {
 
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
     if (!supercategories.length) {
-      dispatch(fetchSupercategories())
-    }
+      let id = getNumber(window.location.pathname);
+      dispatch(onEmptyStore(id, GET_СATEGORIES));
+    } 
   }, [])
 
   const dispatch = useDispatch();
