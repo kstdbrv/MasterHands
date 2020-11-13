@@ -53,6 +53,11 @@ width: 100%;
 margin: auto;
 z-index: 100;
 transition: transform .5s, opacity .5s, z-index .5s;
+max-width: 100%;
+}
+
+.carousel-text{
+    min-height: 5em;
 }
 
 .carousel_photo.initial,

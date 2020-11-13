@@ -8,15 +8,12 @@ export const SHOW_POPUP = 'APP/SHOW_POPUP'
 export const HIDE_POPUP = 'APP/HIDE_POPUP'
 
 export const FETCH_SUPERCATEGORIES = 'FETCH_SUPERCATEGORIES'
-
-export const FETCH_СATEGORIES = 'FETCH_СATEGORIES'
-export const GET_СATEGORIES = 'GET_СATEGORIES'
-
 export const FETCH_SERVICES = 'FETCH_SERVICES'
 
-export const FETCH_SERVICE = 'FETCH_SERVICE'
-
+export const GET_СATEGORIES = 'GET_СATEGORIES'
 export const GET_SERVICES = 'GET_SERVICES'
+export const GET_SERVICE = 'GET_SERVICE'
+
 
 
 

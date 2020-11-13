@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 import './categories-grid.scss'
-import lamp from '../../assets/images/lamp-grid.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
-import { fetchСategories } from '../../store/actions/quiz'
+import { getСategories } from '../../store/actions/quiz'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
@@ -38,21 +37,24 @@ const CategoriesGrid = () => {
                 <Link
                   className="grids__item"
                   to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(fetchСategories(c.id)))}
+                  onClick={() => (dispatch(getСategories(c.id)))}
                 >
                  <div className="grids__item-info">  
                     <span
                       className="grids__item-name"
                     >{c.name}</span>
-                    <p className="grids__item-num">
+                    <div className="grids__item-num">
                       <span>{c.services_count}</span> &nbsp;
                       <span>{serviceEnding(c.services_count)}</span>
                     <ArrowLink />
-                    </p>
+                    </div>
                   </div>
-                  <p className="grids__item-img">
-                    <img src={lamp} alt="иконка" />
-                  </p>
+                  <div className="grids__item-img">
+                  {
+                    c.name === "IKEA" ? <img className="grids__item-ikea" src={c.svg_icon} alt="иконка" />
+                                      : <img src={c.svg_icon} alt="иконка" />
+                  }
+                  </div>
                 </Link> 
               </li>
             ))

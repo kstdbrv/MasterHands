@@ -14,6 +14,7 @@ import Contacts from './components/contacts/Contacts'
 import About from './components/about/About'
 import Auth from './components/auth/auth'
 import Questionnaire from './components/questionnaire/Questionnaire'
+import Vacansies from './components/vacansies/Vacansies'
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/auth" component={Auth} />
           <Route path="/questionnaire" component={Questionnaire} />
+          <Route path="/vacansies" component={Vacansies} />
         </Switch>
       </Layout>
   )

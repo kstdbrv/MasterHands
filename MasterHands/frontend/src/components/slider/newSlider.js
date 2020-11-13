@@ -19,6 +19,11 @@ export default class Carousel extends React.Component {
         this.moveNext = this.moveNext.bind(this);
         this.moveToSlide = this.moveToSlide.bind(this);
         this.disableInteraction = this.disableInteraction.bind(this);
+        let interval = setInterval(()=>{
+            this.moveNext();
+        },
+        10000
+        );
     }
 
     moveNext(){
@@ -61,7 +66,7 @@ export default class Carousel extends React.Component {
            
         setTimeout(()=>{
         this.setState({moving : true});
-        }, 500);
+        }, 700);
             
     
     }
@@ -79,15 +84,13 @@ export default class Carousel extends React.Component {
     ]
 
     render(){
-        let items = this.items;
-        let p = this.p;
-        const {slide,last} = this.state;
+        let {items, p} = this;
+        const {slide,next,prev} = this.state;
 
         const fotos = items.map((el,i)=>{
-            const next = slide+1 > last?0:slide+1;
-            const prev = slide-1 < 0 ? last : slide - 1 ;
+            // const next = slide+1 > last?0:slide+1;
+            // const prev = slide-1 < 0 ? last : slide - 1 ;
             let carouselClass = 'carousel_photo';
-            let dotsClass = 'slider-dots-item';
             switch (i){
                 case slide:
                     carouselClass += ' active';
@@ -97,18 +100,15 @@ export default class Carousel extends React.Component {
                     carouselClass += ' next';
                     
                     break;
-                case this.state.last:
+                case prev:
                     carouselClass += ' prev';
-                    
                     break;
                 }
-            return (
-                <>  
-                    
-                    <p className={carouselClass}>{p[i]}</p>        
-                    <img style={{maxWidth:"100%"}} className={carouselClass} src={el} key={i} alt=""/>
-                </>
+            return ( 
                 
+                    
+                    <img className={carouselClass} src={el} key={i} alt=""/>       
+                        
             )
         }
         )
@@ -117,7 +117,7 @@ export default class Carousel extends React.Component {
         return (
             <section id="gallery" className="carousel-wrapper">
                 <div className="carousel"> 
-                
+                <p className={'carousel_text'}>{p[this.slide]}</p>
                 {fotos}
                  
                 {/* <div className="carousel-next" onClick={this.moveNext}/>

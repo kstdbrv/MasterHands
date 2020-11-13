@@ -4,30 +4,26 @@ import { Loader } from '../../components/loader/Loader'
 import { Search } from '../../components/search/Search'
 import { ServicesRight } from '../../components/services-right/ServicesRight'
 import './Categories.scss'
-import lamp from '../../assets/images/lamp.svg'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories } from '../../store/actions/quiz'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { getСategories } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 
-
-
 const Categories = () => {
+
+  let serviceQty = []
+  // console.log(window)
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
-  const services = useRef(null)
+  const services = useRef(null); //use state, but  prevent render
 
   useEffect(() => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
   }, [])
-
-  let serviceQty = []
-  let allServices = []
-
 
   const renderCategories = () => {
 
@@ -41,27 +37,27 @@ const Categories = () => {
           <li className="list-service__title">
             <p>{s.name}</p>
           </li>
-          {s.children.map(c => {
-            console.log(c)
-            return (
-              <li key={c.id}>
-                <Link className="list-service__item"
-                  to={`/categories/${c.id}`}
-                // onClick={() => (dispatch(getСategories(c.id)))}
-                >
-                  <p>
-                    <img src={c.svg_icon} alt="иконка" />
-                    <span className="list-service__name">{c.name}</span>
-                  </p>
-                  <p className="list-service__num">
-                    <span>{c.services_count}</span>
-                    <span>{serviceEnding(c.services_count)}</span>
-                    <ArrowLink />
-                  </p>
-                </Link>
-              </li>
-            )
-          })
+          {s.children.map(c => (
+            <li key={c.id}>
+              <Link className="list-service__item"
+                to={`/categories/${c.id}`}
+                onClick={() => (dispatch(getСategories(c.id)))}
+              >
+                <div className="list-service__left">
+                  {
+                    c.name === "IKEA" ? <img className="list-service__ikea" src={c.svg_icon} alt="иконка" />
+                      : <img src={c.svg_icon} alt="иконка" />
+                  }
+                  <span className="list-service__name">{c.name}</span>
+                </div>
+                <div className="list-service__num">
+                  <span>{c.services_count}</span>
+                  <span>{serviceEnding(c.services_count)}</span>
+                  <ArrowLink />
+                </div>
+              </Link>
+            </li>
+          ))
           }
         </React.Fragment>
       )

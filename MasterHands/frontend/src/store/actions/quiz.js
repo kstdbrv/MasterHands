@@ -1,15 +1,13 @@
 import axios from '../../axios/axios-quiz'
 import { source } from '../../axios/axios-quiz'
 import {
-  FETCH_SERVICE, FETCH_SERVICES,
-  FETCH_СATEGORIES, FETCH_SUPERCATEGORIES,
-  GET_СATEGORIES, GET_SERVICES
+  FETCH_SUPERCATEGORIES, FETCH_SERVICES,
+  GET_СATEGORIES, GET_SERVICES, GET_SERVICE
 } from './actionTypes'
 import {
   hideLoader, showLoader, setCategoriesId,
   setServicesId, setServiceId
 } from '../actions/app'
-import { useSelector, useDispatch } from 'react-redux'
 
 
 
@@ -48,7 +46,7 @@ export function getAllServices() {
       const url = `/api/categories/2`
       const response = await axios.get(url)
       dispatch({
-        type: GET_SERVICES,
+        type: FETCH_SERVICES,
         allServices: response.data
       })
 
@@ -58,185 +56,119 @@ export function getAllServices() {
   }
 }
 
-export function fetchСategories(id) {
+export function getСategories(id) {
 
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
+    const { app } = getState(); // проверяем, есть ли в store данные по конретному id
+    if (app.categories === id) return; // если нет, не выполняем дальше
 
-    const { app } = getState();
-    if (app.categories === id) return;
+    dispatch(setCategoriesId(id)); // устанавливаем id категории
 
-    try {
-      dispatch(showLoader());
-      dispatch(setCategoriesId(id));
-
-      const url = `/api/categories/${id}`;  // const url = `${API_URL}/api/categories/${id}`;
-      const response = await axios.get(url, { cancelToken: source.token });
-
-      dispatch({
-        type: FETCH_СATEGORIES,
-        categories: response.data
-      });
-
-      dispatch(hideLoader());
-
-    } catch (thrown) {
-      if (axios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message);
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      } else {
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      }
-    }
-  }
-}
-
-export function fetchServices(id) {
-
-  return async (dispatch, getState) => {
-
-    const { app } = getState()
-    if (app.services === id) return;
-
-    try {
-      dispatch(showLoader());
-      dispatch(setServicesId(id));
-
-      const url = `/api/subcategories/${id}`;
-      const response = await axios.get(url, { cancelToken: source.token })
-
-      dispatch({
-        type: FETCH_SERVICES,
-        services: response.data
-      });
-
-      dispatch(hideLoader());
-
-    } catch (thrown) {
-      if (axios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message);
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader());
-      } else {
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader());
-      }
-    }
-  }
-}
-
-export function fetchService(id) {
-
-  return async (dispatch, getState) => {
-
-    const { app } = getState()
-    if (app.service === id) return;
-
-    try {
-      dispatch(showLoader());
-      dispatch(setServiceId(id));
-
-      const url = `/api/services/${id}`;
-      const response = await axios.get(url, { cancelToken: source.token })
-
-      dispatch({
-        type: FETCH_SERVICE,
-        service: response.data
-      });
-
-      dispatch(hideLoader());
-
-    } catch (thrown) {
-      if (axios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message);
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      } else {
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      }
-    }
-  }
-}
-
-export function onEmptyStore(link, TYPE) {
-
-  return async dispatch => {
-
-    try {
-      dispatch(showLoader());
-
-      const url = `/api${link}`;
-      const response = await axios.get(url, { cancelToken: source.token })
-      console.log(response.data)
-      dispatch({
-        type: TYPE,
-        payload: response.data
-      });
-
-      dispatch(hideLoader());
-
-    } catch (thrown) {
-      if (axios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message);
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      } else {
-        /* dispatch(showAlert('Что-то пошло не так...', 'danger')) */
-        dispatch(hideLoader())
-      }
-    }
-  }
-}
-
-
-
-
-
-
-function memoizedСategories() {
-  let cache = {};
-  return (id) => {
-    if (id in cache) {
-      return; // ничего не нужно возвращать
-    }
-    else {
-      const supercategories = useSelector(state => state.supercategories);
-      /* return dispatch(fetchСategories(id)); */
-
-
-      let payload = supercategories.map(s => {
-        s.children.filter(c => c.id === id)
-      });
-      dispatch({
-        type: GET_СATEGORIES,
-        payload
-      });
-      cache[id] = id;
-      return; // ничего не нужно возвращать
-    }
-  }
-}
-
-export const getСategories = memoizedСategories();
-
-
-
-
-
-
-/* export function getСategories(id) {
-  const categories = useSelector(state => state.categories);
-  if (!categories) {
-    const supercategories = useSelector(state => state.supercategories);
-
-    let payload = supercategories.map(s => {
-      s.children.filter(c => c.id === id)
-    });
+    const { supercategories } = getState();
+ 
+    let section = supercategories.flatMap(s => s.children);
+    let payload = section.find(c => c.id == id);
+  
     dispatch({
       type: GET_СATEGORIES,
       payload
     });
+  }  
+}
+
+export function getServices(id) {
+
+  return (dispatch, getState) => {
+    const { app } = getState();
+  if (app.services === id) return; 
+      
+    dispatch(setServicesId(id)); 
+
+    const { supercategories } = getState();
+
+    let section = supercategories.flatMap(s =>
+      s.children.flatMap(c => c.children))
+        let services = section.find(s => s.id === id)
+  
+    dispatch({  
+      type: GET_SERVICES,
+      services
+    });
+  }  
+}
+
+export function getService(id) {
+
+  return (dispatch, getState) => {
+
+    const { app } = getState();
+    if (app.service === id) return; 
+
+    dispatch(setServiceId(id)); 
+
+    const { supercategories } = getState();
+      
+    let section = supercategories.flatMap(s =>
+      s.children.flatMap(c => c.children))
+      
+    let services = section.flatMap(s => s.services)
+    let service = services.find(s => s.id === id)
+    
+    dispatch({
+      type: GET_SERVICE,
+      service
+    });
+  }  
+}
+
+export function onEmptyStore(id, TYPE) {
+
+  if (TYPE === GET_СATEGORIES) {
+
+    return async dispatch => {
+      await dispatch(fetchSupercategories());
+      dispatch(getСategories(id));
+    }
+  } else if (TYPE === GET_SERVICES) {
+
+    return async dispatch => {
+      await dispatch(fetchSupercategories());
+      dispatch(getServices(id));
   }
-} */
+
+  } else if (TYPE === GET_SERVICE) {
+
+    return async dispatch => {
+      await dispatch(fetchSupercategories());
+      dispatch(getService(id));
+    }
+  }
+}
+
+
+//function memoizedСategories() {
+//  let cache = {};
+//  return (id) => {
+//    if (id in cache) {
+ //     return; // ничего не нужно возвращать
+ //   }
+ //   else {
+ //     const supercategories = useSelector(state => state.supercategories);
+      /* return dispatch(fetchСategories(id)); */
+  //    let payload = supercategories.map(s => {
+  //      s.children.filter(c => c.id === id)
+ //     });
+ //     dispatch({
+//        type: GET_СATEGORIES,
+//        payload
+//      });
+//      cache[id] = id;
+ //     return; // ничего не нужно возвращать
+ //   }
+ // }
+//}
+  
+//export const getСategories = memoizedСategories();
+
+
+

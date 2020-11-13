@@ -162,13 +162,9 @@
 
 /*! export Element [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .Element */
 
-/*! export FETCH_SERVICE [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export FETCH_SERVICES [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export FETCH_SUPERCATEGORIES [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export FETCH_СATEGORIES [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Footer [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -181,6 +177,8 @@
 /*! export Fragment [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .Fragment */
 
 /*! export Fragment [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.development.js .Fragment */
+
+/*! export GET_SERVICE [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export GET_SERVICES [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -384,13 +382,7 @@
 
 /*! export f [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/@babel/polyfill/node_modules/core-js/modules/_wks.js */
 
-/*! export fetchService [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export fetchServices [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export fetchSupercategories [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export fetchСategories [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export findDOMNode [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -413,6 +405,10 @@
 /*! export getBatch [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export getDependsOnOwnProps [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export getService [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export getServices [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export getСategories [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -860,10 +856,6 @@
   !*** ./src/store/reducers/app.js ***!
   \***********************************/
 
-/*!************************************!*\
-  !*** ./src/assets/images/lamp.svg ***!
-  \************************************/
-
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
   \*************************************/
@@ -934,10 +926,6 @@
 
 /*!*****************************************!*\
   !*** ./node_modules/scheduler/index.js ***!
-  \*****************************************/
-
-/*!*****************************************!*\
-  !*** ./src/assets/images/lamp-grid.svg ***!
   \*****************************************/
 
 /*!*****************************************!*\
@@ -1016,12 +1004,20 @@
   !*** ./node_modules/redux-thunk/es/index.js ***!
   \**********************************************/
 
+/*!**********************************************!*\
+  !*** ./src/store/reducers/getAllServices.js ***!
+  \**********************************************/
+
 /*!***********************************************!*\
   !*** ./node_modules/axios/lib/core/settle.js ***!
   \***********************************************/
 
 /*!***********************************************!*\
   !*** ./src/components/Documents/Documents.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./src/components/vacansies/Vacansies.js ***!
   \***********************************************/
 
 /*!***********************************************!*\
@@ -1034,6 +1030,10 @@
 
 /*!************************************************!*\
   !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./src/assets/images/vacansies_master.png ***!
   \************************************************/
 
 /*!************************************************!*\
@@ -1076,6 +1076,10 @@
   !*** ./src/components/breadcrumbs/Breadcrumbs.js ***!
   \***************************************************/
 
+/*!***************************************************!*\
+  !*** ./src/components/startAnswer/StartAnswer.js ***!
+  \***************************************************/
+
 /*!****************************************************!*\
   !*** ./node_modules/axios/lib/core/createError.js ***!
   \****************************************************/
@@ -1114,10 +1118,6 @@
 
 /*!*****************************************************!*\
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
-  \*****************************************************/
-
-/*!*****************************************************!*\
-  !*** ./src/store/reducers/getAllServicesReducer.js ***!
   \*****************************************************/
 
 /*!******************************************************!*\
@@ -1190,6 +1190,10 @@
 
 /*!********************************************************!*\
   !*** ./node_modules/redux-devtools-extension/index.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./src/components/loader/Lineloader/Lineloader.js ***!
   \********************************************************/
 
 /*!********************************************************!*\

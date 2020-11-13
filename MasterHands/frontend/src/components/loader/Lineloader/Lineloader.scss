@@ -1,0 +1,112 @@
+.main_body {}
+
+.element {
+  position: relative;
+
+}
+
+.loading3 {
+  position: absolute;
+  right: 50%;
+}
+
+.loading3>div {
+  background-color: inherit;
+  border: 1px solid #000000;
+  float: left;
+  height: 46px;
+  margin-left: 7px;
+  width: 7px;
+  opacity: 0.1;
+
+  /* css3 transform - scale */
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+
+  /* css3 animation */
+  -webkit-animation-name: loading3;
+  -webkit-animation-duration: 1.2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: linear;
+  -moz-animation-name: loading3;
+  -moz-animation-duration: 1.2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: linear;
+  -o-animation-name: loading3;
+  -o-animation-duration: 1.2s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: linear;
+}
+
+.loading3>div:nth-child(1) {
+  /* css3 animation */
+  -webkit-animation-delay: 0.24s;
+  -moz-animation-delay: 0.24s;
+  -o-animation-delay: 0.24s;
+}
+
+.loading3>div:nth-child(2) {
+  /* css3 animation */
+  -webkit-animation-delay: 0.48s;
+  -moz-animation-delay: 0.48s;
+  -o-animation-delay: 0.48s;
+}
+
+.loading3>div:nth-child(3) {
+  /* css3 animation */
+  -webkit-animation-delay: 0.72s;
+  -moz-animation-delay: 0.72s;
+  -o-animation-delay: 0.72s;
+}
+
+.loading3>div:nth-child(4) {
+  /* css3 animation */
+  -webkit-animation-delay: 0.96s;
+  -moz-animation-delay: 0.96s;
+  -o-animation-delay: 0.96s;
+}
+
+.loading3>div:nth-child(5) {
+  /* css3 animation */
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+}
+
+/* css3 keyframes - loading3 */
+@-webkit-keyframes loading3 {
+  0% {
+    -webkit-transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(0.7);
+    opacity: 0.1;
+  }
+}
+
+@-moz-keyframes loading3 {
+  0% {
+    -moz-transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    -moz-transform: scale(0.7);
+    opacity: 0.1;
+  }
+}
+
+@-o-keyframes loading3 {
+  0% {
+    -o-transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    -o-transform: scale(0.7);
+    opacity: 0.1;
+  }
+}
