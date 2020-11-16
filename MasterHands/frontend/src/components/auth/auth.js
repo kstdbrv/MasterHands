@@ -10,11 +10,11 @@ export default function Auth() {
           <p>Телефон</p>
           <input />
         </div>
-        <div className={'Auth-password'}>
+        {/* <div className={'Auth-password'}>
           <p>Пароль</p>
           <input />
-        </div>
-        <button className={'Auth__btn-inactive'}>Войти в личный кабинет</button>
+        </div> */}
+        <button className={'Auth__btn-active'}>Выслать код</button>
         <div className={'Auth-pasrec'}>
           <a href='#'>Восстановить пароль</a>
         </div>

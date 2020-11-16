@@ -2,11 +2,8 @@
 #Python
 #Confog file
 MasterHands/MasterHands/secret.py
+MasterHands/static/
 MasterHands/static/index_bundle.js
-<<<<<<< HEAD
-MasterHands/static/index_bundle.js.LICENSE.txt
-=======
->>>>>>> 32aa260d2756be3f94ec33e4606f804aaed8fc40
 MasterHands/static/index_bundle.js.gz
 # Byte-compiled / optimized / DLL files
 __pycache__/

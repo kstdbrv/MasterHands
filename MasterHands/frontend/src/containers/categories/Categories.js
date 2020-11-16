@@ -10,9 +10,10 @@ import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import { getСategories } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 
-
-
 const Categories = () => {
+
+  let serviceQty = []
+  // console.log(window)
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
@@ -23,10 +24,6 @@ const Categories = () => {
       dispatch(fetchSupercategories())
     }
   }, [])
-
-  let serviceQty = []
-  let allServices = []
-
 
   const renderCategories = () => {
 
@@ -42,22 +39,22 @@ const Categories = () => {
           </li>
           {s.children.map(c => (
             <li key={c.id}>
-                <Link className="list-service__item"
-                  to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(getСategories(c.id)))}
-                >
-                 <div className="list-service__left">
+              <Link className="list-service__item"
+                to={`/categories/${c.id}`}
+                onClick={() => (dispatch(getСategories(c.id)))}
+              >
+                <div className="list-service__left">
                   {
                     c.name === "IKEA" ? <img className="list-service__ikea" src={c.svg_icon} alt="иконка" />
-                                      : <img src={c.svg_icon} alt="иконка" />
+                      : <img src={c.svg_icon} alt="иконка" />
                   }
                   <span className="list-service__name">{c.name}</span>
-                 </div>
+                </div>
                 <div className="list-service__num">
                   <span>{c.services_count}</span>
                   <span>{serviceEnding(c.services_count)}</span>
                   <ArrowLink />
-                </div>  
+                </div>
               </Link>
             </li>
           ))

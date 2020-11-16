@@ -37,7 +37,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     def get_image_url(self, obj):
         if obj.svg_icon:
-            return 'https://mastershands.ru' + obj.svg_icon.url
+            return 'http://127.0.0.1:8000' + obj.svg_icon.url
         else:
             return None
 

@@ -16,45 +16,46 @@ const Services = () => {
   useEffect(() => {
     if (!supercategories.length) {
       getNumber(window.location.pathname);
-      
+      console.log(window.location.pathname)
+
       function getNumber(string) {
         let id = parseInt(string.replace(/[^\d]/g, ''))
         console.log(id)
         dispatch(onEmptyStore(id, GET_SERVICES))
       }
-    } 
+    }
   }, [])
 
   const dispatch = useDispatch();
   const services = useSelector(state => state.services);
 
-    return (
+  return (
     <>
-      <Breadcrumbs />    
+      <Breadcrumbs />
       <div className="services">
         <div className="services__list">
-          <Loader />  
-        {
-         services.services.map(s => (
-          <Link
-             to={`/services/${s.id}`} key={s.id}
-             onClick={() => {dispatch(getService(s.id))}}
-             className="services__item"  
-          >
-            <p>{s.service_name}</p>
-            <div className="services__price">
-              <span>{s.price}</span>
-              <span> ₽</span> 
-            </div>
-          </Link> 
-         ))
-        }    
+          <Loader />
+          {
+            services.services.map(s => (
+              <Link
+                to={`/services/${s.id}`} key={s.id}
+                onClick={() => { dispatch(getService(s.id)) }}
+                className="services__item"
+              >
+                <p>{s.service_name}</p>
+                <div className="services__price">
+                  <span>{s.price}</span>
+                  <span> ₽</span>
+                </div>
+              </Link>
+            ))
+          }
         </div>
         <ServicesText />
-      </div>  
+      </div>
     </>
-    )
-  
+  )
+
 }
 
 export default Services
