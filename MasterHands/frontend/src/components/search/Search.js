@@ -99,16 +99,21 @@ export const Search = (props) => {
           }} />
         <span className="search__btn" />
         <div className="search__dropdown">
-          {searchInput
-            ? <React.Fragment><div className="search__elements">
-              {handleSearch(searchInput)}
-            </div></React.Fragment>
-            : <React.Fragment><div className="search__elements hide"></div></React.Fragment>}
+          {
+            searchInput
+              ? <React.Fragment>
+                  <div className="search__elements">
+                    {handleSearch(searchInput)}
+                  </div>
+                </React.Fragment>
+              : <React.Fragment>
+                  <div className="search__elements hide"></div>
+                </React.Fragment>
+          }
         </div>
       </form>
       <div className="search__bg"></div>
       <div className="search__text">
-
         {
           randomServices.length && randomServices[0].service_name !== randomServices[1].service_name
             ? <>

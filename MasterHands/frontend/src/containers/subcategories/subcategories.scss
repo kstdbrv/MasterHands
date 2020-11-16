@@ -1,7 +1,10 @@
 .subcategories {
   &__list{ 
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 413px));
+    grid-auto-rows: minmax(80px, auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
     justify-content: center;
     margin-bottom: -40px;
     @media (max-width: 480px) {
@@ -10,22 +13,17 @@
   }
   &__item {
     display: flex;
+    min-height: 120px;
+    max-width: 413px;
     align-items: center;
     font-size: 32px;
     background: #F4F4F4;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    height: 120px;
-    width: 413px;
-    margin-bottom: 40px;
     padding-left: 40px;
     padding-right: 55px;
     transition: all .3s;
-    margin-right: 20px;
     position: relative;
-    @media (max-width:480px) {
-      margin-right: 0;
-    }
     svg {
      position: absolute;
      right: 40px;
@@ -45,16 +43,15 @@
       box-shadow: inset 0px 5px 4px rgba(0, 0, 0, 0.1);
     }
     @media (max-width:480px) {
-      width: 320px;
-      height: 90px;
+/*       width: 320px;
+      height: 90px; */
       font-size: 24px;
       padding-left: 30px;
-      margin-bottom: 20px;
     }
-    @media (max-width:330px) {
+/*     @media (max-width:330px) {
       width: 300px;
       height: 80px;
-    }
+    } */
 
   }
 }
