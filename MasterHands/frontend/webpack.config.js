@@ -4,13 +4,23 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+
+const PATHS = {
+  src: path.join(__dirname, './src'),
+  static: path.join(__dirname, '../static/')
+}
 
 module.exports = {
+  externals: {
+    paths: PATHS
+  },
   mode: 'production',
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    path: path.join(__dirname, "../static/"),
+    path: PATHS.static,
     publicPath: '',
     filename: "index_bundle.js"
   },
@@ -72,6 +82,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: `${PATHS.src}/assets/svg`, to: `${PATHS.static}/images/svg` },
+        { from: `${PATHS.src}/assets/favicon`, to: '' },
+      ],
+    }),
     new CleanWebpackPlugin(),
     new miniCss({
       filename: 'style.css',
