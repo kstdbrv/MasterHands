@@ -1,19 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader } from '../../components/loader/Loader'
-import { Search } from '../../components/search/Search'
-import { ServicesRight } from '../../components/services-right/ServicesRight'
-import './Categories.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSupercategories } from '../../store/actions/quiz'
-import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
-import { getСategories } from '../../store/actions/quiz'
+import { fetchSupercategories, getСategories } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
+import Loader from '../../components/loader/Loader'
+import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader.js'
+import Search from '../../components/search/Search'
+import ServicesRight from '../../components/services-right/ServicesRight'
+import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
+import './Categories.scss'
 
 const Categories = () => {
+  const [isLoading, setisLoading] = useState(false)
+  const isFetched = useSelector(state => state.app.isLoading)
 
   let serviceQty = []
-  // console.log(window)
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
@@ -23,36 +24,38 @@ const Categories = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
+    setisLoading(true)
   }, [])
 
   const renderCategories = () => {
 
-    return supercategories.map(s => {
-      serviceQty.push(s.services_count)
+    return supercategories.map(supercategory => {
+
+      serviceQty.push(supercategory.services_count)
       let servicesTotalQty = serviceQty.reduce((prev, next) => prev + next, 0)
       services.current = servicesTotalQty
 
       return (
-        <React.Fragment key={s.id}>
+        <React.Fragment key={supercategory.id}>
           <li className="list-service__title">
-            <p>{s.name}</p>
+            <p>{supercategory.name}</p>
           </li>
-          {s.children.map(c => (
-            <li key={c.id}>
+          {supercategory.children.map(category => (
+            <li key={category.id}>
               <Link className="list-service__item"
-                to={`/categories/${c.id}`}
-                onClick={() => (dispatch(getСategories(c.id)))}
+                to={`/categories/${category.id}`}
+                onClick={() => (dispatch(getСategories(category.id)))}
               >
                 <div className="list-service__left">
                   {
-                    c.name === "IKEA" ? <img className="list-service__ikea" src={c.svg_icon} alt="иконка" />
-                      : <img src={c.svg_icon} alt="иконка" />
+                    category.name === "IKEA" ? <img className="list-service__ikea" src={category.svg_icon} alt="иконка" />
+                      : <img src={category.svg_icon} alt="иконка" />
                   }
-                  <span className="list-service__name">{c.name}</span>
+                  <span className="list-service__name">{category.name}</span>
                 </div>
                 <div className="list-service__num">
-                  <span>{c.services_count}</span>
-                  <span>{serviceEnding(c.services_count)}</span>
+                  <span>{category.services_count}</span>
+                  <span>{serviceEnding(category.services_count)}</span>
                   <ArrowLink />
                 </div>
               </Link>
@@ -65,21 +68,22 @@ const Categories = () => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <Search serviceQty={services} />
       <section className="categories">
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
-              <Loader />
-              {renderCategories()}
+              {isLoading
+                ? !isFetched ? renderCategories() : <FetchedLoader />
+                : <Loader />}
             </ul>
           </div>
           <ServicesRight />
         </div>
       </section>
-    </>
+    </React.Fragment>
   )
 }
 
-export default Categories;
+export default React.memo(Categories)

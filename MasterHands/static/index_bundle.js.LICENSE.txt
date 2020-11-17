@@ -1,133 +1,5 @@
 /*!   exports [maybe provided (runtime-defined)] [no usage info] */
 
-/*! CommonJS bailout: exports is used directly at 275:0-7 */
-
-/*! CommonJS bailout: exports is used directly at 276:0-7 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 132:13-33 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 156:24-44 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 200:15-35 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 39:26-46 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 555:28-48 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 572:25-45 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 598:20-40 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 722:20-40 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 810:24-44 */
-
-/*! CommonJS bailout: exports.unstable_now(...) prevents optimization as exports is passed as call context at 827:20-40 */
-
-/*! CommonJS bailout: module.exports is used directly at 102:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 103:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 10:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 11:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 12:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 13:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 13:1-15 */
-
-/*! CommonJS bailout: module.exports is used directly at 14:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 14:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 15:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 16:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 18:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 19:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 1:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 1:11-25 */
-
-/*! CommonJS bailout: module.exports is used directly at 22:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 23:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 27:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 2:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 2:13-27 */
-
-/*! CommonJS bailout: module.exports is used directly at 30:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 31:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 325:2-16 */
-
-/*! CommonJS bailout: module.exports is used directly at 328:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 34:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 38:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 39:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 3:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 40:15-29 */
-
-/*! CommonJS bailout: module.exports is used directly at 43:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 47:11-25 */
-
-/*! CommonJS bailout: module.exports is used directly at 480:7-21 */
-
-/*! CommonJS bailout: module.exports is used directly at 49:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 4:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 50:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 52:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 57:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 58:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 5:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 62:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 65:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:1-15 */
-
-/*! CommonJS bailout: module.exports is used directly at 6:15-29 */
-
-/*! CommonJS bailout: module.exports is used directly at 732:31-45 */
-
-/*! CommonJS bailout: module.exports is used directly at 7:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 81:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 8:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 94:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 98:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 9:0-14 */
-
-/*! CommonJS bailout: module.exports is used directly at 9:14-28 */
-
 /*! default exports */
 
 /*! dynamic exports */
@@ -178,6 +50,8 @@
 
 /*! export Fragment [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.development.js .Fragment */
 
+/*! export GET_ALL_GATTEGORIES [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export GET_SERVICE [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export GET_SERVICES [provided] [no usage info] [missing usage info prevents renaming] */
@@ -197,8 +71,6 @@
 /*! export Lazy [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .Lazy */
 
 /*! export Link [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export Loader [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Memo [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -255,10 +127,6 @@
 /*! export SHOW_LOADER [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export SHOW_POPUP [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export Search [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export ServicesRight [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export StaticRouter [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -1213,6 +1081,10 @@
   \**********************************************************/
 
 /*!**********************************************************!*\
+  !*** ./src/components/loader/FetchLoader/FetchLoader.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
   !*** ./src/containers/categories-grid/CategoriesGrid.js ***!
   \**********************************************************/
 
@@ -1347,6 +1219,10 @@
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
   \*********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./src/components/loader/BreadcrumbsLoader/BreadcrumbsLoader.js ***!
+  \**********************************************************************/
 
 /*!************************************************************************!*\
   !*** ./node_modules/@babel/polyfill/node_modules/core-js/es6/index.js ***!
@@ -1842,6 +1718,10 @@
 
 /*!************************************************************************************!*\
   !*** ./node_modules/@babel/polyfill/node_modules/core-js/modules/web.immediate.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./src/components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader.js ***!
   \************************************************************************************/
 
 /*!*************************************************************************************!*\

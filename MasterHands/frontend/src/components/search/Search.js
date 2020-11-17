@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllServices, getService } from '../../store/actions/quiz'
+import { getAllServices, getService, getServices } from '../../store/actions/quiz'
 import { serviceEnding, randomInt, toLowerCase } from '../../utils/utils'
 import Lineloader from '../loader/Lineloader/Lineloader'
 import './Search.scss'
 
-
-export const Search = (props) => {
+const Search = (props) => {
   const [searchInput, setsearchInput] = useState();
   const [state, setState] = useState([])
   const [randomServices, setRandomServices] = useState([])
@@ -21,7 +20,7 @@ export const Search = (props) => {
     if (!services.length) {
       dispatch(getAllServices())
     }
-  }, [dispatch])
+  }, [])
 
   useEffect(() => {
     Compare(services)
@@ -47,8 +46,10 @@ export const Search = (props) => {
       if (arr1.length) {
         const arrServices = arr1.flat()
         setAllServices(arrServices)
+
         for (let i = 0; i < 2; i++) {
-          arr2.push(arrServices[randomInt(state.length - 1)])
+          let num = randomInt(arrServices.length)
+          arr2.push(arrServices[num])
         }
       }
     }
@@ -56,6 +57,7 @@ export const Search = (props) => {
     randomService(arr1)
 
     setRandomServices(arr2)
+
 
   }, [state])
 
@@ -70,7 +72,10 @@ export const Search = (props) => {
             <React.Fragment key={index}>
               <Link className="search__element"
                 to={`/services/${el.id}`}
-                onClick={() => dispatch(getService(el.id))}
+                onClick={() => {
+                  dispatch(getServices(el.category))
+                  dispatch(getService(el.id))
+                }}
               >
                 <p> {el.service_name} </p>
                 <p>{el.price}</p>
@@ -110,25 +115,33 @@ export const Search = (props) => {
       <div className="search__text">
 
         {
-          randomServices.length && randomServices[0].service_name !== randomServices[1].service_name
-            ? <>
+          randomServices.length
+            ? <React.Fragment>
               Например, &nbsp;
               <Link to={`/services/${randomServices[0].id}`}
-                onClick={() => dispatch(getService(randomServices[0].id))}
+                onClick={() => {
+                  // dispatch(getСategories(id))
+                  dispatch(getServices(randomServices[0].category))
+                  dispatch(getService(randomServices[0].id))
+                }}
               >
                 {toLowerCase(randomServices[0].service_name)}
               </Link>, &nbsp;
-            <Link to={`/services/${randomServices[0].id}`}
-                onClick={() => dispatch(getService(randomServices[1].id))}
+               <Link to={`/services/${randomServices[0].id}`}
+                onClick={() => {
+                  dispatch(getServices(randomServices[1].category))
+                  dispatch(getService(randomServices[1].id))
+                }}
               >
                 {toLowerCase(randomServices[1].service_name)}
               </Link> &nbsp;
               и еще &nbsp;
               {props.serviceQty.current} {serviceEnding(props.serviceQty.current)}
-            </>
+            </React.Fragment>
             : <Lineloader />
         }
       </div>
     </section >
   )
 }
+export default React.memo(Search) 

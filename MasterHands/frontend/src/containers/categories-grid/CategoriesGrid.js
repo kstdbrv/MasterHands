@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader } from '../../components/loader/Loader'
-import './categories-grid.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSupercategories } from '../../store/actions/quiz'
-import { getСategories } from '../../store/actions/quiz'
+import { fetchSupercategories, getСategories } from '../../store/actions/quiz'
+import { serviceEnding } from '../../utils/utils'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
+import Loader from '../../components/loader/Loader'
+import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
+import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
+import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
+import './categories-grid.scss'
 
 const CategoriesGrid = () => {
+  const [isLoading, setisLoading] = useState(false)
+  const isFetched = useSelector(state => state.app.isLoading)
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
@@ -17,45 +22,38 @@ const CategoriesGrid = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
+    setisLoading(true)
   }, [])
-
-  function serviceEnding(number) {
-    const arr = String(number).split("")
-    if (arr[arr.length - 2] == '1') return 'Услуг'
-    else if (arr[arr.length - 1] === '1') return 'Услуга'
-    else if (arr[arr.length - 1] === '2' || arr[arr.length - 1] === '3' || arr[arr.length - 1] === '4') return 'Услуги'
-    return 'Услуг'
-  }
 
   const renderCategories = () => {
     return (
-      supercategories.map(s => (
-        <React.Fragment key={s.id}>
+      supercategories.map(supercategory => (
+        <React.Fragment key={supercategory.id}>
           {
-            s.children.map(c => (
-              <li key={c.id}>
+            supercategory.children.map(category => (
+              <li key={category.id}>
                 <Link
                   className="grids__item"
-                  to={`/categories/${c.id}`}
-                  onClick={() => (dispatch(getСategories(c.id)))}
+                  to={`/categories/${category.id}`}
+                  onClick={() => (dispatch(getСategories(category.id)))}
                 >
-                 <div className="grids__item-info">  
+                  <div className="grids__item-info">
                     <span
                       className="grids__item-name"
-                    >{c.name}</span>
+                    >{category.name}</span>
                     <div className="grids__item-num">
-                      <span>{c.services_count}</span> &nbsp;
-                      <span>{serviceEnding(c.services_count)}</span>
-                    <ArrowLink />
+                      <span>{category.services_count}</span> &nbsp;
+                      <span>{serviceEnding(category.services_count)}</span>
+                      <ArrowLink />
                     </div>
                   </div>
                   <div className="grids__item-img">
-                  {
-                    c.name === "IKEA" ? <img className="grids__item-ikea" src={c.svg_icon} alt="иконка" />
-                                      : <img src={c.svg_icon} alt="иконка" />
-                  }
+                    {
+                      category.name === "IKEA" ? <img className="grids__item-ikea" src={category.svg_icon} alt="иконка" />
+                        : <img src={category.svg_icon} alt="иконка" />
+                    }
                   </div>
-                </Link> 
+                </Link>
               </li>
             ))
           }
@@ -65,16 +63,23 @@ const CategoriesGrid = () => {
   }
 
   return (
-    <>
-      <Breadcrumbs deleteNextLinks={ true } />
+    <React.Fragment>
+      {isLoading
+        ? !isFetched
+          ? <Breadcrumbs deleteNextLinks={true} />
+          : <FetchedBreadcrumbsLoader />
+        : <BreadcrumbsLoader />}
       <section className="grids">
         <ul className="grids__list">
-          <Loader />
-          {renderCategories()}
+          {isLoading
+            ? !isFetched
+              ? renderCategories()
+              : <FetchedLoader />
+            : <Loader />}
         </ul>
       </section>
-    </>
+    </React.Fragment>
   )
 }
 
-export default CategoriesGrid;
+export default React.memo(CategoriesGrid)

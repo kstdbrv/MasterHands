@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './breadcrumbs.scss'
 
 const Breadcrumbs = (props) => {
-  console.log('Срабатываю')
+
   let categories = useSelector(state => state.categories);
   let services = useSelector(state => state.services);
   let id = useSelector(state => state.app);
@@ -26,12 +26,13 @@ const Breadcrumbs = (props) => {
             </li> : null
         }
         {
-          !props.deleteNextLinks && !props.deleteServicesBreadcrmb ?
-            <li className="breadcrumbs__list-item">
+          !props.deleteNextLinks && !props.deleteServicesBreadcrmb && services.name
+            ? <li className="breadcrumbs__list-item">
               <Link to={`/subcategories/${id.services}`}>
                 {services.name}
               </Link>
-            </li> : null
+            </li>
+            : null
         }
         {
           props.serviceName ?
@@ -46,4 +47,4 @@ const Breadcrumbs = (props) => {
   )
 }
 
-export default Breadcrumbs
+export default React.memo(Breadcrumbs)

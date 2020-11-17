@@ -5,12 +5,18 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin');
+
+const PATHS = {
+  src: path.join(__dirname, './src'),
+  static: path.join(__dirname, '../static/')
+}
 
 module.exports = {
   mode: 'production',
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    path: path.join(__dirname, "../static/"),
+    path: PATHS.static,
     publicPath: '',
     filename: "index_bundle.js"
   },
@@ -39,7 +45,7 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'svg-url-loader',
+            loader: 'svg-url-loader', // A webpack loader which loads SVG file as utf-8 encoded DataUrl string.
             options: {
               name: './svg/[name].[ext]',
               limit: 10000,
@@ -72,6 +78,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: `${PATHS.src}/assets/svg`, to: `${PATHS.static}/images/svg` },
+        { from: `${PATHS.src}/assets/favicon`, to: '' },
+      ],
+    }),
     new CleanWebpackPlugin(),
     new miniCss({
       filename: 'style.css',
