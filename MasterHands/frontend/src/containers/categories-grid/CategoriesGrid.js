@@ -9,6 +9,10 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 
 const CategoriesGrid = () => {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);

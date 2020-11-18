@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './vacansies.scss'
 import StartAnswer from '../startAnswer/StartAnswer'
 import vMaster from '../../assets/images/vacansies_master.png'
@@ -6,6 +6,11 @@ import vMaster from '../../assets/images/vacansies_master.png'
 import { Link } from 'react-router-dom'
 
 export default function Vacansies() {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+    
     return (
         <div className="container-fixed">         
             <h1>Сантехника</h1>           

@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './contacts.scss'
 
 export default function Contacts() {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+    
     return (
         <div className="contacts-head">
             <h1>Контакты</h1>

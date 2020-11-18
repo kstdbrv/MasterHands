@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './become-master.scss'
 import { Link } from 'react-router-dom'
 import Master from '../../assets/images/master.png'
-import { useEffect } from 'react' 
 import StartAnswer from '../startAnswer/StartAnswer'
 
 export default function BecomeMaster() {
+      // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
     useEffect(() => {
         var show  = document.getElementById("show-more");
