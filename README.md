@@ -5,11 +5,11 @@
   
 Our stack
 -----------
-Изоморфное приложение  (SSR) в связке NGINX + Django + Express.js + React.js + PostgreSQL
+SSR изоморфное приложение в связке NGINX + Django + Express.js + React.js + PostgreSQL
 
 ## Project setup
 
 ```
 npm install
-npm run serve
+npm run start
 ```
