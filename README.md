@@ -1,11 +1,13 @@
-<h1 align="center">Progect MasterHands</h1>
-
-
+<h1 align="center">MasterHands</h1>
 <h2 align="center">
+  <img src="./readme_assets/gifmh.gif" width="90%">
+  </h2>
+Our stack:
+-----------
 
-</h2>
 
-<img src="./readme_assets/gifmh.gif" width="90%">
+
+
 
 Getting started
 -----------
