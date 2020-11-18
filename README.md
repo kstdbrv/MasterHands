@@ -3,11 +3,9 @@
 
 <h2 align="center">
 
-[![Mentioned in Awesome Vue.js](https://awesome.re/mentioned-badge.svg)](https://github.com/vuejs/awesome-vue)
-
 </h2>
 
-<img src="./readme_assets/h2.png" width="100%">
+<img src="./readme_assets/gifmh.gif" width="90%">
 
 Getting started
 -----------
