@@ -63,7 +63,7 @@ export const Footer = () => (
            <li className="footer__right-menu-item"><Link to="/categories-grid">Услуги</Link></li>
            <li className="footer__right-menu-item"><Link to="/" className="down">О сервисе</Link>
              <ul className="footer__right-submenu">
-               <li><Link to="/">О нас</Link></li>
+               <li><Link to="/about">О нас</Link></li>
                <li><Link to="/documents">Документация</Link></li>
                <li><Link to="/contacts">Контакты</Link></li>
              </ul>

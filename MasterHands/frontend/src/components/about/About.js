@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './about.scss'
 import Phones from '../../assets/images/phones.png'
 import Phone from '../../assets/images/phone.png'
 import Carousel from '../slider/newSlider';
 
 export default function About() {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
     return (
         <div className="container-fixed">
             <h1>О нас</h1>

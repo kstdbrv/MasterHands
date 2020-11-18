@@ -11,6 +11,10 @@ import { GET_SERVICE } from '../../store/actions/actionTypes'
 import getNumber from '../../utils/utils'
 
 const Service = () => {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 100);
+  }, []);
 
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {

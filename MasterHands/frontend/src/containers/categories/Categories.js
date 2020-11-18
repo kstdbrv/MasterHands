@@ -11,6 +11,10 @@ import { getСategories } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 
 const Categories = () => {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let serviceQty = []
   // console.log(window)

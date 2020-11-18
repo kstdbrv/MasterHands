@@ -11,11 +11,11 @@ export const randomInt = max => {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-export const toLowerCase = str => {
-  return str.toLowerCase()
+export const toLowerCase = string => {
+  return string.toLowerCase()
 }
 
-export default function getNumber(string) {
+export const getNumber = string => {
   let numEl = '';  // numEl изначально строка, чтобы числа не складывались друг с другом, а приписывались
   for (let index in string) {  // Перебираем каждый символ. Если символ можно распарсить как номер, приписываем к строке
     if (parseInt(string[index])) {
@@ -24,6 +24,7 @@ export default function getNumber(string) {
   }
   return parseInt(numEl);
 }
+
 
 
 

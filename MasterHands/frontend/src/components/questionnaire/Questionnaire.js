@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './questionnaire.scss'
 
 export default function Questionnaire() {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+    
     return (
         <div className="questionnaire">
             <div className="questionnaire__block">

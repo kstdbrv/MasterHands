@@ -8,10 +8,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getServices } from '../../store/actions/quiz'
 import { onEmptyStore } from '../../store/actions/quiz'
 import { GET_СATEGORIES } from '../../store/actions/actionTypes'
-import getNumber from '../../utils/utils'
+import { getNumber } from '../../utils/utils'
 
 
 const Subcategories = () => {
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const supercategories = useSelector(state => state.supercategories);
   useEffect(() => {
