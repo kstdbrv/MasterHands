@@ -82,6 +82,7 @@ module.exports = {
       patterns: [
         { from: `${PATHS.src}/assets/svg`, to: `${PATHS.static}/images/svg` },
         { from: `${PATHS.src}/assets/favicon`, to: '' },
+        { from: `${PATHS.src}/assets/images/about_master.svg`, to: `${PATHS.static}/images` },
       ],
     }),
     new CleanWebpackPlugin(),
