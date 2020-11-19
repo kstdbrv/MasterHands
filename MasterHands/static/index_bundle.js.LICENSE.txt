@@ -38,8 +38,6 @@
 
 /*! export FETCH_SUPERCATEGORIES [provided] [no usage info] [missing usage info prevents renaming] */
 
-/*! export Footer [provided] [no usage info] [missing usage info prevents renaming] */
-
 /*! export ForwardRef [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export ForwardRef [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.development.js .ForwardRef */
@@ -63,8 +61,6 @@
 /*! export HIDE_POPUP [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export HashRouter [provided] [no usage info] [missing usage info prevents renaming] */
-
-/*! export Header [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export Lazy [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -737,7 +733,7 @@
   \*************************************/
 
 /*!*************************************!*\
-  !*** ./src/components/auth/auth.js ***!
+  !*** ./src/components/auth/Auth.js ***!
   \*************************************/
 
 /*!**************************************!*\

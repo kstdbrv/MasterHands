@@ -24,6 +24,7 @@ const Categories = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
+    window.scrollTo(0, 0);
     setisLoading(true)
   }, [])
 

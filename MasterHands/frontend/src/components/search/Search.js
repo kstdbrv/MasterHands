@@ -127,7 +127,7 @@ const Search = (props) => {
               >
                 {toLowerCase(randomServices[0].service_name)}
               </Link>, &nbsp;
-               <Link to={`/services/${randomServices[0].id}`}
+               <Link to={`/services/${randomServices[1].id}`}
                 onClick={() => {
                   dispatch(getServices(randomServices[1].category))
                   dispatch(getService(randomServices[1].id))
@@ -144,4 +144,4 @@ const Search = (props) => {
     </section >
   )
 }
-export default React.memo(Search) 
+export default Search 

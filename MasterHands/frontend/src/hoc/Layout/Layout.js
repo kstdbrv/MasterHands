@@ -1,21 +1,21 @@
 
 import React from 'react'
-import { Footer } from '../../components/footer/Footer'
-import { Header } from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import Header from '../../components/header/Header'
 
 
 const Layout = props => {
   return (
-  <>
-    <Header />
-    <div className="container">
-     <main>
-      { props.children }
-     </main>
-    </div>
-    <Footer />
-  </>
- )
+    <React.Fragment>
+      <Header />
+      <div className="container">
+        <main>
+          {props.children}
+        </main>
+      </div>
+      <Footer />
+    </React.Fragment>
+  )
 }
 
-export default Layout
+export default React.memo(Layout)
