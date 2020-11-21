@@ -12,8 +12,14 @@ import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbs
 import './categories-grid.scss'
 
 const CategoriesGrid = () => {
+
   const [isLoading, setisLoading] = useState(false)
   const isFetched = useSelector(state => state.app.isLoading)
+
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);

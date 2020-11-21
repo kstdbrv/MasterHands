@@ -14,11 +14,17 @@ import getNumber from '../../utils/utils'
 import './service.scss'
 
 const Service = () => {
+
   const [isLoading, setisLoading] = useState(false)
   const [localCategories, setlocalCategories] = useState([]);
   const [localServices, setlocalServices] = useState([]);
 
   const dispatch = useDispatch()
+
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 100);
+  }, []);
 
   const supercategories = useSelector(state => state.supercategories);
   const categories = useSelector(state => state.categories)

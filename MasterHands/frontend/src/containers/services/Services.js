@@ -13,13 +13,18 @@ import getNumber from '../../utils/utils'
 import './Services.scss'
 
 const Services = () => {
+
   const [isLoading, setisLoading] = useState(false)
   const isFetched = useSelector(state => state.app.isLoading)
-
 
   const dispatch = useDispatch()
   const supercategories = useSelector(state => state.supercategories)
   const services = useSelector(state => state.services)
+
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (!supercategories.length) {

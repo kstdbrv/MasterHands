@@ -11,7 +11,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import getNumber from '../../utils/utils'
 import './subcategories.scss'
-
+import { getNumber } from '../../utils/utils'
 
 const Subcategories = () => {
   const [isLoading, setisLoading] = useState(false)
@@ -20,6 +20,11 @@ const Subcategories = () => {
   const dispatch = useDispatch()
   const supercategories = useSelector(state => state.supercategories)
   const categories = useSelector(state => state.categories)
+
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (!supercategories.length) {

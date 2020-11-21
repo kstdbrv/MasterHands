@@ -11,8 +11,15 @@ import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import './Categories.scss'
 
 const Categories = () => {
+
   const [isLoading, setisLoading] = useState(false)
   const isFetched = useSelector(state => state.app.isLoading)
+  
+  // при загрузке страницы прокручивает вверх
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   let serviceQty = []
 
