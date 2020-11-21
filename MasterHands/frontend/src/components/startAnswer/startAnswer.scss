@@ -130,7 +130,6 @@
     display: block;
     padding: 15px 0;
     position: relative;
-
     color: #000;
     cursor: pointer;
 }
@@ -143,10 +142,8 @@
 .faq-input {
     width: 0;
     height: 0;
-
     -webkit-appearance: none;
     appearance: none;
-
     position: absolute;
 }
 
@@ -172,9 +169,7 @@
 }
 
 @media (max-width: 1024px){
-    body{
-        font-size: 12px;
-    }
+    
     .works{
         flex-direction: column; 
         justify-content: space-between;   

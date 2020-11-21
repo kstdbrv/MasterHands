@@ -65,60 +65,87 @@ export function getСategories(id) {
     dispatch(setCategoriesId(id)); // устанавливаем id категории
 
     const { supercategories } = getState();
- 
+
     let section = supercategories.flatMap(s => s.children);
     let payload = section.find(c => c.id == id);
-  
-    dispatch({
-      type: GET_СATEGORIES,
-      payload
-    });
-  }  
+    if (payload) {
+      dispatch({
+        type: GET_СATEGORIES,
+        payload
+      });
+    }
+
+
+  }
 }
 
 export function getServices(id) {
 
   return (dispatch, getState) => {
-    const { app } = getState();
-  if (app.services === id) return; 
-      
-    dispatch(setServicesId(id)); 
+    try {
+      dispatch(showLoader())
 
-    const { supercategories } = getState();
+      const { app } = getState()
+      const { supercategories } = getState()
+      if (app.services === id) {
+        dispatch(hideLoader())
+        return
+      }
 
-    let section = supercategories.flatMap(s =>
-      s.children.flatMap(c => c.children))
-        let services = section.find(s => s.id === id)
-  
-    dispatch({  
-      type: GET_SERVICES,
-      services
-    });
-  }  
+      dispatch(setServicesId(id))
+
+      let section = supercategories.flatMap(s =>
+        s.children.flatMap(c => c.children))
+      let services = section.find(s => s.id === id)
+
+      dispatch({
+        type: GET_SERVICES,
+        services: services
+      });
+
+      dispatch(hideLoader())
+
+    } catch (e) {
+      console.error(e)
+    }
+  }
 }
 
 export function getService(id) {
 
   return (dispatch, getState) => {
+    try {
+      dispatch(showLoader())
 
-    const { app } = getState();
-    if (app.service === id) return; 
+      const { app } = getState()
+      if (app.service === id) {
+        dispatch(hideLoader())
+        return
+      }
 
-    dispatch(setServiceId(id)); 
+      dispatch(setServiceId(id));
 
-    const { supercategories } = getState();
-      
-    let section = supercategories.flatMap(s =>
-      s.children.flatMap(c => c.children))
-      
-    let services = section.flatMap(s => s.services)
-    let service = services.find(s => s.id === id)
-    
-    dispatch({
-      type: GET_SERVICE,
-      service
-    });
-  }  
+      const { supercategories } = getState()
+
+      let section = supercategories.flatMap(s =>
+        s.children.flatMap(c => c.children))
+
+      let services = section.flatMap(s => s.services)
+      let service = services.find(s => s.id === id)
+
+      dispatch({
+        type: GET_SERVICE,
+        service
+      });
+
+      dispatch(hideLoader())
+
+    } catch (e) {
+      console.error(e)
+    }
+
+
+  }
 }
 
 export function onEmptyStore(id, TYPE) {
@@ -126,21 +153,33 @@ export function onEmptyStore(id, TYPE) {
   if (TYPE === GET_СATEGORIES) {
 
     return async dispatch => {
+      dispatch(showLoader());
       await dispatch(fetchSupercategories());
-      dispatch(getСategories(id));
+      await dispatch(getСategories(id));
+      dispatch(hideLoader());
     }
   } else if (TYPE === GET_SERVICES) {
 
-    return async dispatch => {
+    return async (dispatch, getState) => {
+      dispatch(showLoader());
       await dispatch(fetchSupercategories());
-      dispatch(getServices(id));
-  }
+      await dispatch(getServices(id));
+      const { services } = getState()
+      services.parent_id ? await dispatch(getСategories(services.parent_id)) : null
+      dispatch(hideLoader());
+    }
 
   } else if (TYPE === GET_SERVICE) {
 
-    return async dispatch => {
-      await dispatch(fetchSupercategories());
-      dispatch(getService(id));
+    return async (dispatch, getState) => {
+      dispatch(showLoader());
+      await dispatch(fetchSupercategories())
+      await dispatch(getService(id))
+      const { service } = getState();
+      service.category ? await dispatch(getServices(service.category)) : null
+      const { services } = getState();
+      services.parent_id ? await dispatch(getСategories(services.parent_id)) : null
+      dispatch(hideLoader());
     }
   }
 }
@@ -154,7 +193,7 @@ export function onEmptyStore(id, TYPE) {
  //   }
  //   else {
  //     const supercategories = useSelector(state => state.supercategories);
-      /* return dispatch(fetchСategories(id)); */
+/* return dispatch(fetchСategories(id)); */
   //    let payload = supercategories.map(s => {
   //      s.children.filter(c => c.id === id)
  //     });
@@ -167,7 +206,7 @@ export function onEmptyStore(id, TYPE) {
  //   }
  // }
 //}
-  
+
 //export const getСategories = memoizedСategories();
 
 

@@ -35,11 +35,13 @@
     &:first-child {
       margin-top: 0;
     }
+    
     @media (max-width: 425px) {
       font-size: 12px;
       margin-bottom: 15px;
     }
   }
+
   &__item {
     display: flex;
     justify-content: space-between;
@@ -60,7 +62,6 @@
      }
     &:hover {
       background:#2787F5;
-      background-position: -100% 0;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
       color: #fff;
       svg {

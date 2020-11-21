@@ -49,7 +49,7 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: 'svg-url-loader',
+            loader: 'svg-url-loader', // A webpack loader which loads SVG file as utf-8 encoded DataUrl string.
             options: {
               name: './svg/[name].[ext]',
               limit: 10000,
@@ -86,6 +86,7 @@ module.exports = {
       patterns: [
         { from: `${PATHS.src}/assets/svg`, to: `${PATHS.static}/images/svg` },
         { from: `${PATHS.src}/assets/favicon`, to: '' },
+        { from: `${PATHS.src}/assets/images/about_master.svg`, to: `${PATHS.static}/images` 
       ],
     }),
     new CleanWebpackPlugin(),

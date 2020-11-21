@@ -1,7 +1,14 @@
 import React from 'react'
-import './Loader.scss'
+import { useSelector } from 'react-redux'
+import './FetchLoader.scss'
 
-export default function Loader() {
+export default function FetchedLoader() {
+
+  const loading = useSelector(state => state.app.isLoading)
+
+  if (!loading) {
+    return null
+  }
   return (
     <React.Fragment>
       <div className='loader-centre'>
@@ -17,5 +24,7 @@ export default function Loader() {
         </div>
       </div>
     </React.Fragment>
+
+
   )
 }
