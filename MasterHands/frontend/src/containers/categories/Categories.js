@@ -10,6 +10,7 @@ import ServicesRight from '../../components/services-right/ServicesRight'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import './Categories.scss'
 
+
 const Categories = () => {
 
   const [isLoading, setisLoading] = useState(false)

@@ -99,7 +99,6 @@ const Footer = () => (
           </div>
         </div>
       </div>
-//
       <hr />
       <div className="contacts2">
         <div className="contacts__phone">
@@ -121,7 +120,7 @@ const Footer = () => (
           </div>
           <small>Спроектировано и оформленно в <br /> digital-студии ReactLab</small>
         </div>
-//
+{/* //
       <div className="footer__right">
         
        <nav className="footer__right-nav">
@@ -163,7 +162,7 @@ const Footer = () => (
              <small>Спроектировано и оформленно в <br/> digital-студии ReactLab</small>
          </div>
        </div>
-//
+// */}
       </div>
       <div className="footer__links">
         <ul className="footer__links-content">

@@ -1,7 +1,8 @@
 import React from 'react'
 import './Loader.scss'
 
-export default function Loader() {
+const Loader = () => {
+  
   return (
     <React.Fragment>
       <div className='loader-centre'>
@@ -19,3 +20,5 @@ export default function Loader() {
     </React.Fragment>
   )
 }
+
+export default Loader

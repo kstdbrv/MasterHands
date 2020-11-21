@@ -185,29 +185,4 @@ export function onEmptyStore(id, TYPE) {
 }
 
 
-//function memoizedСategories() {
-//  let cache = {};
-//  return (id) => {
-//    if (id in cache) {
- //     return; // ничего не нужно возвращать
- //   }
- //   else {
- //     const supercategories = useSelector(state => state.supercategories);
-/* return dispatch(fetchСategories(id)); */
-  //    let payload = supercategories.map(s => {
-  //      s.children.filter(c => c.id === id)
- //     });
- //     dispatch({
-//        type: GET_СATEGORIES,
-//        payload
-//      });
-//      cache[id] = id;
- //     return; // ничего не нужно возвращать
- //   }
- // }
-//}
-
-//export const getСategories = memoizedСategories();
-
-
 

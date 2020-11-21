@@ -11,7 +11,7 @@ import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import getNumber from '../../utils/utils'
 import './subcategories.scss'
-import { getNumber } from '../../utils/utils'
+
 
 const Subcategories = () => {
   const [isLoading, setisLoading] = useState(false)
