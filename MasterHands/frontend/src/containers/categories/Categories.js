@@ -26,7 +26,7 @@ const Categories = () => {
 
   const dispatch = useDispatch();
   const supercategories = useSelector(state => state.supercategories);
-  const services = useRef(null); //use state, but  prevent render
+  const services = useRef(null); //use local state, but  prevent render
 
   useEffect(() => {
     if (!supercategories.length) {
@@ -79,7 +79,7 @@ const Categories = () => {
   return (
     <React.Fragment>
       <Search serviceQty={services} />
-      <section className="categories">
+      <div className="categories">
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
@@ -90,7 +90,7 @@ const Categories = () => {
           </div>
           <ServicesRight />
         </div>
-      </section>
+      </div>
     </React.Fragment>
   )
 }

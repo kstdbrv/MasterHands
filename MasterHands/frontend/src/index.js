@@ -11,7 +11,6 @@ import rootReducer from './store/reducers/rootReducer'
 import { hydrate } from 'react-dom'
 
 
-
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
