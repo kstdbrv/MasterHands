@@ -13,8 +13,7 @@ import './categories-grid.scss'
 
 const CategoriesGrid = () => {
 
-  const [isLoading, setisLoading] = useState(false)
-  const isFetched = useSelector(state => state.app.isLoading)
+  const isLoading = useSelector(state => state.app.isLoading)
 
   // при загрузке страницы прокручивает вверх
   useEffect(() => {
@@ -28,7 +27,6 @@ const CategoriesGrid = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
-    setisLoading(true)
   }, [])
 
   const renderCategories = () => {
@@ -70,20 +68,13 @@ const CategoriesGrid = () => {
 
   return (
     <React.Fragment>
-      {isLoading
-        ? !isFetched
-          ? <Breadcrumbs deleteNextLinks={true} />
-          : <FetchedBreadcrumbsLoader />
-        : <BreadcrumbsLoader />}
-      <section className="grids">
+      <Breadcrumbs deleteNextLinks={true} />
+      <div className="grids">
         <ul className="grids__list">
-          {isLoading
-            ? !isFetched
-              ? renderCategories()
-              : <FetchedLoader />
-            : <Loader />}
+          <Loader />
+          { renderCategories() }
         </ul>
-      </section>
+      </div>
     </React.Fragment>
   )
 }

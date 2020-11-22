@@ -3,10 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { onEmptyStore, getСategories } from '../../store/actions/quiz'
 import { GET_SERVICE } from '../../store/actions/actionTypes'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
-import Loader from '../../components/loader/Loader'
-import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
-import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
-import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import ServiceBody from '../../components/service-body/ServiceBody'
 import Backdrop from '../../components/UI/backdrop/Backdrop'
 import PopupService from '../../components/popup-service/PopupService'
@@ -15,7 +11,6 @@ import './service.scss'
 
 const Service = () => {
 
-  const [isLoading, setisLoading] = useState(false)
   const [localCategories, setlocalCategories] = useState([]);
   const [localServices, setlocalServices] = useState([]);
 
@@ -56,22 +51,12 @@ const Service = () => {
       let id = getNumber(window.location.pathname)
       dispatch(onEmptyStore(id, GET_SERVICE))
     }
-    setisLoading(true)
   }, [])
 
   return (
     <React.Fragment>
-      {isLoading
-        ? !isFetched
-          ? <Breadcrumbs serviceName={service.service_name ? service.service_name : null} />
-          : <FetchedBreadcrumbsLoader />
-        : <BreadcrumbsLoader />}
-      { isLoading
-        ? !isFetched
-          ? <ServiceBody price={service.price} serviceName={service.service_name} />
-          : <FetchedLoader />
-        : <Loader />
-      }
+      <Breadcrumbs serviceName={service.service_name} />
+      <ServiceBody price={service.price} serviceName={service.service_name} />
       {popup ? <PopupService /> : null}
       {popup ? <Backdrop /> : null}
     </React.Fragment>

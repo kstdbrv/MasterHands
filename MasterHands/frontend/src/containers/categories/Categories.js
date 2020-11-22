@@ -32,7 +32,6 @@ const Categories = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
-    window.scrollTo(0, 0);
     setisLoading(true)
   }, [])
 
@@ -84,8 +83,8 @@ const Categories = () => {
           <div className="service__list list-service">
             <ul className="list-service__list">
               {isLoading
-                ? !isFetched ? renderCategories() : <FetchedLoader />
-                : <Loader />}
+                ? !isFetched ? renderCategories() : <Loader />
+                : <FetchedLoader />}
             </ul>
           </div>
           <ServicesRight />

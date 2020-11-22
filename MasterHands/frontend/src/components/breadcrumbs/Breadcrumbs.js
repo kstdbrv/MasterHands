@@ -26,7 +26,7 @@ const Breadcrumbs = (props) => {
             </li> : null
         }
         {
-          !props.deleteNextLinks && !props.deleteServicesBreadcrmb && services.name
+           !props.deleteNextLinks && !props.deleteServiseLink && services.name
             ? <li className="breadcrumbs__list-item">
               <Link to={`/subcategories/${id.services}`}>
                 {services.name}
@@ -35,7 +35,7 @@ const Breadcrumbs = (props) => {
             : null
         }
         {
-          props.serviceName ?
+          !props.deleteNextLinks && props.serviceName ?
             <li className="breadcrumbs__list-item">
               <p>
                 {props.serviceName}

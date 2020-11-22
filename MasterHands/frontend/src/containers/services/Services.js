@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getService, onEmptyStore } from '../../store/actions/quiz'
 import { useSelector, useDispatch } from 'react-redux'
 import { GET_SERVICES } from '../../store/actions/actionTypes'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
-import Loader from '../../components/loader/Loader'
-import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
-import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
-import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import ServicesText from '../../components/services-text/ServicesText'
 import { getNumber } from '../../utils/utils'
 import './Services.scss'
 
 const Services = () => {
-
-  const [isLoading, setisLoading] = useState(false)
-  const isFetched = useSelector(state => state.app.isLoading)
 
   const dispatch = useDispatch()
   const supercategories = useSelector(state => state.supercategories)
@@ -31,20 +24,15 @@ const Services = () => {
       let id = getNumber(window.location.pathname)
       dispatch(onEmptyStore(id, GET_SERVICES))
     }
-    setisLoading(true)
   }, [])
 
   return (
     <React.Fragment>
-      {isLoading
-        ? !isFetched ? <Breadcrumbs /> : <FetchedBreadcrumbsLoader />
-        : <BreadcrumbsLoader />}
-
+      <Breadcrumbs />
       <div className="services">
         <div className="services__list">
-          {isLoading
-            ? !isFetched
-              ? services.services.map(services => (
+          {
+            services.services.map(services => (
                 <Link
                   to={`/services/${services.id}`} key={services.id}
                   onClick={() => { dispatch(getService(services.id)) }}
@@ -56,9 +44,7 @@ const Services = () => {
                     <span> ₽</span>
                   </div>
                 </Link>
-              ))
-              : <FetchedLoader />
-            : <Loader />
+            ))
           }
         </div>
         <ServicesText />

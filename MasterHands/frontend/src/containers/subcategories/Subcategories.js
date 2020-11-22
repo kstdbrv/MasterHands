@@ -14,8 +14,6 @@ import './subcategories.scss'
 
 
 const Subcategories = () => {
-  const [isLoading, setisLoading] = useState(false)
-  const isFetched = useSelector(state => state.app.isLoading)
 
   const dispatch = useDispatch()
   const supercategories = useSelector(state => state.supercategories)
@@ -31,18 +29,13 @@ const Subcategories = () => {
       let id = getNumber(window.location.pathname)
       dispatch(onEmptyStore(id, GET_СATEGORIES))
     }
-    setisLoading(true)
   }, [])
 
   return (
     <React.Fragment>
-      {isLoading
-        ? !isFetched ? <Breadcrumbs deleteServicesBreadcrmb={categories.id} /> : <FetchedBreadcrumbsLoader />
-        : <BreadcrumbsLoader />}
+      <Breadcrumbs deleteServiseLink={true} />
       <ul className="subcategories__list">
-        {isLoading
-          ? !isFetched
-            ? categories.children.map(s => {
+        { categories.children.map(s => {
               return (
                 <li key={s.id}>
                   <Link
@@ -55,9 +48,7 @@ const Subcategories = () => {
                   </Link>
                 </li>
               )
-            })
-            : <FetchedLoader />
-          : <Loader />
+          })
         }
       </ul>
     </React.Fragment>
