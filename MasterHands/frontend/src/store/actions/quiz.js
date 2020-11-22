@@ -68,46 +68,35 @@ export function getСategories(id) {
 
     let section = supercategories.flatMap(s => s.children);
     let payload = section.find(c => c.id == id);
+    
     if (payload) {
       dispatch({
         type: GET_СATEGORIES,
         payload
       });
     }
-
-
   }
 }
 
 export function getServices(id) {
 
   return (dispatch, getState) => {
-    try {
-      dispatch(showLoader())
 
-      const { app } = getState()
-      const { supercategories } = getState()
-      if (app.services === id) {
-        dispatch(hideLoader())
-        return
-      }
+    const { app } = getState();
+    if (app.services === id) return;
 
-      dispatch(setServicesId(id))
+    dispatch(setServicesId(id));
+    
+    const { supercategories } = getState();
 
-      let section = supercategories.flatMap(s =>
-        s.children.flatMap(c => c.children))
-      let services = section.find(s => s.id === id)
+    let section = supercategories.flatMap(s =>
+      s.children.flatMap(c => c.children))
+    let services = section.find(s => s.id === id)
 
-      dispatch({
-        type: GET_SERVICES,
-        services: services
-      });
-
-      dispatch(hideLoader())
-
-    } catch (e) {
-      console.error(e)
-    }
+    dispatch({
+      type: GET_SERVICES,
+      services
+    });
   }
 }
 
@@ -153,33 +142,28 @@ export function onEmptyStore(id, TYPE) {
   if (TYPE === GET_СATEGORIES) {
 
     return async dispatch => {
-      dispatch(showLoader());
       await dispatch(fetchSupercategories());
-      await dispatch(getСategories(id));
-      dispatch(hideLoader());
+      dispatch(getСategories(id));
     }
   } else if (TYPE === GET_SERVICES) {
 
     return async (dispatch, getState) => {
-      dispatch(showLoader());
-      await dispatch(fetchSupercategories());
-      await dispatch(getServices(id));
+  
+      await dispatch(fetchSupercategories())
+      dispatch(getServices(id))
       const { services } = getState()
       services.parent_id ? await dispatch(getСategories(services.parent_id)) : null
-      dispatch(hideLoader());
     }
 
   } else if (TYPE === GET_SERVICE) {
 
     return async (dispatch, getState) => {
-      dispatch(showLoader());
       await dispatch(fetchSupercategories())
-      await dispatch(getService(id))
+      dispatch(getService(id))
       const { service } = getState();
-      service.category ? await dispatch(getServices(service.category)) : null
+      service.category ? dispatch(getServices(service.category)) : null
       const { services } = getState();
-      services.parent_id ? await dispatch(getСategories(services.parent_id)) : null
-      dispatch(hideLoader());
+      services.parent_id ? dispatch(getСategories(services.parent_id)) : null
     }
   }
 }

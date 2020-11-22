@@ -9,7 +9,7 @@ import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/Breadcr
 import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
-import getNumber from '../../utils/utils'
+import { getNumber } from '../../utils/utils'
 import './subcategories.scss'
 
 

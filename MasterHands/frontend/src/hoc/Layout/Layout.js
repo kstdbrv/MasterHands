@@ -5,14 +5,18 @@ import Header from '../../components/header/Header'
 
 const Layout = props => {
   return (
-    <React.Fragment>
+    <>
       <Header />
         <main className="container">
           {props.children}
         </main>
       <Footer />
-    </React.Fragment>
+    </>
   )
 }
 
 export default React.memo(Layout)
+
+// React.memo hoc, нужен для оптимизации процессов (производительность)
+// React сравнивает предыдущие и текущие свойства и состояния компонента. 
+// И только если они неидентичны, компонент - функция перерисовывается

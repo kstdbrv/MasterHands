@@ -9,7 +9,7 @@ import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
 import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
 import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import ServicesText from '../../components/services-text/ServicesText'
-import getNumber from '../../utils/utils'
+import { getNumber } from '../../utils/utils'
 import './Services.scss'
 
 const Services = () => {
@@ -28,12 +28,8 @@ const Services = () => {
 
   useEffect(() => {
     if (!supercategories.length) {
-      getNumber(window.location.pathname);
-
-      function getNumber(string) {
-        let id = parseInt(string.replace(/[^\d]/g, ''))
-        dispatch(onEmptyStore(id, GET_SERVICES))
-      }
+      let id = getNumber(window.location.pathname)
+      dispatch(onEmptyStore(id, GET_SERVICES))
     }
     setisLoading(true)
   }, [])

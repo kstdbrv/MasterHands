@@ -10,7 +10,7 @@ import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbs
 import ServiceBody from '../../components/service-body/ServiceBody'
 import Backdrop from '../../components/UI/backdrop/Backdrop'
 import PopupService from '../../components/popup-service/PopupService'
-import getNumber from '../../utils/utils'
+import { getNumber } from '../../utils/utils'
 import './service.scss'
 
 const Service = () => {
@@ -32,7 +32,6 @@ const Service = () => {
   const service = useSelector(state => state.service);
   const isFetched = useSelector(state => state.app.isLoading)
   const popup = useSelector(state => state.app.popupVisible);
-  const searcService = useSelector(state => state.searchService); // ??? шо это такое и для чего?
 
   useEffect(() => {
     if (localCategories != categories) {
@@ -54,12 +53,8 @@ const Service = () => {
 
   useEffect(() => {
     if (!supercategories.length) {
-      getNumber(window.location.pathname);
-
-      function getNumber(string) {
-        let id = parseInt(string.replace(/[^\d]/g, ''))
-        dispatch(onEmptyStore(id, GET_SERVICE))
-      }
+      let id = getNumber(window.location.pathname)
+      dispatch(onEmptyStore(id, GET_SERVICE))
     }
     setisLoading(true)
   }, [])
@@ -73,7 +68,7 @@ const Service = () => {
         : <BreadcrumbsLoader />}
       { isLoading
         ? !isFetched
-          ? <ServiceBody price={service ? service.price : searcService.price} serviceName={service ? service.service_name : searcService.service_name} />
+          ? <ServiceBody price={service.price} serviceName={service.service_name} />
           : <FetchedLoader />
         : <Loader />
       }
