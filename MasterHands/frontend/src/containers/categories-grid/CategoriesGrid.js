@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories, getСategories } from '../../store/actions/quiz'
@@ -6,9 +6,6 @@ import { serviceEnding } from '../../utils/utils'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import Loader from '../../components/loader/Loader'
-import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
-import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
-import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import './categories-grid.scss'
 
 const CategoriesGrid = () => {
