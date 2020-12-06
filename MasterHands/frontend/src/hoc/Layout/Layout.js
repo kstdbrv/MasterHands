@@ -1,17 +1,18 @@
 import React from 'react'
+import './layout.scss'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 
 
 const Layout = props => {
   return (
-    <>
+    <div className="wrapper">
       <Header />
         <main className="container">
           {props.children}
         </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

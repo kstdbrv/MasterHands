@@ -1,0 +1,33 @@
+.wrapper {
+/*   display: grid; */
+  min-height: 100vh;
+/*   grid-template-columns: 1fr;
+  grid-template-rows: minmax(80px, auto) 1fr minmax(512px, auto); */
+/* 	grid-template-areas:
+		"header"
+		"main"
+		"footer"; */
+}
+
+/* .header {
+  display: grid;
+  grid-area: header;
+  align-items: center;
+}
+
+
+
+main {
+  display: grid;  
+  grid-area: main;
+}
+
+footer {
+  display: grid;
+  grid-area: footer;
+  align-items: center;
+} */
+
+main{
+  height:60%;
+}
