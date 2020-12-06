@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories, getСategories } from '../../store/actions/quiz'
@@ -6,15 +6,11 @@ import { serviceEnding } from '../../utils/utils'
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
 import Loader from '../../components/loader/Loader'
-import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader'
-import BreadcrumbsLoader from '../../components/loader/BreadcrumbsLoader/BreadcrumbsLoader'
-import FetchedBreadcrumbsLoader from '../../components/loader/FetchedBreadcrumbsLoader/FetchedBreadcrumbsLoader'
 import './categories-grid.scss'
 
 const CategoriesGrid = () => {
 
-  const [isLoading, setisLoading] = useState(false)
-  const isFetched = useSelector(state => state.app.isLoading)
+  const isLoading = useSelector(state => state.app.isLoading)
 
   // при загрузке страницы прокручивает вверх
   useEffect(() => {
@@ -28,7 +24,6 @@ const CategoriesGrid = () => {
     if (!supercategories.length) {
       dispatch(fetchSupercategories())
     }
-    setisLoading(true)
   }, [])
 
   const renderCategories = () => {
@@ -70,20 +65,13 @@ const CategoriesGrid = () => {
 
   return (
     <React.Fragment>
-      {isLoading
-        ? !isFetched
-          ? <Breadcrumbs deleteNextLinks={true} />
-          : <FetchedBreadcrumbsLoader />
-        : <BreadcrumbsLoader />}
-      <section className="grids">
+      <Breadcrumbs deleteNextLinks={true} />
+      <div className="grids">
         <ul className="grids__list">
-          {isLoading
-            ? !isFetched
-              ? renderCategories()
-              : <FetchedLoader />
-            : <Loader />}
+          <Loader />
+          { renderCategories() }
         </ul>
-      </section>
+      </div>
     </React.Fragment>
   )
 }

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSupercategories, getСategories } from '../../store/actions/quiz'
 import { serviceEnding } from '../../utils/utils'
 import Loader from '../../components/loader/Loader'
-import FetchedLoader from '../../components/loader/FetchLoader/FetchLoader.js'
+import FetchLoader from '../../components/loader/FetchLoader/FetchLoader.js'
 import Search from '../../components/search/Search'
 import ServicesRight from '../../components/services-right/ServicesRight'
 import ArrowLink from '../../components/UI/Arrow-link/ArrowLink'
@@ -12,9 +12,8 @@ import './Categories.scss'
 
 
 const Categories = () => {
-
-  const [isLoading, setisLoading] = useState(false)
-  const isFetched = useSelector(state => state.app.isLoading)
+  // при низком интернете сначала прилетает ssr(html, css), затем файл js, в это время нужен <FetchLoader />
+  const [isLoading, setisLoading] = useState(true)
   
   // при загрузке страницы прокручивает вверх
   useEffect(() => {
@@ -33,7 +32,7 @@ const Categories = () => {
       dispatch(fetchSupercategories())
     }
     window.scrollTo(0, 0);
-    setisLoading(true)
+    setisLoading(false)
   }, [])
 
   const renderCategories = () => {
@@ -83,9 +82,8 @@ const Categories = () => {
         <div className="categories__inner">
           <div className="service__list list-service">
             <ul className="list-service__list">
-              {isLoading
-                ? !isFetched ? renderCategories() : <FetchedLoader />
-                : <Loader />}
+              <Loader />
+              { isLoading ? <FetchLoader /> : renderCategories() }
             </ul>
           </div>
           <ServicesRight />

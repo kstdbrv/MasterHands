@@ -4,13 +4,13 @@ import {
   SHOW_POPUP, HIDE_POPUP
 } from '../actions/actionTypes'
 
-let initialState = ({
+let initialState = {
   isLoading: false,
   popupVisible: false,
-  categories: 0,
-  services: 0,
-  service: 0
-})
+  categories: null,
+  services: null,
+  service: null
+}
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
